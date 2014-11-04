@@ -1,0 +1,43 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+  <beans:bean id="ep403" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint"/>
+
+  <global-method-security jsr250-annotations="enabled" secured-annotations="enabled"/>
+
+  <http pattern="/*.ico*" security="none"/>
+  <http pattern="/**/*.css*" security="none"/>
+  <http pattern="/lib/**" security="none"/>
+  <http pattern="/resources/**" security="none"/>
+
+  <http pattern="/**" use-expressions="true" realm="k">
+    <intercept-url pattern="/login.jsp*" access="permitAll"/>
+    <intercept-url pattern="/**" access="isAuthenticated()"/>
+    <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?error=true" username-parameter="k_username" password-parameter="k_password"/>
+    <logout delete-cookies="JSESSIONID" logout-success-url="/login.jsp"/>
+    <remember-me token-repository-ref="inMemoryTokenRepositoryImpl"/>
+  </http>
+
+  <beans:bean id="jasyptPasswordEncryptor" class="org.jasypt.util.password.BasicPasswordEncryptor" />
+  <beans:bean id="jasyptPasswordEncoder" class="org.jasypt.springsecurity3.authentication.encoding.PasswordEncoder">
+    <beans:property name="passwordEncryptor" ref="jasyptPasswordEncryptor"/>
+  </beans:bean>
+
+  <beans:bean id="databaseUserDetailsService" class="com.beijunyi.kangask.security.DatabaseUserDetailsService" />
+  <beans:bean id="databaseAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+    <beans:property name="userDetailsService" ref="databaseUserDetailsService"/>
+    <beans:property name="passwordEncoder" ref="jasyptPasswordEncoder"/>
+  </beans:bean>
+
+  <beans:bean id="inMemoryTokenRepositoryImpl" class="org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl">
+  </beans:bean>
+
+  <authentication-manager>
+    <authentication-provider ref="databaseAuthenticationProvider"/>
+  </authentication-manager>
+
+</beans:beans>

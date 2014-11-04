@@ -5,6 +5,21 @@
   <meta charset="utf-8"/>
   <title>登录</title>
 
+  <style>
+    .center-box {
+      width: 400px;
+      margin: 400px auto 0;
+      border: solid 1px #000000;
+      padding: 20px;
+    }
+    .field {
+      height: 40px;
+    }
+    .field > label {
+      width: 100px;
+      display: inline-block;
+    }
+  </style>
 
 </head>
 
@@ -13,14 +28,14 @@
 <div class="center-box">
   <form action="/j_spring_security_check" method="post">
     <div class="fields">
-      <label for="username">
-        <span>用户名</span>
+      <div class="field">
+        <label for="username">用户名</label>
         <input id="username" type="text">
-      </label>
-      <label for="password">
-        <span>密码</span>
+      </div>
+      <div class="field">
+        <label for="password">密码</label>
         <input id="password" type="password">
-      </label>
+      </div>
     </div>
     <div class="buttons">
       <button type="submit">
