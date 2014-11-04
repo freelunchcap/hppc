@@ -19,15 +19,14 @@
     <intercept-url pattern="/**" access="isAuthenticated()"/>
     <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?error=true" username-parameter="k_username" password-parameter="k_password"/>
     <logout delete-cookies="JSESSIONID" logout-success-url="/login.jsp"/>
-    <remember-me token-repository-ref="inMemoryTokenRepositoryImpl"/>
+    <remember-me token-repository-ref="inMemoryTokenRepositoryImpl" user-service-ref="databaseUserDetailsService"/>
   </http>
 
-  <beans:bean id="jasyptPasswordEncryptor" class="org.jasypt.util.password.BasicPasswordEncryptor" />
   <beans:bean id="jasyptPasswordEncoder" class="org.jasypt.springsecurity3.authentication.encoding.PasswordEncoder">
-    <beans:property name="passwordEncryptor" ref="jasyptPasswordEncryptor"/>
+    <beans:property name="passwordEncryptor" ref="passwordEncryptor"/>
   </beans:bean>
 
-  <beans:bean id="databaseUserDetailsService" class="com.beijunyi.kangask.security.DatabaseUserDetailsService" />
+  <beans:bean id="databaseUserDetailsService" class="com.beijunyi.hppc.security.DatabaseUserDetailsService" />
   <beans:bean id="databaseAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
     <beans:property name="userDetailsService" ref="databaseUserDetailsService"/>
     <beans:property name="passwordEncoder" ref="jasyptPasswordEncoder"/>

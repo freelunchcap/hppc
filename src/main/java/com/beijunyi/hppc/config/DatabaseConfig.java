@@ -20,8 +20,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableTransactionManagement
 public class DatabaseConfig {
 
   public static String DATABASE_PROPERTIES = FilenameUtils.normalizeNoEndSeparator(FilenameUtils.concat(Constants.APP_HOME, "database.properties"), true);
@@ -43,7 +45,7 @@ public class DatabaseConfig {
   private void loadDefaultSetting(@Nonnull Properties cfg) {
     cfg.setProperty(AvailableSettings.DRIVER, org.h2.Driver.class.getCanonicalName());
     cfg.setProperty(AvailableSettings.URL, "jdbc:h2:file:" + H2_DIR);
-    cfg.setProperty(AvailableSettings.USER, "k");
+    cfg.setProperty(AvailableSettings.USER, Constants.APP_NAME);
     cfg.setProperty(AvailableSettings.PASS, RandomStringUtils.randomAlphanumeric(16));
     cfg.setProperty(AvailableSettings.DIALECT, H2Dialect.class.getCanonicalName());
     cfg.setProperty(AvailableSettings.SHOW_SQL, Boolean.toString(true));
@@ -54,7 +56,7 @@ public class DatabaseConfig {
   public SessionFactory sessionFactory() throws Exception {
     DataSource ds = new SimpleDriverDataSource((Driver) Class.forName(cfg.getProperty(AvailableSettings.DRIVER)).newInstance(), cfg.getProperty(AvailableSettings.URL));
     LocalSessionFactoryBuilder sfb = new LocalSessionFactoryBuilder(ds);
-    sfb.scanPackages("com.beijunyi.kangask.**");
+    sfb.scanPackages("com.beijunyi.hppc.models.**");
     sfb.addProperties(cfg);
     return sfb.buildSessionFactory();
   }
