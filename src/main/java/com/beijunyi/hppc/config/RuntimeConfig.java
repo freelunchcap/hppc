@@ -8,6 +8,7 @@ import org.springframework.context.annotation.*;
 @Configuration
 @Import(DatabaseConfig.class)
 @ComponentScan(basePackageClasses = Constants.class)
+@ImportResource("classpath:/spring-security.xml")
 public class RuntimeConfig {
 
   @Bean(name = "passwordEncryptor")

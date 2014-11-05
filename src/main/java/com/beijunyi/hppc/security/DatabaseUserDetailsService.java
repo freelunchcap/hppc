@@ -19,8 +19,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Singleton
 public class DatabaseUserDetailsService implements UserDetailsService {
 
-  @Inject
   private AccountDao ad;
+
+  @Inject
+  public DatabaseUserDetailsService(AccountDao ad) {
+    this.ad = ad;
+  }
 
   @Override
   @Transactional

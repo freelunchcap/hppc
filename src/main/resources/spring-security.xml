@@ -15,10 +15,15 @@
   <http pattern="/resources/**" security="none"/>
 
   <http pattern="/**" use-expressions="true" realm="k">
-    <intercept-url pattern="/login.jsp*" access="permitAll"/>
+    <intercept-url pattern="/login.html*" access="permitAll"/>
     <intercept-url pattern="/**" access="isAuthenticated()"/>
-    <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?error=true" username-parameter="k_username" password-parameter="k_password"/>
-    <logout delete-cookies="JSESSIONID" logout-success-url="/login.jsp"/>
+    <form-login
+      login-page="/login.html"
+      login-processing-url="/hppc_login"
+      authentication-failure-url="/login.html?error=true"
+      username-parameter="hppc_username"
+      password-parameter="hppc_password"/>
+    <logout delete-cookies="JSESSIONID" logout-success-url="/login.html"/>
     <remember-me token-repository-ref="inMemoryTokenRepositoryImpl" user-service-ref="databaseUserDetailsService"/>
   </http>
 
