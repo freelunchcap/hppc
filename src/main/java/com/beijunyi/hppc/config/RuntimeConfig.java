@@ -6,9 +6,8 @@ import org.jasypt.util.password.PasswordEncryptor;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@Import(DatabaseConfig.class)
+@Import({DatabaseConfig.class, SecurityConfig.class})
 @ComponentScan(basePackageClasses = Constants.class)
-@ImportResource("classpath:/spring-security.xml")
 public class RuntimeConfig {
 
   @Bean(name = "passwordEncryptor")
