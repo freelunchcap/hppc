@@ -5,31 +5,18 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public final class QueryRequest {
-  private String qid;
   private Integer from;
   private Integer size;
   private String sortKey;
   private String sortDir;
-  private Map<String, Object> filters;
-  private String searchTerm;
+  private Map<String, String> filters;
 
-  public QueryRequest(@Nonnull String qid, @Nullable Integer from, @Nullable Integer size, @Nullable String sortKey, @Nullable String sortDir, @Nullable Map<String, Object> filters, @Nullable String searchTerm) {
-    this.qid = qid;
+  public QueryRequest(@Nullable Integer from, @Nullable Integer size, @Nullable String sortKey, @Nullable String sortDir, @Nullable Map<String, String> filters) {
     this.from = from;
     this.size = size;
     this.sortKey = sortKey;
     this.sortDir = sortDir;
     this.filters = filters;
-    this.searchTerm = searchTerm;
-  }
-
-  @Nonnull
-  public String getQid() {
-    return qid;
-  }
-
-  public void setQid(@Nullable String qid) {
-    this.qid = qid;
   }
 
   @Nullable
@@ -69,20 +56,12 @@ public final class QueryRequest {
   }
 
   @Nullable
-  public Map<String, Object> getFilters() {
+  public Map<String, String> getFilters() {
     return filters;
   }
 
-  public void setFilters(@Nullable Map<String, Object> filters) {
+  public void setFilters(@Nullable Map<String, String> filters) {
     this.filters = filters;
   }
 
-  @Nullable
-  public String getSearchTerm() {
-    return searchTerm;
-  }
-
-  public void setSearchTerm(@Nullable String searchTerm) {
-    this.searchTerm = searchTerm;
-  }
 }

@@ -62,7 +62,7 @@ public class AccountsService {
     toUpdate.setAlias(account.getAlias());
     toUpdate.setActive(account.getActive());
     toUpdate.setActive(account.getActive());
-    ad.update(toUpdate);
+    ad.merge(toUpdate);
     return toUpdate;
   }
 
@@ -94,7 +94,7 @@ public class AccountsService {
       throw new IllegalArgumentException("Missing new password");
 
     account.setPassword(pe.encryptPassword(request.getNewPassword()));
-    ad.update(account);
+    ad.merge(account);
     return account;
   }
 

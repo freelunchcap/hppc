@@ -31,12 +31,12 @@ public interface Dao<T> {
   @Nonnull
   QueryResult<T> query(@Nonnull QueryRequest request);
 
-  void persist(@Nonnull T entry);
+  T persist(@Nonnull T entry);
 
-  void update(@Nonnull T entry);
+  T merge(@Nonnull T entry);
 
-  void delete(int id);
+  T delete(int id);
 
-  void delete(@Nonnull T entry);
+  T delete(@Nonnull T entry);
 
 }

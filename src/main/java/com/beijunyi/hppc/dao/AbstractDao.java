@@ -113,7 +113,7 @@ public abstract class AbstractDao<T> implements Dao<T> {
         dataCriteria.addOrder(Order.desc(request.getSortKey()));
     }
 
-    return new QueryResult<>(request.getQid(), (long) totalCriteria.uniqueResult(), (List<T>) dataCriteria.list());
+    return new QueryResult<>((long) totalCriteria.uniqueResult(), (List<T>) dataCriteria.list());
   }
 
   @Nonnull
@@ -124,30 +124,33 @@ public abstract class AbstractDao<T> implements Dao<T> {
   }
 
   @Override
-  public void persist(@Nonnull T entry) {
+  public T persist(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
     session.persist(entry);
     session.flush();
-  }
-
-  @Override
-  public void update(@Nonnull T entry) {
-    Session session = sf.getCurrentSession();
-    session.update(entry);
-    session.flush();
+    return entry;
   }
 
   @Override
   @SuppressWarnings("unchecked")
-  public void delete(int id) {
+  public T merge(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
-    delete((T)session.load(getPersistentClass(), id));
+    return (T) session.merge(entry);
   }
 
   @Override
-  public void delete(@Nonnull T entry) {
+  @SuppressWarnings("unchecked")
+  public T delete(int id) {
+    Session session = sf.getCurrentSession();
+    T entry = (T)session.load(getPersistentClass(), id);
+    return delete(entry);
+  }
+
+  @Override
+  public T delete(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
     session.delete(entry);
     session.flush();
+    return entry;
   }
 }
