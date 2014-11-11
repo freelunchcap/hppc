@@ -28,6 +28,7 @@ public class BasicInformation {
 
   private Integer petWeight;
 
+  @Enumerated(EnumType.STRING)
   private PetType petType;
 
   private String otherPetType;
@@ -38,35 +39,43 @@ public class BasicInformation {
 
   private String petColor;
 
+  @Enumerated(EnumType.STRING)
   private PetGender petGender;
 
   private Boolean petNeutered;
 
   private Date petNeuterDate;
 
+  @Enumerated(EnumType.STRING)
   private PetSource petSource;
 
   private Double petAdoptedAge;
 
   @ElementCollection
+  @Enumerated(EnumType.STRING)
   private Set<PetLivingCondition> petLivingConditions;
 
   private String petLivingConditionChanges;
 
   @ElementCollection
+  @Enumerated(EnumType.STRING)
   private Set<PetBehaviour> petBehaviours;
 
   private String petBehaviourChanges;
 
+  @Enumerated(EnumType.STRING)
   private PetWaterDrinkingStatus petWaterDrinkingStatus;
 
   @ElementCollection
+  @Enumerated(EnumType.STRING)
   private Set<PetFood> petFoods;
 
   private String petFoodBrand;
 
+  @Enumerated(EnumType.STRING)
   private PetFeedingFrequency petFeedingFrequency;
 
+  @Enumerated(EnumType.STRING)
   private PetFoodContainer petFoodContainer;
 
   private String otherPetFoodContainer;

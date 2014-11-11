@@ -19,7 +19,7 @@ public final class Account {
   @Column(name = "username", unique = true, nullable = false)
   private String username;
 
-  @Column(name = "alias", unique = false, nullable = true)
+  @Column(name = "alias", unique = false, nullable = false)
   private String alias;
 
   @Column(name = "password", nullable = false)
@@ -43,6 +43,7 @@ public final class Account {
 
   public Account(@Nullable String username, @Nullable String password, @Nullable Boolean admin) {
     this.username = username;
+    this.alias = username;
     this.password = password;
     this.encrypted = false;
     this.admin = admin;
