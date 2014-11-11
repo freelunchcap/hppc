@@ -124,18 +124,11 @@ public abstract class AbstractDao<T> implements Dao<T> {
   }
 
   @Override
-  public T persist(@Nonnull T entry) {
+  public T save(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
-    session.persist(entry);
+    session.merge(entry);
     session.flush();
     return entry;
-  }
-
-  @Override
-  @SuppressWarnings("unchecked")
-  public T merge(@Nonnull T entry) {
-    Session session = sf.getCurrentSession();
-    return (T) session.merge(entry);
   }
 
   @Override

@@ -8,7 +8,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import com.beijunyi.hppc.dao.AccountDao;
-import com.beijunyi.hppc.models.admin.Account;
+import com.beijunyi.hppc.models.data.admin.Account;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

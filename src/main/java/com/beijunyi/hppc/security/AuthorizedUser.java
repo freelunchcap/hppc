@@ -3,7 +3,7 @@ package com.beijunyi.hppc.security;
 import java.util.Collection;
 import javax.annotation.Nonnull;
 
-import com.beijunyi.hppc.models.admin.Privilege;
+import com.beijunyi.hppc.models.data.admin.Privilege;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 

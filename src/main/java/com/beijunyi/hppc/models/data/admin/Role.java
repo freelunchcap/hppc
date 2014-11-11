@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.models.admin;
+package com.beijunyi.hppc.models.data.admin;
 
 import java.util.Set;
 import javax.annotation.Nullable;

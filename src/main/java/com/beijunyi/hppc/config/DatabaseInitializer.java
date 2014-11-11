@@ -8,8 +8,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import com.beijunyi.hppc.Constants;
-import com.beijunyi.hppc.models.admin.Account;
-import com.beijunyi.hppc.models.admin.CreateAccountRequest;
+import com.beijunyi.hppc.models.data.admin.Account;
 import com.beijunyi.hppc.services.AccountsService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -39,7 +38,7 @@ public class DatabaseInitializer {
   }
 
   private void init() throws Exception {
-    Account account = as.createAccount(new CreateAccountRequest("admin", "password", true));
+    as.save(new Account("admin", "password", true));
   }
 
 }

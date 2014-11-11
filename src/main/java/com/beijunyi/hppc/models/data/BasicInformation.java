@@ -48,19 +48,19 @@ public class BasicInformation {
 
   private Double petAdoptedAge;
 
-  @OneToMany(cascade = CascadeType.ALL)
+  @ElementCollection
   private Set<PetLivingCondition> petLivingConditions;
 
   private String petLivingConditionChanges;
 
-  @OneToMany(cascade = CascadeType.ALL)
+  @ElementCollection
   private Set<PetBehaviour> petBehaviours;
 
   private String petBehaviourChanges;
 
   private PetWaterDrinkingStatus petWaterDrinkingStatus;
 
-  @OneToMany(cascade = CascadeType.ALL)
+  @ElementCollection
   private Set<PetFood> petFoods;
 
   private String petFoodBrand;

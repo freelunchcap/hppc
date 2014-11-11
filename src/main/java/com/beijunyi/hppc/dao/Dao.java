@@ -31,9 +31,7 @@ public interface Dao<T> {
   @Nonnull
   QueryResult<T> query(@Nonnull QueryRequest request);
 
-  T persist(@Nonnull T entry);
-
-  T merge(@Nonnull T entry);
+  T save(@Nonnull T entry);
 
   T delete(int id);
 

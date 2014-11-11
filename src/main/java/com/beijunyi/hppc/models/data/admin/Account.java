@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.models.admin;
+package com.beijunyi.hppc.models.data.admin;
 
 import java.util.Set;
 import javax.annotation.Nullable;
@@ -23,8 +23,10 @@ public final class Account {
   private String alias;
 
   @Column(name = "password", nullable = false)
-  @JsonIgnore
   private String password;
+
+  @Column(name = "encrypted", nullable = false)
+  private Boolean encrypted;
 
   @Column(name = "admin", nullable = false)
   private Boolean admin;
@@ -42,6 +44,7 @@ public final class Account {
   public Account(@Nullable String username, @Nullable String password, @Nullable Boolean admin) {
     this.username = username;
     this.password = password;
+    this.encrypted = false;
     this.admin = admin;
     this.active = true;
   }
@@ -83,6 +86,15 @@ public final class Account {
 
   public void setPassword(@Nullable String password) {
     this.password = password;
+  }
+
+  @Nullable
+  public Boolean getEncrypted() {
+    return encrypted;
+  }
+
+  public void setEncrypted(@Nullable Boolean encrypted) {
+    this.encrypted = encrypted;
   }
 
   @Nullable

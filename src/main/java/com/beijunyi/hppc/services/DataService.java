@@ -2,6 +2,7 @@ package com.beijunyi.hppc.services;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.transaction.Transactional;
 
 import com.beijunyi.hppc.dao.Dao;
 import com.beijunyi.hppc.models.internal.QueryRequest;
@@ -16,27 +17,26 @@ public abstract class DataService<T> {
   }
 
   @Nonnull
-  public QueryResult<T> get(@Nonnull QueryRequest request) {
+  @Transactional
+  public QueryResult<T> query(@Nonnull QueryRequest request) {
     return dao.query(request);
   }
 
   @Nonnull
-  public T post(@Nonnull T obj) {
-    dao.persist(obj);
+  @Transactional
+  public T save(@Nonnull T obj) {
+    dao.save(obj);
     return obj;
   }
 
   @Nullable
+  @Transactional
   public T get(int id) {
     return dao.get(id);
   }
 
   @Nonnull
-  public T put(@Nonnull T obj) {
-    return dao.merge(obj);
-  }
-
-  @Nonnull
+  @Transactional
   public T delete(int id) {
     return dao.delete(id);
   }

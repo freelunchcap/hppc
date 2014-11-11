@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import com.beijunyi.hppc.models.admin.Role;
+import com.beijunyi.hppc.models.data.admin.Role;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 

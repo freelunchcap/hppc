@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import javax.annotation.Nonnull;
 
-import com.beijunyi.hppc.models.admin.Account;
-import com.beijunyi.hppc.models.admin.Privilege;
-import com.beijunyi.hppc.models.admin.Role;
+import com.beijunyi.hppc.models.data.admin.Account;
+import com.beijunyi.hppc.models.data.admin.Privilege;
+import com.beijunyi.hppc.models.data.admin.Role;
 import org.springframework.security.core.GrantedAuthority;
 
 public final class AccountUser extends AuthorizedUser {

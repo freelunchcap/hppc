@@ -13,23 +13,18 @@ import javax.ws.rs.core.UriInfo;
 public class BasicInformationApi {
 
   @GET
-  public Response get(@Context UriInfo info) {
+  public Response query(@Context UriInfo info) {
     return Response.ok().build();
   }
 
   @POST
-  public Response post() {
+  public Response save() {
     return Response.ok().build();
   }
 
   @GET
   @Path("{id}")
   public Response get(@PathParam("id") int id) {
-    return Response.ok().build();
-  }
-
-  @PUT
-  public Response put() {
     return Response.ok().build();
   }
 
