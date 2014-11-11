@@ -1,49 +1,97 @@
-package com.beijunyi.hppc.models;
+package com.beijunyi.hppc.models.data;
 
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.*;
 
+@Entity
 public class BasicInformation {
+  @Id
+  @GeneratedValue
+  private int id;
+
   private Date createTimestamp;
+
   private Integer documentId;
+
   private Integer ownerName;
+
   private String address;
+
   private String postCode;
+
   private String cellPhone;
+
   private String email;
+
   private String petName;
+
   private Integer petWeight;
+
   private PetType petType;
+
   private String otherPetType;
+
   private Date petBirthday;
+
   private String petBreed;
+
   private String petColor;
+
   private PetGender petGender;
+
   private Boolean petNeutered;
+
   private Date petNeuterDate;
 
   private PetSource petSource;
+
   private Double petAdoptedAge;
+
+  @OneToMany(cascade = CascadeType.ALL)
   private Set<PetLivingCondition> petLivingConditions;
+
   private String petLivingConditionChanges;
+
+  @OneToMany(cascade = CascadeType.ALL)
   private Set<PetBehaviour> petBehaviours;
+
   private String petBehaviourChanges;
 
   private PetWaterDrinkingStatus petWaterDrinkingStatus;
+
+  @OneToMany(cascade = CascadeType.ALL)
   private Set<PetFood> petFoods;
+
   private String petFoodBrand;
+
   private PetFeedingFrequency petFeedingFrequency;
+
   private PetFoodContainer petFoodContainer;
+
   private String otherPetFoodContainer;
+
   private String petFoodChanges;
 
   private Boolean petRegularEstrusCycle;
+
   private Date petLastEstrusDate;
+
   private Date petLastPregnantDate;
+
   private Boolean petObviousMailBehavious;
 
   private String petHistoryIllnessesAndSurgeries;
+
   private Date updateTimestamp;
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 
   public Date getCreateTimestamp() {
     return createTimestamp;

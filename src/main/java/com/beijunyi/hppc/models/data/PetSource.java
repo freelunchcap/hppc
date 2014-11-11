@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.models;
+package com.beijunyi.hppc.models.data;
 
 public enum PetSource {
   PUPPY_MILL,

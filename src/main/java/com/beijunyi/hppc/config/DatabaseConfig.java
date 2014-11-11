@@ -56,7 +56,7 @@ public class DatabaseConfig {
   public SessionFactory sessionFactory() throws Exception {
     DataSource ds = new SimpleDriverDataSource((Driver) Class.forName(cfg.getProperty(AvailableSettings.DRIVER)).newInstance(), cfg.getProperty(AvailableSettings.URL));
     LocalSessionFactoryBuilder sfb = new LocalSessionFactoryBuilder(ds);
-    sfb.scanPackages("com.beijunyi.hppc.models.**");
+    sfb.scanPackages("com.beijunyi.hppc.models.data.**");
     sfb.addProperties(cfg);
     return sfb.buildSessionFactory();
   }
