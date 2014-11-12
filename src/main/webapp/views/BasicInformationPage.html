@@ -1,0 +1,29 @@
+<div id="basic-information-page">
+  <table ng-table="tableParams" template-pagination="basic-information-table-tools" class="table table-selectable">
+    <tbody ng-repeat="template in $data">
+    <tr ng-click="toggleSelection(template)" ng-class="{active: template == tableParams.$selection}">
+      <td class="col-md-10" data-title="'Title'" sortable="'title'">{{template.title}}</td>
+      <td class="col-md-2" data-title="'Active'" sortable="'active'">
+        <label>
+          <input name="switch-field-1" type="checkbox" ng-model="template.active">
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <script type="text/ng-template" id="basic-information-table-tools">
+    <div class="clearfix">
+      <div class="col-md-4">
+        <a class="btn btn-sm btn-success" ui-sref="medical.basic-information-create">
+          <i class="ace-icon fa fa-plus bigger-110"></i>
+          添加
+        </a>
+        <a class="btn btn-sm btn-info" ui-sref="settings-template-details({template: params.$selection.title})" ng-disabled="params.$selection == null">
+          <i class="fa fa-plus bigger-110"></i>
+          编辑
+        </a>
+      </div>
+    </div>
+  </script>
+</div>
