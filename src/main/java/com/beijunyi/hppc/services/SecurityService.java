@@ -5,11 +5,10 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.inject.Named;
 import javax.inject.Singleton;
-import javax.ws.rs.core.Response;
 
 import com.beijunyi.hppc.models.data.admin.Account;
 import com.beijunyi.hppc.models.data.admin.Privilege;
-import com.beijunyi.hppc.models.web.LoginInformation;
+import com.beijunyi.hppc.models.api.LoginInformation;
 import com.beijunyi.hppc.security.AccountUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

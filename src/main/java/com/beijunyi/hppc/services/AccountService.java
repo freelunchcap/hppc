@@ -14,27 +14,9 @@ import org.jasypt.util.password.PasswordEncryptor;
 @Singleton
 public class AccountService extends DataService<Account> {
 
-  private final PasswordEncryptor pe;
-
   @Inject
-  public AccountService(@Nonnull AccountDao ad, @Nonnull PasswordEncryptor pe) {
+  public AccountService(@Nonnull AccountDao ad) {
     super(ad);
-    this.pe = pe;
   }
 
-  @Nonnull
-  @Override
-  @Transactional
-  public Account save(@Nonnull Account account) {
-    if(account.getEncrypted() == null)
-      throw new IllegalArgumentException("encrypted is null");
-    if(account.getPassword() == null)
-      throw new IllegalArgumentException("password is null");
-    if(!account.getEncrypted()) {
-      String encryptedPassword = pe.encryptPassword(account.getPassword());
-      account.setPassword(encryptedPassword);
-      account.setEncrypted(true);
-    }
-    return super.save(account);
-  }
 }

@@ -25,9 +25,6 @@ public final class Account {
   @Column(name = "password", nullable = false)
   private String password;
 
-  @Column(name = "encrypted", nullable = false)
-  private Boolean encrypted;
-
   @Column(name = "admin", nullable = false)
   private Boolean admin;
 
@@ -45,7 +42,6 @@ public final class Account {
     this.username = username;
     this.alias = username;
     this.password = password;
-    this.encrypted = false;
     this.admin = admin;
     this.active = true;
   }
@@ -87,15 +83,6 @@ public final class Account {
 
   public void setPassword(@Nullable String password) {
     this.password = password;
-  }
-
-  @Nullable
-  public Boolean getEncrypted() {
-    return encrypted;
-  }
-
-  public void setEncrypted(@Nullable Boolean encrypted) {
-    this.encrypted = encrypted;
   }
 
   @Nullable

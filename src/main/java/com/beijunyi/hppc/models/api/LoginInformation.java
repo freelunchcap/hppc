@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.models.web;
+package com.beijunyi.hppc.models.api;
 
 import java.util.Set;
 
