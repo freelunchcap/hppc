@@ -1,6 +1,6 @@
 app.config(function ($routeProvider) {
 
-  $routeProvider.when('/basic-information', {
+  $routeProvider.when('/medical/basic-information', {
     templateUrl: 'views/BasicInformationForm.html'
   });
 

@@ -13,17 +13,34 @@
 
 <body ng-app="hppc">
 
-<div class="navbar navbar-default navbar-fixed-top">
-  <div>
-    <ul class="nav">
-      <li>
-        <a ng-href="#/basic-information">基本信息</a>
+<nav class="navbar navbar-inverse" role="navigation" ng-controller="NavigationController">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">HPPC</a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li ng-repeat="d in departments">
+        <a ng-href="#/{{d.path}}">{{d.name}}</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Link</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
       </li>
     </ul>
   </div>
-</div>
+</nav>
 
-<div ng-view></div>
+<div class="container" ng-view></div>
 
 <jwr:script src="/lib.js"/>
 <jwr:script src="/app.js"/>
