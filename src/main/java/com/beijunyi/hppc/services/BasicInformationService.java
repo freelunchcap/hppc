@@ -6,7 +6,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import com.beijunyi.hppc.dao.Dao;
-import com.beijunyi.hppc.models.data.BasicInformation;
+import com.beijunyi.hppc.models.data.forms.BasicInformation;
 
 @Named
 @Singleton

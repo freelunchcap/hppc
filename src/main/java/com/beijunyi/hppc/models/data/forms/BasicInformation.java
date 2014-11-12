@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.models.data;
+package com.beijunyi.hppc.models.data.forms;
 
 import java.util.Date;
 import java.util.Set;
@@ -6,6 +6,9 @@ import javax.persistence.*;
 
 @Entity
 public class BasicInformation {
+
+  public static final String ACCESS_POINT = BasicInformation.class.getSimpleName();
+
   @Id
   @GeneratedValue
   private int id;

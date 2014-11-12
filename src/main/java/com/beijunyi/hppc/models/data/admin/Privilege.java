@@ -5,9 +5,11 @@ import javax.annotation.Nullable;
 import javax.persistence.*;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name = "privilege")
+@DynamicUpdate
 public final class Privilege {
 
   @Id

@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import com.beijunyi.hppc.models.data.BasicInformation;
+import com.beijunyi.hppc.models.data.forms.BasicInformation;
 import org.hibernate.SessionFactory;
 
 @Named

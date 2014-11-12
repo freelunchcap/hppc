@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.models.data;
+package com.beijunyi.hppc.models.data.forms;
 
 public enum PetFood {
   HOMEMADE,

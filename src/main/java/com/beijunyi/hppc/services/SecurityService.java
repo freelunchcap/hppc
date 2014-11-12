@@ -1,11 +1,16 @@
 package com.beijunyi.hppc.services;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.beijunyi.hppc.dao.AccessPointDao;
+import com.beijunyi.hppc.models.data.admin.AccessPoint;
 import com.beijunyi.hppc.models.data.admin.Account;
 import com.beijunyi.hppc.models.data.admin.Privilege;
 import com.beijunyi.hppc.models.api.LoginInformation;
@@ -16,6 +21,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @Named
 @Singleton
 public class SecurityService {
+
+  @Inject
+  private AccessPointDao apd;
 
   @Nullable
   public AccountUser getCurrentUser() {
@@ -36,6 +44,11 @@ public class SecurityService {
       privileges.add(privilege.getId());
     }
     return new LoginInformation(account.getAlias(), account.getAdmin(), privileges);
+  }
+
+  @Nonnull
+  public List<AccessPoint> getAccessPoints() {
+    return apd.listAll();
   }
 
 }

@@ -12,8 +12,8 @@ import org.springframework.security.access.annotation.Secured;
 
 @Named
 @Singleton
-@Path("/api/user")
-public class UserApi {
+@Path("/api/security")
+public class SecurityApi {
 
   @Inject
   public SecurityService ss;
@@ -23,6 +23,13 @@ public class UserApi {
   @Secured("ROLE_STAFF")
   public Response getLoginInformation() {
     return Response.ok(ss.getLoginInformation()).build();
+  }
+
+  @GET
+  @Path("access-points")
+  @Secured("ROLE_STAFF")
+  public Response getAccessPoints() {
+    return Response.ok(ss.getAccessPoints()).build();
   }
 
 }
