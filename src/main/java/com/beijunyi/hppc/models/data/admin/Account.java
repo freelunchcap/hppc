@@ -38,9 +38,9 @@ public final class Account {
   @JsonIgnore
   private Set<Role> roles;
 
-  public Account(@Nullable String username, @Nullable String password, @Nullable Boolean admin) {
+  public Account(@Nullable String username, @Nullable String alias, @Nullable String password, @Nullable Boolean admin) {
     this.username = username;
-    this.alias = username;
+    this.alias = alias;
     this.password = password;
     this.admin = admin;
     this.active = true;

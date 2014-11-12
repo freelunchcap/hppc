@@ -1,32 +1,37 @@
 package com.beijunyi.hppc.models.api;
 
+import javax.annotation.Nullable;
+
 public class ChangeAccountPasswordRequest {
 
-  private Integer account;
+  private Integer id;
   private String oldPassword;
   private String newPassword;
 
-  public Integer getAccount() {
-    return account;
+  @Nullable
+  public Integer getId() {
+    return id;
   }
 
-  public void setAccount(Integer account) {
-    this.account = account;
+  public void setId(@Nullable Integer id) {
+    this.id = id;
   }
 
+  @Nullable
   public String getOldPassword() {
     return oldPassword;
   }
 
-  public void setOldPassword(String oldPassword) {
+  public void setOldPassword(@Nullable String oldPassword) {
     this.oldPassword = oldPassword;
   }
 
+  @Nullable
   public String getNewPassword() {
     return newPassword;
   }
 
-  public void setNewPassword(String newPassword) {
+  public void setNewPassword(@Nullable String newPassword) {
     this.newPassword = newPassword;
   }
 }

@@ -1,5 +1,7 @@
 package com.beijunyi.hppc.models.api;
 
+import javax.annotation.Nullable;
+
 public class UpdateRoleRequest {
 
   private Integer id;
@@ -7,35 +9,39 @@ public class UpdateRoleRequest {
   private String description;
   private Boolean active;
 
+  @Nullable
   public Integer getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(@Nullable Integer id) {
     this.id = id;
   }
 
+  @Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@Nullable String name) {
     this.name = name;
   }
 
+  @Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@Nullable String description) {
     this.description = description;
   }
 
+  @Nullable
   public Boolean getActive() {
     return active;
   }
 
-  public void setActive(Boolean active) {
+  public void setActive(@Nullable Boolean active) {
     this.active = active;
   }
 }

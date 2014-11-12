@@ -123,6 +123,7 @@ public abstract class AbstractDao<T> implements Dao<T> {
     return criterionQuery(request);
   }
 
+  @Nonnull
   @Override
   public T save(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
@@ -131,6 +132,7 @@ public abstract class AbstractDao<T> implements Dao<T> {
     return entry;
   }
 
+  @Nonnull
   @Override
   @SuppressWarnings("unchecked")
   public T delete(int id) {
@@ -139,11 +141,28 @@ public abstract class AbstractDao<T> implements Dao<T> {
     return delete(entry);
   }
 
+  @Nonnull
   @Override
   public T delete(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
     session.delete(entry);
     session.flush();
+    return entry;
+  }
+
+  @Nonnull
+  @Override
+  @SuppressWarnings("unchecked")
+  public T create(@Nonnull T entry) {
+    Session session = sf.getCurrentSession();
+    return (T) session.save(entry);
+  }
+
+  @Nonnull
+  @Override
+  public T update(@Nonnull T entry) {
+    Session session = sf.getCurrentSession();
+    session.update(entry);
     return entry;
   }
 }

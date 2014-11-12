@@ -31,10 +31,20 @@ public interface Dao<T> {
   @Nonnull
   QueryResult<T> query(@Nonnull QueryRequest request);
 
+  @Nonnull
   T save(@Nonnull T entry);
 
+  @Nonnull
   T delete(int id);
 
+  @Nonnull
   T delete(@Nonnull T entry);
+
+  @Nonnull
+  T create(@Nonnull T entry);
+
+  @Nonnull
+  T update(@Nonnull T entry);
+
 
 }

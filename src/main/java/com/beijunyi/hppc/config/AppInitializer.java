@@ -8,19 +8,19 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import com.beijunyi.hppc.Constants;
-import com.beijunyi.hppc.models.data.admin.Account;
-import com.beijunyi.hppc.services.AccountService;
+import com.beijunyi.hppc.models.api.UpdateAccountRequest;
+import com.beijunyi.hppc.services.AdminService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
 @Named
 @Singleton
-public class DatabaseInitializer {
+public class AppInitializer {
 
-  private final AccountService as;
+  private final AdminService as;
 
   @Inject
-  public DatabaseInitializer(@Nonnull AccountService as) {
+  public AppInitializer(@Nonnull AdminService as) {
     this.as = as;
   }
 
@@ -38,7 +38,7 @@ public class DatabaseInitializer {
   }
 
   private void init() throws Exception {
-    as.save(new Account("admin", "password", true));
+    as.createAccount(new UpdateAccountRequest("admin", "Admin", "password", true));
   }
 
 }
