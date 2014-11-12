@@ -1,37 +1,22 @@
 package com.beijunyi.hppc.api;
 
+import javax.annotation.Nonnull;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+
+import com.beijunyi.hppc.models.data.BasicInformation;
+import com.beijunyi.hppc.services.BasicInformationService;
 
 @Named
 @Singleton
 @Path("/api/basic-information")
-public class BasicInformationApi {
+public class BasicInformationApi extends DataApi<BasicInformation> {
 
-  @GET
-  public Response query(@Context UriInfo info) {
-    return Response.ok().build();
-  }
-
-  @POST
-  public Response save() {
-    return Response.ok().build();
-  }
-
-  @GET
-  @Path("{id}")
-  public Response get(@PathParam("id") int id) {
-    return Response.ok().build();
-  }
-
-  @DELETE
-  @Path("{id}")
-  public Response delete(@PathParam("id") int id) {
-    return Response.ok().build();
+  @Inject
+  public BasicInformationApi(@Nonnull BasicInformationService service) {
+    super(service);
   }
 
 }

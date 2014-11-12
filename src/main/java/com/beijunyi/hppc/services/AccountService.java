@@ -12,12 +12,12 @@ import org.jasypt.util.password.PasswordEncryptor;
 
 @Named
 @Singleton
-public class AccountsService extends DataService<Account> {
+public class AccountService extends DataService<Account> {
 
   private final PasswordEncryptor pe;
 
   @Inject
-  public AccountsService(@Nonnull AccountDao ad, @Nonnull PasswordEncryptor pe) {
+  public AccountService(@Nonnull AccountDao ad, @Nonnull PasswordEncryptor pe) {
     super(ad);
     this.pe = pe;
   }

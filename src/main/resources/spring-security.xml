@@ -14,15 +14,15 @@
   <http pattern="/lib/**" security="none"/>
   <http pattern="/resources/**" security="none"/>
 
-  <http pattern="/**" use-expressions="true" realm="k">
+  <http pattern="/**" use-expressions="true" realm="hppc">
     <intercept-url pattern="/login.html*" access="permitAll"/>
     <intercept-url pattern="/**" access="isAuthenticated()"/>
     <form-login
       login-page="/login.html"
-      login-processing-url="/hppc_login"
+      login-processing-url="/login"
       authentication-failure-url="/login.html?error=true"
-      username-parameter="hppc_username"
-      password-parameter="hppc_password"/>
+      username-parameter="hppc-username"
+      password-parameter="hppc-password"/>
     <logout delete-cookies="JSESSIONID" logout-success-url="/login.html"/>
     <remember-me token-repository-ref="inMemoryTokenRepositoryImpl" user-service-ref="databaseUserDetailsService"/>
   </http>

@@ -8,7 +8,7 @@
   <style>
     .center-box {
       width: 400px;
-      margin: 400px auto 0;
+      margin: 200px auto 0;
       border: solid 1px #000000;
       padding: 20px;
     }
@@ -26,15 +26,15 @@
 <body>
 
 <div class="center-box">
-  <form action="/hppc_login" method="post">
+  <form action="/login" method="post">
     <div class="fields">
       <div class="field">
         <label for="username">用户名</label>
-        <input id="username" type="text">
+        <input id="username" name="hppc-username" type="text">
       </div>
       <div class="field">
         <label for="password">密码</label>
-        <input id="password" type="password">
+        <input id="password" name="hppc-password" type="password">
       </div>
     </div>
     <div class="buttons">

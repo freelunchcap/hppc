@@ -9,7 +9,7 @@ import javax.inject.Singleton;
 
 import com.beijunyi.hppc.Constants;
 import com.beijunyi.hppc.models.data.admin.Account;
-import com.beijunyi.hppc.services.AccountsService;
+import com.beijunyi.hppc.services.AccountService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
@@ -17,10 +17,10 @@ import org.apache.commons.io.FilenameUtils;
 @Singleton
 public class DatabaseInitializer {
 
-  private final AccountsService as;
+  private final AccountService as;
 
   @Inject
-  public DatabaseInitializer(@Nonnull AccountsService as) {
+  public DatabaseInitializer(@Nonnull AccountService as) {
     this.as = as;
   }
 
