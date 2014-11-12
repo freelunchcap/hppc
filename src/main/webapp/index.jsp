@@ -16,12 +16,12 @@
 <nav class="navbar navbar-inverse" role="navigation" ng-controller="NavigationController">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">HPPC</a>
+      <a class="navbar-brand" ui-sref="home">HPPC</a>
     </div>
 
     <ul class="nav navbar-nav">
       <li ng-repeat="d in departments">
-        <a ng-href="#/{{d.path}}">{{d.name}}</a>
+        <a ui-sref="{{d.state}}">{{d.name}}</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -40,7 +40,7 @@
   </div>
 </nav>
 
-<div class="container" ng-view></div>
+<div class="container" ui-view></div>
 
 <jwr:script src="/lib.js"/>
 <jwr:script src="/app.js"/>

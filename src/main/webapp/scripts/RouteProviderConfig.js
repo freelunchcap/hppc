@@ -1,7 +1,11 @@
-app.config(function ($routeProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
-  $routeProvider.otherwise({
-    redirectTo: '/'
-  });
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: 'views/Home.html'
+    })
 
 });

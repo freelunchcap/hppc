@@ -1,6 +1,7 @@
-app.config(function ($routeProvider) {
+app.config(function ($stateProvider) {
 
-  $routeProvider.when('/medical', {
+  $stateProvider.state('medical', {
+    url: '/medical',
     templateUrl: 'views/Medical.html',
     controller: 'MedicalPageController'
   });

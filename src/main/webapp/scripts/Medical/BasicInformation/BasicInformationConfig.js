@@ -1,6 +1,7 @@
-app.config(function ($routeProvider) {
+app.config(function ($stateProvider) {
 
-  $routeProvider.when('/medical/basic-information', {
+  $stateProvider.state('medical.basic-information', {
+    url: '/basic-information',
     templateUrl: 'views/BasicInformationForm.html'
   });
 
