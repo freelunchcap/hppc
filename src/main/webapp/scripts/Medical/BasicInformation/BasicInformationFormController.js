@@ -4,14 +4,13 @@ app.controller('BasicInformationFormController', function($scope) {
   };
   $scope.today();
 
-  $scope.clear = function () {
-    $scope.dt = null;
-  };
-
   $scope.open = function($event) {
-    $scope.opened = !$scope.opened;
     $event.preventDefault();
     $event.stopPropagation();
+
+    $scope.opened = true;
   };
+
+  $scope.format = Constants.DATE_FORMAT;
 
 });
