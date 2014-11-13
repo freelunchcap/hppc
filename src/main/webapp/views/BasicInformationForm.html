@@ -3,15 +3,164 @@
     <div class="form-group">
       <label for="createTimestamp" class="col-sm-2 control-label">入档时间</label>
       <div class="col-sm-10">
-        <div class="col-md-6">
-          <p class="input-group">
-            <input type="text" id="createTimestamp" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-          </p>
+        <div class="input-group">
+          <input type="text" id="createTimestamp" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </div>
         </div>
       </div>
     </div>
+    <div class="form-group">
+      <label for="ownerName" class="col-sm-2 control-label">主人姓名</label>
+      <div class="col-sm-10">
+        <input type="text" id="ownerName" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address" class="col-sm-2 control-label">地址</label>
+      <div class="col-sm-10">
+        <input type="text" id="address" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="postCode" class="col-sm-2 control-label">邮编</label>
+      <div class="col-sm-10">
+        <input type="text" id="postCode" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cellPhone" class="col-sm-2 control-label">手机</label>
+      <div class="col-sm-10">
+        <input type="text" id="cellPhone" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" id="email" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="petName" class="col-sm-2 control-label">宠物名</label>
+      <div class="col-sm-10">
+        <input type="text" id="petName" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="petWeight" class="col-sm-2 control-label">体重</label>
+      <div class="col-sm-10">
+        <input type="text" id="petWeight" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">种类</label>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-sm-1">
+            <div class="radio">
+              <label>
+                <input type="radio" name="petType" value="CAT">
+                <span>猫</span>
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-1">
+            <div class="radio">
+              <label>
+                <input type="radio" name="petType" value="DOG">
+                <span>狗</span>
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-10">
+            <div class="radio">
+              <div class="row">
+                <div class="col-sm-12">
+                  <label>
+                    <input type="radio" name="petType" value="OTHER">
+                    <input type="text" name="otherPetType" class="form-control" placeholder="其他（请注明）">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="petBirthday" class="col-sm-2 control-label">出生日期</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input type="text" id="petBirthday" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open($event)">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="petBreed" class="col-sm-2 control-label">品种</label>
+      <div class="col-sm-10">
+        <input type="text" id="petBreed" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="petColor" class="col-sm-2 control-label">颜色</label>
+      <div class="col-sm-10">
+        <input type="text" id="petColor" class="form-control" ng-model="dt" ng-required="true"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">性别</label>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="radio">
+              <label>
+                <input type="radio" name="petGender" value="MALE">
+                <span>雌性</span>
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="radio">
+              <label>
+                <input type="radio" name="petGender" value="FEMALE">
+                <span>雄性</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="petNeutered" class="col-sm-2 control-label">绝育/去势</label>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="petNeutered" name="optionsRadios">
+                <div class="input-group">
+                  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="petNeuterDate" is-open="opened"  ng-required="true" />
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)">
+                      <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+
   </form>
 </div>

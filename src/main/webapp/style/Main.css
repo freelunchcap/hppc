@@ -9,3 +9,10 @@
   border-radius: 4px;
   padding: 20px 0;
 }
+
+.checkbox .form-control,
+.radio .form-control,
+.checkbox .btn,
+.radio .btn {
+  margin-top: -7px;
+}

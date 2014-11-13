@@ -15,8 +15,6 @@ public class BasicInformation {
 
   private Date createTimestamp;
 
-  private Integer documentId;
-
   private Integer ownerName;
 
   private String address;
@@ -111,14 +109,6 @@ public class BasicInformation {
 
   public void setCreateTimestamp(Date createTimestamp) {
     this.createTimestamp = createTimestamp;
-  }
-
-  public Integer getDocumentId() {
-    return documentId;
-  }
-
-  public void setDocumentId(Integer documentId) {
-    this.documentId = documentId;
   }
 
   public Integer getOwnerName() {
