@@ -155,7 +155,8 @@ public abstract class AbstractDao<T> implements Dao<T> {
   @SuppressWarnings("unchecked")
   public T create(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
-    return (T) session.save(entry);
+    session.save(entry);
+    return entry;
   }
 
   @Nonnull

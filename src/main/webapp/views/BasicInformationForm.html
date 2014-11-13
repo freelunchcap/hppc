@@ -1,14 +1,9 @@
 <div id="basic-information-form">
   <form class="form-horizontal">
     <div class="form-group">
-      <label class="col-sm-2 control-label">入档时间</label>
+      <label for="createTimestamp" class="col-sm-2 control-label">入档时间</label>
       <div class="col-sm-10">
-        <p class="input-group">
-          <input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="dt" is-open="opened" ng-click="open($event)" readonly ng-required="true"/>
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-        </p>
+        <input datefield id="createTimestamp">
       </div>
     </div>
   </form>

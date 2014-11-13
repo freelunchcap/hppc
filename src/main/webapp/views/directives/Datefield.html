@@ -1,0 +1,8 @@
+<div class="input-group">
+  <input id="{{id}}" type="text" class="form-control" ng-class="{focus: opened}" datepicker-popup="dd-MM-yyyy" ng-model="dt" is-open="opened" ng-click="toggle($event, true)" readonly ng-required="true"/>
+  <div class="input-group-btn">
+    <button type="button" class="btn btn-default" ng-click="toggle($event)">
+      <i class="glyphicon glyphicon-calendar"></i>
+    </button>
+  </div>
+</div>

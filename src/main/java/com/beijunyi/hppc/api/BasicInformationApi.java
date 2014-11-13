@@ -11,7 +11,7 @@ import com.beijunyi.hppc.services.BasicInformationService;
 
 @Named
 @Singleton
-@Path("/api/basic-information")
+@Path("/api/medical/basic-information")
 public class BasicInformationApi extends DataApi<BasicInformation> {
 
   @Inject
