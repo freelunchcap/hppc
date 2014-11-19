@@ -8,9 +8,10 @@ app.directive('hppcDatefield', function($timeout, $compile) {
       element.removeAttribute('hppc-datefield');
       element.classList.add('hppc-datefield');
 
-      element.setAttribute('datepicker-popup', 'dd-MM-yyyy');
+      element.setAttribute('datepicker-popup', 'yyyy / M / d');
       element.setAttribute('is-open', '$datefield.' + id);
       element.setAttribute('datepicker-append-to-body', 'true');
+      element.setAttribute('placeholder', '年 / 月 / 日');
       element.setAttribute('readonly', '');
 
       $compile(element)($scope);
