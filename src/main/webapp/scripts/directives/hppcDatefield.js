@@ -15,36 +15,35 @@ app.directive('hppcDatefield', function($timeout, $compile) {
 
       if($scope.$datefield == null)
         $scope.$datefield = {
-          $opened: null
+          $pendingClose: null
         };
       $scope.$datefield[id] = false;
 
       function toggle() {
-        $timeout(function() {
-          if($scope.$datefield[id] = !$scope.$datefield[id])
-            $scope.$datefield.$opened = id;
-          else
-            $scope.$datefield.$opened = null;
-        });
+        if($scope.$datefield.$pendingClose == id)
+          $scope.$datefield.$pendingClose = null;
+        else {
+          $timeout(function() {
+            $scope.$datefield[id] = !$scope.$datefield[id];
+          });
+        }
+
       }
 
       $scope.$watch('$datefield.' + id, function(newValue, oldValue) {
         if(newValue != oldValue) {
-          if(newValue)
+          if(newValue) {
             element.classList.add('focus');
-          else
+          }
+          else {
             element.classList.remove('focus');
+          }
         }
       });
 
-      document.querySelector('label[for=' + id + ']').addEventListener('click', function($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        if($scope.$datefield.$opened != null && $scope.$datefield.$opened != id) {
-          $scope.$datefield[$scope.$datefield.$opened] = false;
-          $scope.$datefield.$opened = null;
-        }
-        toggle();
+      document.querySelector('label[for=' + id + ']').addEventListener('click', function() {
+        if($scope.$datefield[id])
+          $scope.$datefield.$pendingClose = id;
       });
       element.addEventListener('click', toggle);
     }
