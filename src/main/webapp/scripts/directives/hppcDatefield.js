@@ -10,6 +10,7 @@ app.directive('hppcDatefield', function($timeout, $compile) {
 
       element.setAttribute('datepicker-popup', 'dd-MM-yyyy');
       element.setAttribute('is-open', '$datefield.' + id);
+      element.setAttribute('datepicker-append-to-body', 'true');
       element.setAttribute('readonly', '');
 
       $compile(element)($scope);
@@ -42,10 +43,13 @@ app.directive('hppcDatefield', function($timeout, $compile) {
         }
       });
 
-      document.querySelector('label[for=' + id + ']').addEventListener('click', function() {
-        if($scope.$datefield[id])
-          $scope.$datefield.$pendingClose = id;
-      });
+      var label = document.querySelector('label[for=' + id + ']');
+      if(label != null) {
+        label.addEventListener('click', function() {
+          if($scope.$datefield[id])
+            $scope.$datefield.$pendingClose = id;
+        });
+      }
       element.addEventListener('click', toggle);
     }
   }
