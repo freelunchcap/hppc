@@ -3,15 +3,19 @@
     <div class="form-group">
       <label for="createTimestamp" class="col-sm-2 control-label">入档时间</label>
       <div class="col-sm-10">
-        <div class="input-group">
-          <input type="text" id="createTimestamp" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default" ng-click="open($event)">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </button>
-            </div>
-        </div>
+        <input hppc-datefield id="createTimestamp" class="form-control" ng-model="dt" ng-required="true"/>
       </div>
+
+      <!--<div class="col-sm-10">-->
+        <!--<div class="input-group">-->
+          <!--<input type="text" id="createTimestamp" class="form-control"/>-->
+            <!--<div class="input-group-btn">-->
+              <!--<button type="button" class="btn btn-default" ng-click="open($event)">-->
+                <!--<i class="glyphicon glyphicon-calendar"></i>-->
+              <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
     <div class="form-group">
       <label for="ownerName" class="col-sm-2 control-label">主人姓名</label>
@@ -93,14 +97,15 @@
     <div class="form-group">
       <label for="petBirthday" class="col-sm-2 control-label">出生日期</label>
       <div class="col-sm-10">
-        <div class="input-group">
-          <input type="text" id="petBirthday" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open($event)">
-              <i class="glyphicon glyphicon-calendar"></i>
-            </button>
-          </div>
-        </div>
+        <input hppc-datefield id="petBirthday" class="form-control" ng-model="dt" ng-required="true"/>
+        <!--<div class="input-group">-->
+          <!--<input type="text" id="petBirthday" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" ng-required="true"/>-->
+          <!--<div class="input-group-btn">-->
+            <!--<button type="button" class="btn btn-default" ng-click="open($event)">-->
+              <!--<i class="glyphicon glyphicon-calendar"></i>-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
       </div>
     </div>
     <div class="form-group">
