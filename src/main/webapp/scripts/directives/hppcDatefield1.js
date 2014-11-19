@@ -20,8 +20,6 @@ app.directive('hppcDatefield', function($timeout, $compile) {
       $scope.$datefield[id] = false;
 
       function toggle() {
-        if($scope.$datefield.$opened != null && $scope.$datefield.$opened != id)
-          $scope.$datefield[$scope.$datefield.$opened] = false;
         $timeout(function() {
           if($scope.$datefield[id] = !$scope.$datefield[id])
             $scope.$datefield.$opened = id;
@@ -42,6 +40,10 @@ app.directive('hppcDatefield', function($timeout, $compile) {
       document.querySelector('label[for=' + id + ']').addEventListener('click', function($event) {
         $event.preventDefault();
         $event.stopPropagation();
+        if($scope.$datefield.$opened != null && $scope.$datefield.$opened != id) {
+          $scope.$datefield[$scope.$datefield.$opened] = false;
+          $scope.$datefield.$opened = null;
+        }
         toggle();
       });
       element.addEventListener('click', toggle);
