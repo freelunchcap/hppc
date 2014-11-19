@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>登录</title>
+  <title>HPPC</title>
 
   <jwr:style src="/lib.css"/>
   <jwr:style src="/app.css"/>
