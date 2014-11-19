@@ -6,6 +6,7 @@ app.directive('hppcDatefield', function($timeout, $compile) {
       var id = $attr.id;
 
       element.removeAttribute('hppc-datefield');
+      element.classList.add('hppc-datefield');
 
       element.setAttribute('datepicker-popup', 'dd-MM-yyyy');
       element.setAttribute('is-open', '$datefield.' + id);

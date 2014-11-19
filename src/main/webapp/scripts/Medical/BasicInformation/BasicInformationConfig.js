@@ -13,7 +13,8 @@ app.config(function ($stateProvider) {
     })
     .state('medical.basic-information-edit', {
       url: '/basic-information/edit/:id',
-      templateUrl: 'views/BasicInformationForm.html'
+      templateUrl: 'views/BasicInformationForm.html',
+      controller: 'BasicInformationFormController'
     });
 
 });
