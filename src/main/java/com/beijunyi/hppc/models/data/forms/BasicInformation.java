@@ -29,8 +29,7 @@ public class BasicInformation {
 
   private Integer petWeight;
 
-  @Enumerated(EnumType.STRING)
-  private PetType petType;
+  private String petType;
 
   private String otherPetType;
 
@@ -40,44 +39,36 @@ public class BasicInformation {
 
   private String petColor;
 
-  @Enumerated(EnumType.STRING)
-  private PetGender petGender;
+  private String petGender;
 
   private Boolean petNeutered;
 
   private Date petNeuterDate;
 
-  @Enumerated(EnumType.STRING)
-  private PetSource petSource;
+  private String petSource;
 
   private Double petAdoptedAge;
 
-  @ElementCollection
-  @Enumerated(EnumType.STRING)
-  private Set<PetLivingCondition> petLivingConditions;
+  @ElementCollection(fetch = FetchType.EAGER)
+  private Set<String> petLivingConditions;
 
   private String petLivingConditionChanges;
 
-  @ElementCollection
-  @Enumerated(EnumType.STRING)
-  private Set<PetBehaviour> petBehaviours;
+  @ElementCollection(fetch = FetchType.EAGER)
+  private Set<String> petBehaviours;
 
   private String petBehaviourChanges;
 
-  @Enumerated(EnumType.STRING)
-  private PetWaterDrinkingStatus petWaterDrinkingStatus;
+  private String petWaterDrinkingStatus;
 
-  @ElementCollection
-  @Enumerated(EnumType.STRING)
-  private Set<PetFood> petFoods;
+  @ElementCollection(fetch = FetchType.EAGER)
+  private Set<String> petFoods;
 
   private String petFoodBrand;
 
-  @Enumerated(EnumType.STRING)
-  private PetFeedingFrequency petFeedingFrequency;
+  private String petFeedingFrequency;
 
-  @Enumerated(EnumType.STRING)
-  private PetFoodContainer petFoodContainer;
+  private String petFoodContainer;
 
   private String otherPetFoodContainer;
 
@@ -167,11 +158,11 @@ public class BasicInformation {
     this.petWeight = petWeight;
   }
 
-  public PetType getPetType() {
+  public String getPetType() {
     return petType;
   }
 
-  public void setPetType(PetType petType) {
+  public void setPetType(String petType) {
     this.petType = petType;
   }
 
@@ -207,11 +198,11 @@ public class BasicInformation {
     this.petColor = petColor;
   }
 
-  public PetGender getPetGender() {
+  public String getPetGender() {
     return petGender;
   }
 
-  public void setPetGender(PetGender petGender) {
+  public void setPetGender(String petGender) {
     this.petGender = petGender;
   }
 
@@ -231,11 +222,11 @@ public class BasicInformation {
     this.petNeuterDate = petNeuterDate;
   }
 
-  public PetSource getPetSource() {
+  public String getPetSource() {
     return petSource;
   }
 
-  public void setPetSource(PetSource petSource) {
+  public void setPetSource(String petSource) {
     this.petSource = petSource;
   }
 
@@ -247,11 +238,11 @@ public class BasicInformation {
     this.petAdoptedAge = petAdoptedAge;
   }
 
-  public Set<PetLivingCondition> getPetLivingConditions() {
+  public Set<String> getPetLivingConditions() {
     return petLivingConditions;
   }
 
-  public void setPetLivingConditions(Set<PetLivingCondition> petLivingConditions) {
+  public void setPetLivingConditions(Set<String> petLivingConditions) {
     this.petLivingConditions = petLivingConditions;
   }
 
@@ -263,11 +254,11 @@ public class BasicInformation {
     this.petLivingConditionChanges = petLivingConditionChanges;
   }
 
-  public Set<PetBehaviour> getPetBehaviours() {
+  public Set<String> getPetBehaviours() {
     return petBehaviours;
   }
 
-  public void setPetBehaviours(Set<PetBehaviour> petBehaviours) {
+  public void setPetBehaviours(Set<String> petBehaviours) {
     this.petBehaviours = petBehaviours;
   }
 
@@ -279,19 +270,19 @@ public class BasicInformation {
     this.petBehaviourChanges = petBehaviourChanges;
   }
 
-  public PetWaterDrinkingStatus getPetWaterDrinkingStatus() {
+  public String getPetWaterDrinkingStatus() {
     return petWaterDrinkingStatus;
   }
 
-  public void setPetWaterDrinkingStatus(PetWaterDrinkingStatus petWaterDrinkingStatus) {
+  public void setPetWaterDrinkingStatus(String petWaterDrinkingStatus) {
     this.petWaterDrinkingStatus = petWaterDrinkingStatus;
   }
 
-  public Set<PetFood> getPetFoods() {
+  public Set<String> getPetFoods() {
     return petFoods;
   }
 
-  public void setPetFoods(Set<PetFood> petFoods) {
+  public void setPetFoods(Set<String> petFoods) {
     this.petFoods = petFoods;
   }
 
@@ -303,19 +294,19 @@ public class BasicInformation {
     this.petFoodBrand = petFoodBrand;
   }
 
-  public PetFeedingFrequency getPetFeedingFrequency() {
+  public String getPetFeedingFrequency() {
     return petFeedingFrequency;
   }
 
-  public void setPetFeedingFrequency(PetFeedingFrequency petFeedingFrequency) {
+  public void setPetFeedingFrequency(String petFeedingFrequency) {
     this.petFeedingFrequency = petFeedingFrequency;
   }
 
-  public PetFoodContainer getPetFoodContainer() {
+  public String getPetFoodContainer() {
     return petFoodContainer;
   }
 
-  public void setPetFoodContainer(PetFoodContainer petFoodContainer) {
+  public void setPetFoodContainer(String petFoodContainer) {
     this.petFoodContainer = petFoodContainer;
   }
 
