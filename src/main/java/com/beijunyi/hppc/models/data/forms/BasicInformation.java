@@ -89,7 +89,7 @@ public class BasicInformation {
 
   private Date petLastPregnantDate;
 
-  private Boolean petObviousMailBehavious;
+  private Boolean petObviousMaleBehavious;
 
   private String petHistoryIllnessesAndSurgeries;
 
@@ -359,12 +359,12 @@ public class BasicInformation {
     this.petLastPregnantDate = petLastPregnantDate;
   }
 
-  public Boolean getPetObviousMailBehavious() {
-    return petObviousMailBehavious;
+  public Boolean getPetObviousMaleBehavious() {
+    return petObviousMaleBehavious;
   }
 
-  public void setPetObviousMailBehavious(Boolean petObviousMailBehavious) {
-    this.petObviousMailBehavious = petObviousMailBehavious;
+  public void setPetObviousMaleBehavious(Boolean petObviousMaleBehavious) {
+    this.petObviousMaleBehavious = petObviousMaleBehavious;
   }
 
   public String getPetHistoryIllnessesAndSurgeries() {
