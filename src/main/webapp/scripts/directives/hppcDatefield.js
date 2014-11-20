@@ -1,9 +1,26 @@
 app.directive('hppcDatefield', function($timeout, $compile) {
+
   return {
     restrict: 'A',
+    terminal: true,
+    priority: 1000,
     link: function($scope, $elem, $attr) {
-      var element = $elem[0];
       var id = $attr.id;
+      if($scope.$datefield == null) {
+        $scope.$datefield = {
+          $pendingClose: null
+        };
+      }
+      if(id == null) {
+        var prefix = 'df';
+        var count = 1;
+        do {
+          id = prefix + count++;
+        } while($scope.$datefield[id] != null);
+      }
+      $scope.$datefield[id] = false;
+
+      var element = $elem[0];
 
       element.removeAttribute('hppc-datefield');
       element.classList.add('hppc-datefield');
@@ -16,12 +33,6 @@ app.directive('hppcDatefield', function($timeout, $compile) {
 
       $compile(element)($scope);
 
-      if($scope.$datefield == null)
-        $scope.$datefield = {
-          $pendingClose: null
-        };
-      $scope.$datefield[id] = false;
-
       function toggle() {
         if($scope.$datefield.$pendingClose == id)
           $scope.$datefield.$pendingClose = null;
@@ -30,7 +41,6 @@ app.directive('hppcDatefield', function($timeout, $compile) {
             $scope.$datefield[id] = !$scope.$datefield[id];
           });
         }
-
       }
 
       $scope.$watch('$datefield.' + id, function(newValue, oldValue) {
