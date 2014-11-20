@@ -16,3 +16,16 @@
 .radio > label {
   width: 100%;
 }
+
+ul.nav-tabs {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+ul.nav-tabs > li {
+  cursor: pointer;
+}
+
+.tab-content {
+  padding: 20px;
+}

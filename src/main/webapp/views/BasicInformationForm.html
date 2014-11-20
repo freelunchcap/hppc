@@ -2,159 +2,297 @@
   <form class="form-horizontal">
     <h2 class="col-md-offset-1">基本信息</h2>
     <hr/>
-    <div class="form-group">
-      <label for="id" class="col-sm-2 control-label">*档案号</label>
-      <div class="col-sm-8">
-        <input type="text" id="id" class="form-control" ng-model="record.id" placeholder="自动生成" readonly/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="createTimestamp" class="col-sm-2 control-label">*入档时间</label>
-      <div class="col-sm-8">
-        <input hppc-datefield id="createTimestamp" class="form-control" ng-model="record.createTimestamp" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="ownerName" class="col-sm-2 control-label">*主人姓名</label>
-      <div class="col-sm-8">
-        <input type="text" id="ownerName" class="form-control" ng-model="record.ownerName" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="address" class="col-sm-2 control-label">地址</label>
-      <div class="col-sm-8">
-        <input type="text" id="address" class="form-control" ng-model="record.address"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="postCode" class="col-sm-2 control-label">邮编</label>
-      <div class="col-sm-8">
-        <input type="text" id="postCode" class="form-control" ng-model="record.postCode"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="cellPhone" class="col-sm-2 control-label">*手机</label>
-      <div class="col-sm-8">
-        <input type="text" id="cellPhone" class="form-control" ng-model="record.cellPhone" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Email</label>
-      <div class="col-sm-8">
-        <input type="text" id="email" class="form-control" ng-model="record.email"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="petName" class="col-sm-2 control-label">*宠物名</label>
-      <div class="col-sm-8">
-        <input type="text" id="petName" class="form-control" ng-model="record.petName" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="petWeight" class="col-sm-2 control-label">*体重</label>
-      <div class="col-sm-8">
-        <input type="text" id="petWeight" class="form-control" ng-model="record.petWeight" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">*种类</label>
-      <div class="col-sm-8">
-        <div class="row">
-          <div class="col-sm-1">
-            <div class="radio">
-              <label>
-                <input type="radio" ng-model="petType" value="CAT">
-                <span>猫</span>
-              </label>
-            </div>
+
+    <tabset>
+      <tab>
+        <tab-heading>主要信息</tab-heading>
+        <div class="form-group">
+          <label for="id" class="col-sm-2 control-label">*档案号</label>
+          <div class="col-sm-8">
+            <input type="text" id="id" class="form-control" ng-model="record.id" placeholder="自动生成" readonly/>
           </div>
-          <div class="col-sm-1">
-            <div class="radio">
-              <label>
-                <input type="radio" ng-model="petType" value="DOG">
-                <span>狗</span>
-              </label>
-            </div>
+        </div>
+        <div class="form-group">
+          <label for="createTimestamp" class="col-sm-2 control-label">*入档时间</label>
+          <div class="col-sm-8">
+            <input hppc-datefield id="createTimestamp" class="form-control" ng-model="record.createTimestamp" ng-required="true"/>
           </div>
-          <div class="col-sm-10">
-            <div class="radio">
-              <label>
-                <input type="radio" ng-model="petType" value="OTHER">
-                <input type="text" ng-model="otherPetType" class="form-control" placeholder="其他（请注明）">
-              </label>
+        </div>
+        <div class="form-group">
+          <label for="ownerName" class="col-sm-2 control-label">*主人姓名</label>
+          <div class="col-sm-8">
+            <input type="text" id="ownerName" class="form-control" ng-model="record.ownerName" ng-required="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address" class="col-sm-2 control-label">地址</label>
+          <div class="col-sm-8">
+            <input type="text" id="address" class="form-control" ng-model="record.address"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="postCode" class="col-sm-2 control-label">邮编</label>
+          <div class="col-sm-8">
+            <input type="text" id="postCode" class="form-control" ng-model="record.postCode"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cellPhone" class="col-sm-2 control-label">*手机</label>
+          <div class="col-sm-8">
+            <input type="text" id="cellPhone" class="form-control" ng-model="record.cellPhone" ng-required="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-8">
+            <input type="text" id="email" class="form-control" ng-model="record.email"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="petName" class="col-sm-2 control-label">*宠物名</label>
+          <div class="col-sm-8">
+            <input type="text" id="petName" class="form-control" ng-model="record.petName" ng-required="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="petWeight" class="col-sm-2 control-label">*体重</label>
+          <div class="col-sm-8">
+            <input type="text" id="petWeight" class="form-control" ng-model="record.petWeight" ng-required="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">*种类</label>
+          <div class="col-sm-8">
+            <div class="row">
+              <div class="col-sm-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="petType" value="CAT">
+                    <span>猫</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="petType" value="DOG">
+                    <span>狗</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-10">
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="petType" value="OTHER">
+                    <input type="text" ng-model="otherPetType" class="form-control" placeholder="其他（请注明）">
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="petBirthday" class="col-sm-2 control-label">*出生日期</label>
-      <div class="col-sm-8">
-        <input hppc-datefield id="petBirthday" class="form-control" ng-model="record.petBirthday" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="petBreed" class="col-sm-2 control-label">*品种</label>
-      <div class="col-sm-8">
-        <input type="text" id="petBreed" class="form-control" ng-model="record.petBreed" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="petColor" class="col-sm-2 control-label">*颜色</label>
-      <div class="col-sm-8">
-        <input type="text" id="petColor" class="form-control" ng-model="record.petColor" ng-required="true"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">*性别</label>
-      <div class="col-sm-8">
-        <div class="row">
-          <div class="col-sm-2">
-            <div class="radio">
-              <label>
-                <input type="radio" name="petGender" value="MALE">
-                <span>雌性</span>
-              </label>
-            </div>
+        <div class="form-group">
+          <label for="petBirthday" class="col-sm-2 control-label">*出生日期</label>
+          <div class="col-sm-8">
+            <input hppc-datefield id="petBirthday" class="form-control" ng-model="record.petBirthday" ng-required="true"/>
           </div>
-          <div class="col-sm-2">
-            <div class="radio">
-              <label>
-                <input type="radio" name="petGender" value="FEMALE">
-                <span>雄性</span>
-              </label>
+        </div>
+        <div class="form-group">
+          <label for="petBreed" class="col-sm-2 control-label">*品种</label>
+          <div class="col-sm-8">
+            <input type="text" id="petBreed" class="form-control" ng-model="record.petBreed" ng-required="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="petColor" class="col-sm-2 control-label">*颜色</label>
+          <div class="col-sm-8">
+            <input type="text" id="petColor" class="form-control" ng-model="record.petColor" ng-required="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">*性别</label>
+          <div class="col-sm-8">
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="petGender" value="MALE">
+                    <span>雌性</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="petGender" value="FEMALE">
+                    <span>雄性</span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="petNeutered" class="col-sm-2 control-label">*绝育/去势</label>
-      <div class="col-sm-8">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" id="petNeutered" name="petNeutered" ng-model="record.petNeutered">
-                <input hppc-datefield id="petNeuterDate" class="form-control" ng-model="record.petNeuterDate" ng-required="true"/>
-              </label>
+        <div class="form-group">
+          <label for="petNeutered" class="col-sm-2 control-label">*绝育/去势</label>
+          <div class="col-sm-8">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="petNeutered" name="petNeutered" ng-model="record.petNeutered">
+                    <input hppc-datefield id="petNeuterDate" class="form-control" ng-model="record.petNeuterDate" ng-required="true"/>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <h3 class="col-md-offset-1">一般性记录</h3>
-    <hr/>
-    <h3 class="col-md-offset-1">生活环境及方式</h3>
-    <hr/>
-    <h3 class="col-md-offset-1">行为</h3>
-    <hr/>
-    <h3 class="col-md-offset-1">营养状况</h3>
-    <hr/>
-    <h3 class="col-md-offset-1">繁殖情况</h3>
-    <hr/>
-
-
+      </tab>
+      <tab>
+        <tab-heading>一般性记录</tab-heading>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">宠物来源</label>
+          <div class="col-sm-8">
+            <label class="radio-inline">
+              <input type="radio" ng-model="petSource" value="PUPPY_MILL">
+              <span>繁殖场</span>
+            </label>
+            <label class="radio-inline">
+              <input type="radio" ng-model="petSource" value="PET_SHOP">
+              <span>宠物商店</span>
+            </label>
+            <label class="radio-inline">
+              <input type="radio" ng-model="petSource" value="PET_OWNER">
+              <span>宠物主人</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="petAdoptedAge" class="col-sm-2 control-label">宠物接受领养时的年龄</label>
+          <div class="col-sm-8">
+            <input type="number" id="petAdoptedAge" class="form-control" ng-model="record.petAdoptedAge"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">生活环境及方式</label>
+          <div class="col-sm-8">
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petLivingConditions" value="HOUSE">
+              <span>平房</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petLivingConditions" value="FLAT">
+              <span>楼房</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petLivingConditions" value="WALKED_IN_PARK">
+              <span>经常到公园散步</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petLivingConditions" value="DAILY_EXERCISE">
+              <span>每天运动</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="petLivingConditionChanges" class="col-sm-2 control-label">生活环境是否有过改变</label>
+          <div class="col-sm-8">
+            <input type="text" id="petLivingConditionChanges" class="form-control" ng-model="record.petLivingConditionChanges"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">行为</label>
+          <div class="col-sm-8">
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="PEACEFUL">
+              <span>平静</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="FRIENDLY">
+              <span>友好</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="NERVOURS">
+              <span>紧张</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="AGGRESSIVE">
+              <span>好斗</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="DAMAGING_FURNITURES">
+              <span>经常损坏家中物品</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="petBehaviourChanges" class="col-sm-2 control-label">最近行为举止的变化</label>
+          <div class="col-sm-8">
+            <input type="text" id="petBehaviourChanges" class="form-control" ng-model="record.petBehaviourChanges"/>
+          </div>
+        </div>
+      </tab>
+      <tab>
+        <tab-heading>营养状况</tab-heading>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">饮水情况</label>
+          <div class="col-sm-8">
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="PEACEFUL">
+              <span>正常</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="FRIENDLY">
+              <span>增加</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="NERVOURS">
+              <span>减少</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">宠物食物</label>
+          <div class="col-sm-8">
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="PEACEFUL">
+              <span>自己制作</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="FRIENDLY">
+              <span>干性商品性宠物食品</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="NERVOURS">
+              <span>湿性商品食物</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">食用宠物食品频率</label>
+          <div class="col-sm-8">
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="PEACEFUL">
+              <span>每日一次</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="FRIENDLY">
+              <span>每日两次</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="NERVOURS">
+              <span>每日三次</span>
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" ng-model="petBehaviours" value="NERVOURS">
+              <span>自由采食</span>
+            </label>
+          </div>
+        </div>
+      </tab>
+      <tab>
+        <tab-heading>繁殖情况</tab-heading>
+      </tab>
+    </tabset>
   </form>
 </div>
