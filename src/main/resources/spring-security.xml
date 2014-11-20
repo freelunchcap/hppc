@@ -20,7 +20,7 @@
     <form-login
       login-page="/login.html"
       login-processing-url="/login"
-      authentication-failure-url="/login.html?error=true"
+      authentication-failure-url="/login.html#error"
       username-parameter="hppc-username"
       password-parameter="hppc-password"/>
     <logout delete-cookies="JSESSIONID" logout-success-url="/login.html"/>
