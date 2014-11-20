@@ -2,7 +2,7 @@ app.config(function ($stateProvider) {
 
   $stateProvider.state('medical', {
     url: '/medical',
-    templateUrl: 'views/Medical.html',
+    templateUrl: 'views/modules/Medical/Medical.html',
     controller: 'MedicalPageController'
   });
 

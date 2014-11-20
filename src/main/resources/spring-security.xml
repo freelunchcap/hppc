@@ -19,11 +19,14 @@
     <intercept-url pattern="/**" access="isAuthenticated()"/>
     <form-login
       login-page="/login.html"
-      login-processing-url="/login"
+      login-processing-url="/security/login"
       authentication-failure-url="/login.html#error"
       username-parameter="hppc-username"
       password-parameter="hppc-password"/>
-    <logout delete-cookies="JSESSIONID" logout-success-url="/login.html"/>
+    <logout
+      logout-url="/security/logout"
+      delete-cookies="JSESSIONID"
+      logout-success-url="/login.html"/>
     <remember-me token-repository-ref="inMemoryTokenRepositoryImpl" user-service-ref="databaseUserDetailsService"/>
   </http>
 
