@@ -1,9 +1,12 @@
 app.controller('BasicInformationFormController', function($scope, $stateParams, BasicInformation) {
-  if($stateParams.id != null)
+  if($stateParams.id != null) {
     $scope.record = BasicInformation.get({id: $stateParams.id});
+    $scope.newRecord = false;
+  }
   else {
     $scope.record = new BasicInformation();
     $scope.record.createTimestamp = new Date();
+    $scope.newRecord = true;
   }
 
   function detectChanges() {
@@ -23,6 +26,7 @@ app.controller('BasicInformationFormController', function($scope, $stateParams, 
     $scope.pending = true;
     $scope.record.$save(function() {
       $scope.pending = false;
+      $scope.newRecord = false;
       detectChanges();
     });
   }

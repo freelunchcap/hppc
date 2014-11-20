@@ -1,4 +1,4 @@
-.filter('hppcParamsFilter', function() {
+app.filter('hppcParamsFilter', function() {
   return function(params) {
     var query = {
       from: (params.page() - 1) * params.count(),
@@ -13,4 +13,4 @@
     });
     return query;
   }
-});                                                                            app
+});

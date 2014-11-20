@@ -20,9 +20,12 @@ app.directive('hppcDatefield', function($timeout, $compile) {
       }
       $scope.$datefield[id] = false;
 
+      var disableWatch = $attr.ngReadonly;
+
       var element = $elem[0];
 
       element.removeAttribute('hppc-datefield');
+      element.removeAttribute('ng-readonly');
       element.classList.add('hppc-datefield');
 
       element.setAttribute('datepicker-popup', 'yyyy年M月d日');
@@ -32,16 +35,6 @@ app.directive('hppcDatefield', function($timeout, $compile) {
       element.setAttribute('readonly', '');
 
       $compile(element)($scope);
-
-      function toggle() {
-        if($scope.$datefield.$pendingClose == id)
-          $scope.$datefield.$pendingClose = null;
-        else {
-          $timeout(function() {
-            $scope.$datefield[id] = !$scope.$datefield[id];
-          });
-        }
-      }
 
       $scope.$watch('$datefield.' + id, function(newValue, oldValue) {
         if(newValue != oldValue) {
@@ -53,6 +46,28 @@ app.directive('hppcDatefield', function($timeout, $compile) {
           }
         }
       });
+
+      var disabled = false;
+      if(disableWatch != null) {
+        $scope.$watch(disableWatch, function(newValue) {
+          if(disabled = newValue)
+            element.classList.add('disabled');
+          else
+            element.classList.remove('disabled');
+        });
+      }
+
+      function toggle() {
+        if(disabled)
+          return;
+        if($scope.$datefield.$pendingClose == id)
+          $scope.$datefield.$pendingClose = null;
+        else {
+          $timeout(function() {
+            $scope.$datefield[id] = !$scope.$datefield[id];
+          });
+        }
+      }
 
       var label = document.querySelector('label[for=' + id + ']');
       if(label != null) {

@@ -15,7 +15,7 @@ public class BasicInformation {
 
   private Date createTimestamp;
 
-  private Integer ownerName;
+  private String ownerName;
 
   private String address;
 
@@ -111,11 +111,11 @@ public class BasicInformation {
     this.createTimestamp = createTimestamp;
   }
 
-  public Integer getOwnerName() {
+  public String getOwnerName() {
     return ownerName;
   }
 
-  public void setOwnerName(Integer ownerName) {
+  public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
   }
 

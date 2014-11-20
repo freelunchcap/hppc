@@ -12,3 +12,9 @@
   background: #fff!important;
   cursor: pointer!important;
 }
+
+.hppc-datefield[readonly].disabled {
+  cursor: not-allowed!important;
+  background-color: #eee!important;
+  opacity: 1;
+}
