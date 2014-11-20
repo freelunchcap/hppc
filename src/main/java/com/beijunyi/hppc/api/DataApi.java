@@ -7,6 +7,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import com.beijunyi.hppc.models.internal.QueryResult;
 import com.beijunyi.hppc.services.DataService;
 import org.springframework.security.access.annotation.Secured;
 
@@ -21,7 +22,8 @@ public abstract class DataApi<T> {
   @GET
   @Secured("ROLE_STAFF")
   public Response query(@Context UriInfo info) {
-    return Response.ok(service.query(ApiUtils.getRequest(info))).build();
+    QueryResult<T> result = service.query(ApiUtils.getRequest(info));
+    return Response.ok(result.getData()).header("total", result.getTotal()).build();
   }
 
   @POST
