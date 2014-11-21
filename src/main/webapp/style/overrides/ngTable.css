@@ -1,0 +1,73 @@
+.ng-table {
+  margin-bottom: 0;
+}
+
+.ng-table > thead > tr {
+  background: #307ecc;
+  color: #FFF;
+  font-weight: normal;
+}
+
+.ng-table > thead > tr > th {
+  font-weight: normal;
+  text-shadow: none!important;
+  border-bottom: none;
+}
+
+.ng-table th.sortable div:before,
+.ng-table th.sortable.sort-desc div:after {
+  border-top: 4px solid #FFF;
+}
+
+.ng-table th.sortable div:after,
+.ng-table th.sortable div:before {
+  border-color: #FFF transparent;
+}
+
+.ng-table th.sortable.sort-asc div:after,
+.ng-table th.sortable.sort-asc div:hover:after,
+.ng-table th.sortable.sort-desc div:after {
+  opacity: 1;
+}
+
+
+.ng-table > tbody > tr > td {
+  text-align: center;
+  border-right: 1px solid #E1E1E1;
+  border-bottom: 1px solid #E1E1E1;
+  padding: 6px 4px;
+  vertical-align: middle;
+}
+
+.ng-table > tbody > tr > td > input[type=text] {
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 1px;
+}
+
+.ng-table > tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+.ng-table > tbody > tr > td:last-child {
+  border-right: none;
+}
+
+.ng-table > tbody > tr.active > td {
+  border-right-color: #C7D3A9;
+  background-color: #E4EFC9;
+}
+
+.table-selectable > tbody > tr {
+  cursor: pointer;
+}
+
+.ng-table-tools {
+  position: relative;
+  padding: 3px 9px;
+  background-color: #eff3f8;
+  border-bottom: 1px solid #e1e1e1;
+  border-top: 1px solid #e1e1e1;
+  color: #393939;
+  font-size: 17px;
+}
