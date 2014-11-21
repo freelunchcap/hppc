@@ -29,6 +29,9 @@ app.directive('hppcDatefield', function($timeout, $compile) {
       element.classList.add('hppc-datefield');
 
       element.setAttribute('datepicker-popup', 'yyyy年M月d日');
+      element.setAttribute('current-text', '今天');
+      element.setAttribute('clear-text', '清除');
+      element.setAttribute('close-text', '完成');
       element.setAttribute('is-open', '$datefield.' + id);
       element.setAttribute('datepicker-append-to-body', 'true');
       element.setAttribute('placeholder', '年 / 月 / 日');
