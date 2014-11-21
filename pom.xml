@@ -29,6 +29,8 @@
     <resteasy-version>3.0.9.Final</resteasy-version>
     <jawr-version>3.5.2</jawr-version>
 
+    <java-jdk-version>1.7</java-jdk-version>
+    <maven-compiler-plugin-version>3.1</maven-compiler-plugin-version>
     <maven-war-plugin-version>2.4</maven-war-plugin-version>
   </properties>
 
@@ -320,11 +322,20 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin-version}</version>
+        <configuration>
+          <source>${java-jdk-version}</source>
+          <target>${java-jdk-version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>${maven-war-plugin-version}</version>
         <configuration>
           <archiveClasses>true</archiveClasses>
-          <warName>root</warName>
+          <warName>ROOT</warName>
         </configuration>
       </plugin>
     </plugins>
