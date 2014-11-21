@@ -1,7 +1,7 @@
 <div id="basic-information-page">
   <table ng-table="tableParams" template-pagination="basic-information-table-tools" class="table table-selectable">
     <tbody ng-repeat="record in $data">
-    <tr ng-click="toggleSelection(template)" ng-class="{active: record == tableParams.$selection}">
+    <tr ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
       <td class="col-md-2" data-title="'档案号'" sortable="'id'">{{record.id}}</td>
       <td class="col-md-2" data-title="'主人姓名'" sortable="'ownerName'">{{record.ownerName}}</td>
       <td class="col-md-2" data-title="'种类'" sortable="'petName'">{{record.petType}}</td>
@@ -19,7 +19,7 @@
           <i class="ace-icon fa fa-plus bigger-110"></i>
           添加
         </a>
-        <a class="btn btn-sm btn-info" ui-sref="settings-template-details({template: params.$selection.title})" ng-disabled="params.$selection == null">
+        <a class="btn btn-sm btn-info" ui-sref="medical.basic-information-edit({id: params.$selection.id})" ng-disabled="params.$selection == null">
           <i class="fa fa-plus bigger-110"></i>
           编辑
         </a>

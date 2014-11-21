@@ -14,4 +14,11 @@ app.controller('BasicInformationPageController', function($scope, $filter, ngTab
     }
   });
 
+  $scope.select = function(record) {
+    if($scope.tableParams.$selection == record)
+      $scope.tableParams.$selection = null;
+    else
+      $scope.tableParams.$selection = record;
+  };
+
 });
