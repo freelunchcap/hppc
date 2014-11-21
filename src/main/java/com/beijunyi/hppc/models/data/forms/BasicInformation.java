@@ -13,34 +13,45 @@ public class BasicInformation {
   @GeneratedValue
   private int id;
 
+  @Column(nullable = false, updatable = false)
   private Date createTimestamp;
 
+  @Column(nullable = false)
   private String ownerName;
 
   private String address;
 
   private String postCode;
 
+  @Column(nullable = false)
   private String cellPhone;
 
   private String email;
 
+  @Column(nullable = false)
   private String petName;
 
-  private Integer petWeight;
+  @Column(nullable = false)
+  private Double petWeight;
 
+  @Column(nullable = false)
   private String petType;
 
   private String otherPetType;
 
+  @Column(nullable = false)
   private Date petBirthday;
 
+  @Column(nullable = false)
   private String petBreed;
 
+  @Column(nullable = false)
   private String petColor;
 
+  @Column(nullable = false)
   private String petGender;
 
+  @Column(nullable = false)
   private Boolean petNeutered;
 
   private Date petNeuterDate;
@@ -150,11 +161,11 @@ public class BasicInformation {
     this.petName = petName;
   }
 
-  public Integer getPetWeight() {
+  public Double getPetWeight() {
     return petWeight;
   }
 
-  public void setPetWeight(Integer petWeight) {
+  public void setPetWeight(Double petWeight) {
     this.petWeight = petWeight;
   }
 
