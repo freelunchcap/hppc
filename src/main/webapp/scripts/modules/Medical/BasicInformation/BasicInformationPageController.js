@@ -8,7 +8,7 @@ app.controller('BasicInformationPageController', function($scope, $filter, ngTab
     getData: function($defer, params) {
       var query = $filter('hppcParamsFilter')(params);
       BasicInformation.query(query, function (data, responseHeaders) {
-        params.total(responseHeaders.total);
+        params.total(parseInt(responseHeaders('total')));
         $defer.resolve(data);
       });
     }

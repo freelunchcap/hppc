@@ -16,13 +16,25 @@
     <div class="clearfix ng-table-tools">
       <div class="col-md-4">
         <a class="btn btn-sm btn-success" ui-sref="medical.basic-information-create">
-          <i class="ace-icon fa fa-plus bigger-110"></i>
           添加
         </a>
         <a class="btn btn-sm btn-info" ui-sref="medical.basic-information-edit({id: params.$selection.id})" ng-disabled="params.$selection == null">
-          <i class="fa fa-plus bigger-110"></i>
           编辑
         </a>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-4">
+        <div class="pull-right">
+          <span>正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.page() * params.count()}}</span>
+          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1">
+            上一页
+          </button>
+          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() + 1)" ng-disabled="params.page() >= params.total() / params.count()">
+            下一页
+          </button>
+        </div>
       </div>
     </div>
   </script>
