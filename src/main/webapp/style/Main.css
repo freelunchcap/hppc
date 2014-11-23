@@ -29,3 +29,13 @@ ul.nav-tabs > li {
 .tab-content {
   padding: 20px;
 }
+
+input[type="text"][readonly]:focus {
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+
+.form-alert {
+  padding-top: 7px;
+  color: #d9534f;
+}
