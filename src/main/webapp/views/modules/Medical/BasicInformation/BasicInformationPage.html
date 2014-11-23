@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-4">
         <div class="pull-right">
-          <span>正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.page() * params.count()}}</span>
+          <span>正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.total() > params.page() * params.count() ? params.page() * params.count() : params.total()}}</span>
           <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1">
             上一页
           </button>
