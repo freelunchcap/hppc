@@ -8,6 +8,7 @@ import javax.ws.rs.*;
 
 import com.beijunyi.hppc.models.data.forms.BasicInformation;
 import com.beijunyi.hppc.services.BasicInformationService;
+import com.beijunyi.hppc.services.DataService;
 
 @Named
 @Singleton
@@ -15,7 +16,7 @@ import com.beijunyi.hppc.services.BasicInformationService;
 public class BasicInformationApi extends DataApi<BasicInformation> {
 
   @Inject
-  public BasicInformationApi(@Nonnull BasicInformationService service) {
+  public BasicInformationApi(@Nonnull DataService<BasicInformation> service) {
     super(service);
   }
 

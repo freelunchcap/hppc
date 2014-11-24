@@ -11,7 +11,7 @@ public class BasicInformation {
 
   @Id
   @GeneratedValue
-  private int id;
+  private Integer id;
 
   @Column(nullable = false, updatable = false)
   private Date createTimestamp;
@@ -97,11 +97,11 @@ public class BasicInformation {
 
   private Date updateTimestamp;
 
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
