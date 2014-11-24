@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.services;
+package com.beijunyi.hppc.services.data;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 
 import com.beijunyi.hppc.dao.Dao;
 import com.beijunyi.hppc.models.data.forms.BasicInformation;
+import com.beijunyi.hppc.services.data.DataService;
 
 @Named
 @Singleton

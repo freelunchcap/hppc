@@ -7,7 +7,7 @@ import javax.inject.Singleton;
 import javax.ws.rs.Path;
 
 import com.beijunyi.hppc.models.data.forms.MedicalRecord;
-import com.beijunyi.hppc.services.DataService;
+import com.beijunyi.hppc.services.data.DataService;
 
 @Named
 @Singleton

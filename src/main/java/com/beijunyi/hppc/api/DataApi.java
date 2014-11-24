@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.beijunyi.hppc.models.internal.QueryResult;
-import com.beijunyi.hppc.services.DataService;
+import com.beijunyi.hppc.services.data.DataService;
 import org.springframework.security.access.annotation.Secured;
 
 public abstract class DataApi<T> {

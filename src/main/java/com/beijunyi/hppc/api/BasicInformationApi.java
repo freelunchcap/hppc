@@ -7,8 +7,7 @@ import javax.inject.Singleton;
 import javax.ws.rs.*;
 
 import com.beijunyi.hppc.models.data.forms.BasicInformation;
-import com.beijunyi.hppc.services.BasicInformationService;
-import com.beijunyi.hppc.services.DataService;
+import com.beijunyi.hppc.services.data.DataService;
 
 @Named
 @Singleton

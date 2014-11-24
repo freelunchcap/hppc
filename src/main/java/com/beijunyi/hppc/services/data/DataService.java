@@ -1,4 +1,4 @@
-package com.beijunyi.hppc.services;
+package com.beijunyi.hppc.services.data;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
