@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>HPPC</title>
+  <title>和平宠物医院 HePing Pet Clinic</title>
 
   <jwr:style src="/lib.css"/>
   <jwr:style src="/app.css"/>

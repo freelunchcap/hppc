@@ -1,0 +1,13 @@
+.accordion-toggle:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.router-tabs .tab-content {
+  display: none;
+}
+
+.tools-tabs li.active > a,
+.tools-tabs li.active > a:hover {
+  background-color: #eff3f8;
+}

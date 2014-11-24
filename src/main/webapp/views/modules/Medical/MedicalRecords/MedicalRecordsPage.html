@@ -1,4 +1,4 @@
-<div id="basic-information-page">
+<div id="medical-records-page">
   <table ng-table="tableParams" show-filter="true" template-pagination="basic-information-table-tools" class="table table-selectable">
     <tbody ng-repeat="record in $data">
     <tr ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
@@ -18,7 +18,7 @@
         <a class="btn btn-sm btn-success" ui-sref="medical.create-record">
           添加
         </a>
-        <a class="btn btn-sm btn-info" ui-sref="medical.edit-record({id: params.$selection.id})" ng-disabled="params.$selection == null">
+        <a class="btn btn-sm btn-info" ui-sref="medical.edit-record.basic-information({id: params.$selection.id})" ng-disabled="params.$selection == null">
           编辑
         </a>
       </div>
