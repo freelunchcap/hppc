@@ -1,5 +1,5 @@
 <div id="basic-information-page">
-  <table ng-table="tableParams" template-pagination="basic-information-table-tools" class="table table-selectable">
+  <table ng-table="tableParams" show-filter="true" template-pagination="basic-information-table-tools" class="table table-selectable">
     <tbody ng-repeat="record in $data">
     <tr ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
       <td class="col-md-2" data-title="'档案号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
@@ -15,10 +15,10 @@
   <script type="text/ng-template" id="basic-information-table-tools">
     <div class="clearfix ng-table-tools">
       <div class="col-md-4">
-        <a class="btn btn-sm btn-success" ui-sref="medical.basic-information-create">
+        <a class="btn btn-sm btn-success" ui-sref="medical.create-record">
           添加
         </a>
-        <a class="btn btn-sm btn-info" ui-sref="medical.basic-information-edit({id: params.$selection.id})" ng-disabled="params.$selection == null">
+        <a class="btn btn-sm btn-info" ui-sref="medical.edit-record({id: params.$selection.id})" ng-disabled="params.$selection == null">
           编辑
         </a>
       </div>

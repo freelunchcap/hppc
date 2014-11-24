@@ -30,6 +30,22 @@
   opacity: 1;
 }
 
+.ng-table > thead > tr.ng-table-filters {
+  background-color: #eff3f8;
+}
+
+.ng-table > thead > tr.ng-table-filters > th {
+  padding: 4px;
+}
+
+.ng-table > thead > tr.ng-table-filters input[type="text"] {
+  padding: 3px 6px;
+  height: 28px;
+}
+
+.ng-table > tbody+tbody {
+  border-top: none;
+}
 
 .ng-table > tbody > tr > td {
   text-align: center;

@@ -1,4 +1,4 @@
-app.controller('BasicInformationFormController', function($scope, $stateParams, BasicInformation) {
+app.controller('MedicalRecordDetailsPageController', function($scope, $stateParams, BasicInformation) {
 
   function detectChanges() {
     $scope.recordChanged = false;

@@ -1,4 +1,4 @@
-app.controller('BasicInformationPageController', function($scope, $filter, ngTableParams, BasicInformation) {
+app.controller('MedicalRecordsPageController', function($scope, $filter, ngTableParams, BasicInformation) {
 
   $scope.tableParams = new ngTableParams({
     page: 1,
