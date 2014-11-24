@@ -92,9 +92,12 @@ public abstract class AbstractDao<T> implements Dao<T> {
                                .setProjection(Projections.rowCount());
 
     if(request.getFilters() != null) {
-      Criterion filterQuery = Restrictions.allEq(request.getFilters());
-      dataCriteria.add(filterQuery);
-      totalCriteria.add(filterQuery);
+      Conjunction conj = Restrictions.conjunction();
+      for(Map.Entry<String, String> filter : request.getFilters().entrySet()) {
+        conj.add(Restrictions.ilike(filter.getKey(), filter.getValue()));
+      }
+      dataCriteria.add(conj);
+      totalCriteria.add(conj);
     }
 
     for(Criterion c : criterion) {
