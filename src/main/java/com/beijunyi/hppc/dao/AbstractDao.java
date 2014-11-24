@@ -94,7 +94,7 @@ public abstract class AbstractDao<T> implements Dao<T> {
     if(request.getFilters() != null) {
       Conjunction conj = Restrictions.conjunction();
       for(Map.Entry<String, String> filter : request.getFilters().entrySet()) {
-        conj.add(Restrictions.ilike(filter.getKey(), filter.getValue()));
+        conj.add(Restrictions.ilike(filter.getKey(), "%" + filter.getValue() + "%"));
       }
       dataCriteria.add(conj);
       totalCriteria.add(conj);

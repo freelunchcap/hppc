@@ -19,15 +19,14 @@ app.controller('BasicInformationFormController', function($scope, $stateParams, 
     record.updateTimestamp = record.updateTimestamp != null ? new Date(record.updateTimestamp) : undefined;
   }
 
-  if($stateParams.id != null) {
+  if($stateParams.id != 'new') {
     BasicInformation.get({id: $stateParams.id}, function(record) {
       fixDates(record);
       $scope.record = record;
       detectChanges();
     });
     $scope.newRecord = false;
-  }
-  else {
+  } else {
     $scope.record = new BasicInformation();
     $scope.record.createTimestamp = new Date();
     $scope.newRecord = true;

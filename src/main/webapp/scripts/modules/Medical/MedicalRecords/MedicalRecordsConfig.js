@@ -6,11 +6,6 @@ app.config(function ($stateProvider) {
       templateUrl: 'views/modules/Medical/MedicalRecords/MedicalRecordsPage.html',
       controller: 'MedicalRecordsPageController'
     })
-    .state('medical.create-record', {
-      url: '/record/create',
-      templateUrl: 'views/modules/Medical/MedicalRecords/MedicalRecordDetailsPage.html',
-      controller: 'MedicalRecordDetailsPageController'
-    })
     .state('medical.edit-record', {
       url: '/record/edit/:id',
       abstract: true,

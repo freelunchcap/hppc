@@ -9,7 +9,9 @@ app.filter('hppcParamsFilter', function() {
       query['sort-dir'] = dir;
     });
     angular.forEach(params.filter(), function(value, key) {
-      query['filter-' + key] = value;
+      value = value.trim();
+      if(value != '')
+        query['filter-' + key] = value;
     });
     return query;
   }
