@@ -13,20 +13,20 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.beijunyi.hppc.models.api.*;
-import com.beijunyi.hppc.services.AdminService;
+import com.beijunyi.hppc.services.SystemService;
 
 @Named
 @Singleton
-@Path("/api/admin")
-public class AdminApi {
+@Path("/api/system")
+public class SystemApi {
 
   @Inject
-  private AdminService as;
+  private SystemService ss;
 
   @GET
   @Path("accounts")
   public Response queryAccounts(@Nonnull @Context UriInfo uriInfo) {
-    return Response.ok(as.queryAccounts(ApiUtils.getRequest(uriInfo))).build();
+    return Response.ok(ss.queryAccounts(ApiUtils.getRequest(uriInfo))).build();
   }
 
   @POST
@@ -34,7 +34,7 @@ public class AdminApi {
   public Response createAccount(@Nullable UpdateAccountRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.createAccount(request)).build();
+    return Response.ok(ss.createAccount(request)).build();
   }
 
   @POST
@@ -42,7 +42,7 @@ public class AdminApi {
   public Response updateAccount(@Nullable UpdateAccountRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.updateAccount(request)).build();
+    return Response.ok(ss.updateAccount(request)).build();
   }
 
   @POST
@@ -50,7 +50,7 @@ public class AdminApi {
   public Response changeAccountPassword(@Nullable ChangeAccountPasswordRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.changeAccountPassword(request)).build();
+    return Response.ok(ss.changeAccountPassword(request)).build();
   }
 
   @POST
@@ -58,13 +58,13 @@ public class AdminApi {
   public Response changeAccountRoleMapping(@Nullable ChangeAccountRoleMappingRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.changeAccountRoleMapping(request)).build();
+    return Response.ok(ss.changeAccountRoleMapping(request)).build();
   }
 
   @GET
   @Path("roles")
   public Response queryRoles(@Nonnull @Context UriInfo uriInfo) {
-    return Response.ok(as.queryRoles(ApiUtils.getRequest(uriInfo))).build();
+    return Response.ok(ss.queryRoles(ApiUtils.getRequest(uriInfo))).build();
   }
 
   @POST
@@ -72,7 +72,7 @@ public class AdminApi {
   public Response createRole(@Nullable UpdateRoleRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.createRole(request)).build();
+    return Response.ok(ss.createRole(request)).build();
   }
 
   @POST
@@ -80,7 +80,7 @@ public class AdminApi {
   public Response updateRole(@Nullable UpdateRoleRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.updateRole(request)).build();
+    return Response.ok(ss.updateRole(request)).build();
   }
 
   @POST
@@ -88,13 +88,13 @@ public class AdminApi {
   public Response changeRolePrivilegeMapping(@Nullable ChangeRolePrivilegeMappingRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.changeRolePrivilegeMapping(request)).build();
+    return Response.ok(ss.changeRolePrivilegeMapping(request)).build();
   }
 
   @GET
   @Path("privileges")
   public Response queryPrivileges(@Nonnull @Context UriInfo uriInfo) {
-    return Response.ok(as.queryPrivileges(ApiUtils.getRequest(uriInfo))).build();
+    return Response.ok(ss.queryPrivileges(ApiUtils.getRequest(uriInfo))).build();
   }
 
   @POST
@@ -102,7 +102,7 @@ public class AdminApi {
   public Response createPrivilege(@Nullable UpdatePrivilegeRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.createPrivilege(request)).build();
+    return Response.ok(ss.createPrivilege(request)).build();
   }
 
   @POST
@@ -110,7 +110,7 @@ public class AdminApi {
   public Response updatePrivilege(@Nullable UpdatePrivilegeRequest request) {
     if(request == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
-    return Response.ok(as.updatePrivilege(request)).build();
+    return Response.ok(ss.updatePrivilege(request)).build();
   }
 
 }

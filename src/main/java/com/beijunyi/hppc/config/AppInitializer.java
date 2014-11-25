@@ -9,7 +9,7 @@ import javax.inject.Singleton;
 
 import com.beijunyi.hppc.Constants;
 import com.beijunyi.hppc.models.api.UpdateAccountRequest;
-import com.beijunyi.hppc.services.AdminService;
+import com.beijunyi.hppc.services.SystemService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
@@ -17,10 +17,10 @@ import org.apache.commons.io.FilenameUtils;
 @Singleton
 public class AppInitializer {
 
-  private final AdminService as;
+  private final SystemService as;
 
   @Inject
-  public AppInitializer(@Nonnull AdminService as) {
+  public AppInitializer(@Nonnull SystemService as) {
     this.as = as;
   }
 

@@ -21,9 +21,9 @@ import org.slf4j.LoggerFactory;
 
 @Named
 @Singleton
-public class AdminService {
+public class SystemService {
 
-  private static final Logger log = LoggerFactory.getLogger(AdminService.class);
+  private static final Logger log = LoggerFactory.getLogger(SystemService.class);
 
   @Inject
   private AccountDao ad;

@@ -1,0 +1,3 @@
+app.controller('SystemPageController', function() {
+
+});

@@ -11,7 +11,7 @@
 
 </head>
 
-<body ng-app="hppc">
+<body ng-app="hppc" ng-cloak>
 
 <nav class="navbar navbar-inverse" role="navigation" ng-controller="NavigationController">
   <div class="container">
@@ -24,15 +24,16 @@
         <a ui-sref="{{d.state}}">{{d.name}}</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" ng-show="loginInformation != null">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user fa-fw"></i>{{loginInformation.alias}}<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
+          <li><a href="#"><i class="fa fa-exclamation-circle fa-fw"></i>用户信息</a></li>
+          <li class="divider" ng-if="loginInformation.admin"></li>
+          <li ng-if="loginInformation.admin"><a><i class="fa fa-cogs fa-fw"></i>系统设置</a></li>
+          <li ng-if="loginInformation.admin"><a><i class="fa fa-newspaper-o fa-fw"></i>公告设置</a></li>
           <li class="divider"></li>
-          <li><a href="/security/logout">Separated link</a></li>
+          <li><a href="/security/logout"><i class="fa fa-sign-out fa-fw"></i>登出</a></li>
         </ul>
       </li>
     </ul>
