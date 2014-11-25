@@ -24,7 +24,7 @@ public abstract class DataApi<T> {
   public Response query(@Context UriInfo info) {
     QueryResult<T> result = service.query(ApiUtils.getRequest(info));
     Response.ResponseBuilder builder = Response.ok(result.getData());
-    if(result.getTotal() == -1)
+    if(result.getTotal() != -1)
       builder.header("total", result.getTotal());
     return builder.build();
   }

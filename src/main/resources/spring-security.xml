@@ -9,7 +9,7 @@
 
   <global-method-security jsr250-annotations="enabled" secured-annotations="enabled"/>
 
-  <http pattern="/*.ico*" security="none"/>
+  <http pattern="/*.png*" security="none"/>
   <http pattern="/**/*.css*" security="none"/>
   <http pattern="/lib/**" security="none"/>
   <http pattern="/resources/**" security="none"/>

@@ -1,6 +1,7 @@
 package com.beijunyi.hppc.dao;
 
 import javax.annotation.Nonnull;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -11,6 +12,7 @@ import org.hibernate.SessionFactory;
 @Singleton
 public class AnnouncementDao extends AbstractDao<Announcement> {
 
+  @Inject
   public AnnouncementDao(@Nonnull SessionFactory sf) {
     super(sf);
   }
