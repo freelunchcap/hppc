@@ -11,9 +11,9 @@ import javax.transaction.Transactional;
 import com.beijunyi.hppc.dao.AccountDao;
 import com.beijunyi.hppc.dao.PrivilegeDao;
 import com.beijunyi.hppc.dao.RoleDao;
-import com.beijunyi.hppc.models.data.admin.Account;
-import com.beijunyi.hppc.models.data.admin.Privilege;
-import com.beijunyi.hppc.models.data.admin.Role;
+import com.beijunyi.hppc.models.data.system.Account;
+import com.beijunyi.hppc.models.data.system.Privilege;
+import com.beijunyi.hppc.models.data.system.Role;
 import com.beijunyi.hppc.models.internal.QueryRequest;
 import com.beijunyi.hppc.models.internal.QueryResult;
 

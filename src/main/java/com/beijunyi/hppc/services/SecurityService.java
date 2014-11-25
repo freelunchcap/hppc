@@ -10,9 +10,9 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import com.beijunyi.hppc.dao.AccessPointDao;
-import com.beijunyi.hppc.models.data.admin.AccessPoint;
-import com.beijunyi.hppc.models.data.admin.Account;
-import com.beijunyi.hppc.models.data.admin.Privilege;
+import com.beijunyi.hppc.models.data.system.AccessPoint;
+import com.beijunyi.hppc.models.data.system.Account;
+import com.beijunyi.hppc.models.data.system.Privilege;
 import com.beijunyi.hppc.models.api.LoginInformation;
 import com.beijunyi.hppc.security.AccountUser;
 import org.springframework.security.core.Authentication;

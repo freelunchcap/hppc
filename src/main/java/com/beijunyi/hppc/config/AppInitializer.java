@@ -1,7 +1,7 @@
 package com.beijunyi.hppc.config;
 
 import java.io.File;
-import javax.annotation.Nonnull;
+import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -9,7 +9,9 @@ import javax.inject.Singleton;
 
 import com.beijunyi.hppc.Constants;
 import com.beijunyi.hppc.models.api.UpdateAccountRequest;
+import com.beijunyi.hppc.models.data.system.Announcement;
 import com.beijunyi.hppc.services.SystemService;
+import com.beijunyi.hppc.services.data.AnnouncementService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
@@ -17,12 +19,11 @@ import org.apache.commons.io.FilenameUtils;
 @Singleton
 public class AppInitializer {
 
-  private final SystemService as;
+  @Inject
+  private SystemService ss;
 
   @Inject
-  public AppInitializer(@Nonnull SystemService as) {
-    this.as = as;
-  }
+  private AnnouncementService as;
 
   @PostConstruct
   private void ensureInitialization() {
@@ -38,7 +39,8 @@ public class AppInitializer {
   }
 
   private void init() throws Exception {
-    as.createAccount(new UpdateAccountRequest("admin", "Admin", "password", true));
+    ss.createAccount(new UpdateAccountRequest("admin", "Admin", "password", true));
+    as.save(new Announcement(new Date(), "success", "Welcome to " + Constants.APP_NAME + "!", "Web portal " + Constants.APP_NAME + " is now online."));
   }
 
 }

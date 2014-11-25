@@ -2,12 +2,36 @@ package com.beijunyi.hppc.dao;
 
 import java.util.List;
 import javax.annotation.Nonnull;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 
-import com.beijunyi.hppc.models.data.admin.Role;
+import com.beijunyi.hppc.models.data.system.Role;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
-public interface RoleDao extends Dao<Role> {
+@Named
+@Singleton
+public class RoleDao extends AbstractDao<Role> {
+
+  @Inject
+  public RoleDao(@Nonnull SessionFactory sf) {
+    super(sf);
+  }
 
   @Nonnull
-  List<Role> listRolesByAccountId(int accountId);
+  @Override
+  protected Class<Role> getPersistentClass() {
+    return Role.class;
+  }
 
+  @Nonnull
+  @SuppressWarnings("unchecked")
+  public List<Role> listRolesByAccountId(int accountId) {
+    return sf.getCurrentSession()
+             .createCriteria(getPersistentClass())
+             .createAlias("accounts", "account")
+             .add(Restrictions.eq("account.id", accountId))
+             .list();
+  }
 }
