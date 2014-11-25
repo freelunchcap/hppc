@@ -116,7 +116,11 @@ public abstract class AbstractDao<T> implements Dao<T> {
         dataCriteria.addOrder(Order.desc(request.getSortKey()));
     }
 
-    return new QueryResult<>((long) totalCriteria.uniqueResult(), (List<T>) dataCriteria.list());
+    long total = -1;
+    if(request.getFindTotal() == null || request.getFindTotal())
+      total = (long) totalCriteria.uniqueResult();
+
+    return new QueryResult<>(total, (List<T>) dataCriteria.list());
   }
 
   @Nonnull

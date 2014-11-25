@@ -23,11 +23,14 @@ public abstract class DataApi<T> {
   @Secured("ROLE_STAFF")
   public Response query(@Context UriInfo info) {
     QueryResult<T> result = service.query(ApiUtils.getRequest(info));
-    return Response.ok(result.getData()).header("total", result.getTotal()).build();
+    Response.ResponseBuilder builder = Response.ok(result.getData());
+    if(result.getTotal() == -1)
+      builder.header("total", result.getTotal());
+    return builder.build();
   }
 
   @POST
-  @Secured("ROLE_STAFF")
+  @Secured("ROLE_ADMIN")
   public Response save(@Nullable T obj) {
     if(obj == null)
       return Response.status(Response.Status.BAD_REQUEST).build();
@@ -36,14 +39,14 @@ public abstract class DataApi<T> {
 
   @GET
   @Path("{id}")
-  @Secured("ROLE_STAFF")
+  @Secured("ROLE_ADMIN")
   public Response get(@PathParam("id") int id) {
     return Response.ok(service.get(id)).build();
   }
 
   @DELETE
   @Path("{id}")
-  @Secured("ROLE_STAFF")
+  @Secured("ROLE_ADMIN")
   public Response delete(@PathParam("id") int id) {
     return Response.ok(service.delete(id)).build();
   }

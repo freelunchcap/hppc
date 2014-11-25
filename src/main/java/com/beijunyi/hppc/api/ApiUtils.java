@@ -14,6 +14,7 @@ public class ApiUtils {
   private static final String SIZE_TOKEN = "size";
   private static final String SORT_KEY_TOKEN = "sort-key";
   private static final String SORT_DIR_TOKEN = "sort-dir";
+  private static final String FIND_TOTAL_TOKEN = "find-total";
   private static final String FILTER_PREFIX_TOKEN = "filter-";
 
   @Nonnull
@@ -23,6 +24,7 @@ public class ApiUtils {
     Integer size = null;
     String sortKey = null;
     String sortDir = null;
+    Boolean findTotal = null;
     Map<String, String> filters = new HashMap<>();
     for(Map.Entry<String, List<String>> paramPair : params.entrySet()) {
       String paramKey = paramPair.getKey();
@@ -35,12 +37,14 @@ public class ApiUtils {
         sortKey = paramValue;
       } else if(paramKey.equals(SORT_DIR_TOKEN)) {
         sortDir = paramValue;
+      } else if(paramKey.equals(FIND_TOTAL_TOKEN)) {
+        findTotal = Boolean.valueOf(paramValue);
       } else if(paramKey.startsWith(FILTER_PREFIX_TOKEN)) {
         String filterKey = paramKey.substring(FILTER_PREFIX_TOKEN.length());
         filters.put(filterKey, paramValue);
       }
     }
-    return  new QueryRequest(from, size, sortKey, sortDir, filters);
+    return  new QueryRequest(from, size, sortKey, sortDir, findTotal, filters);
   }
 
 }

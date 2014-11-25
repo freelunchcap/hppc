@@ -9,13 +9,15 @@ public final class QueryRequest {
   private Integer size;
   private String sortKey;
   private String sortDir;
+  private Boolean findTotal;
   private Map<String, String> filters;
 
-  public QueryRequest(@Nullable Integer from, @Nullable Integer size, @Nullable String sortKey, @Nullable String sortDir, @Nullable Map<String, String> filters) {
+  public QueryRequest(@Nullable Integer from, @Nullable Integer size, @Nullable String sortKey, @Nullable String sortDir, @Nullable Boolean findTotal, @Nullable Map<String, String> filters) {
     this.from = from;
     this.size = size;
     this.sortKey = sortKey;
     this.sortDir = sortDir;
+    this.findTotal = findTotal;
     this.filters = filters;
   }
 
@@ -56,6 +58,15 @@ public final class QueryRequest {
   }
 
   @Nullable
+  public Boolean getFindTotal() {
+    return findTotal;
+  }
+
+  public void setFindTotal(@Nullable Boolean findTotal) {
+    this.findTotal = findTotal;
+  }
+
+  @Nullable
   public Map<String, String> getFilters() {
     return filters;
   }
@@ -63,5 +74,4 @@ public final class QueryRequest {
   public void setFilters(@Nullable Map<String, String> filters) {
     this.filters = filters;
   }
-
 }
