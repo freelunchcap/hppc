@@ -14,3 +14,11 @@
 .dropdown-menu .divider {
   margin: 5px 0;
 }
+
+.navbar+.container {
+  background: #fff;
+  height: 100%;
+  padding: 80px 15px;
+  border-left: 1px solid  #ddd;
+  border-right: 1px solid  #ddd;
+}

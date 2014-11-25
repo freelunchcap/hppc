@@ -14,7 +14,7 @@
 
 <body ng-app="hppc" ng-cloak>
 
-<nav class="navbar navbar-inverse" role="navigation" ng-controller="NavigationController">
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" ng-controller="NavigationController">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" ui-sref="home"><img src="favicon.png"></a>

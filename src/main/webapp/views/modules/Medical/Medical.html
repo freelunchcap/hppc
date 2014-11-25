@@ -1,13 +1,15 @@
 <div id="medical">
-  <div class="row">
-    <div class="col-md-2 side-nav">
-      <ul class="nav nav-pills nav-stacked">
-        <li ng-repeat="f in forms">
-          <a ui-sref="medical.{{f.state}}">{{f.name}}</a>
-        </li>
-      </ul>
+  <div class="clearfix">
+    <div class="col-md-3">
+      <div class="side-nav">
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-repeat="f in forms">
+            <a ui-sref="medical.{{f.state}}">{{f.name}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-10" ui-view>
+    <div class="col-md-9" ui-view>
     </div>
   </div>
 </div>
