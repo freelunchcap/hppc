@@ -1,1 +1,1 @@
-var app = angular.module('hppc', ['ngResource', 'ngRoute', 'ngTable', 'ui.router', 'ui.bootstrap']);
+var app = angular.module('hppc', ['ngResource', 'ngRoute', 'ngTable', 'ui.router', 'ui.bootstrap', 'monospaced.elastic']);

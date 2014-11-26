@@ -22,3 +22,29 @@
   border-left: 1px solid  #ddd;
   border-right: 1px solid  #ddd;
 }
+
+.alert span {
+  white-space: pre-wrap;
+}
+
+.alert hr {
+  margin-top: 7px;
+  margin-bottom: 15px;
+  border-top: 2px solid #eee;
+}
+
+.alert-success hr {
+  border-top-color: #3c763d;;
+}
+
+.alert-info hr {
+  border-top-color: #31708f;
+}
+
+.alert-warning hr {
+  border-top-color: #8a6d3b;;
+}
+
+.alert-danger hr {
+  border-top-color: #a94442;
+}

@@ -1,0 +1,39 @@
+<div id="announcements-records-page">
+  <table ng-table="tableParams" show-filter="true" template-pagination="announcements-records-table-tools" class="table table-selectable">
+    <tbody ng-repeat="record in $data">
+    <tr ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
+      <td class="col-md-2" data-title="'时间'" filter="{'id': 'text'}" sortable="'timestamp'">{{record.timestamp}}</td>
+      <td class="col-md-4" data-title="'标题'" filter="{'ownerName': 'text'}" sortable="'title'">{{record.title}}</td>
+      <td class="col-md-6" data-title="'内容'" filter="{'ownerName': 'text'}" sortable="'content'">{{record.content}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <script type="text/ng-template" id="announcements-records-table-tools">
+    <div class="clearfix ng-table-tools">
+      <div class="col-md-4">
+        <a class="btn btn-sm btn-success" ui-sref="announcement.record({id: 'new'})">
+          添加
+        </a>
+        <a class="btn btn-sm btn-info" ui-sref="medical.record({id: params.$selection.id})" ng-disabled="params.$selection == null">
+          编辑
+        </a>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-4">
+        <div class="pull-right">
+          <span ng-show="params.total() == 0">没有找到记录</span>
+          <span ng-show="params.total() != 0">正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.total() > params.page() * params.count() ? params.page() * params.count() : params.total()}}</span>
+          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1">
+            上一页
+          </button>
+          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() + 1)" ng-disabled="params.page() >= params.total() / params.count()">
+            下一页
+          </button>
+        </div>
+      </div>
+    </div>
+  </script>
+</div>

@@ -15,10 +15,10 @@
   <script type="text/ng-template" id="basic-information-table-tools">
     <div class="clearfix ng-table-tools">
       <div class="col-md-4">
-        <a class="btn btn-sm btn-success" ui-sref="medical.edit-record.basic-information({id: 'new'})">
+        <a class="btn btn-sm btn-success" ui-sref="medical.record.basic-information({id: 'new'})">
           添加
         </a>
-        <a class="btn btn-sm btn-info" ui-sref="medical.edit-record.basic-information({id: params.$selection.id})" ng-disabled="params.$selection == null">
+        <a class="btn btn-sm btn-info" ui-sref="medical.record.basic-information({id: params.$selection.id})" ng-disabled="params.$selection == null">
           编辑
         </a>
       </div>

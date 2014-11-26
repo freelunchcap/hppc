@@ -1,0 +1,54 @@
+<div id="announcement-details-page">
+  <div class="clearfix">
+    <div class="col-md-6">
+      <p class="text-center">预览</p>
+      <div class="alert alert-{{record.type}}">
+        <h4><strong>{{record.title || '标题'}}</strong></h4>
+        <h6><strong>{{record.timestamp | date: 'yyyy年M月d日 HH:mm'}}</strong></h6>
+        <hr/>
+        <span>{{record.content || '公告详细内容'}}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <form name="form">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">编辑公告</h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="title">标题</label>
+              <input type="text" class="form-control" name="title" id="title" ng-model="record.title" placeholder="标题">
+            </div>
+            <div class="form-group">
+              <label class="radio-inline">
+                <input type="radio"  name="type" ng-model="record.type" value="success"><span class="alert alert-success alert-type-sample"></span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="type" ng-model="record.type" value="info"><span class="alert alert-info alert-type-sample"></span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="type" ng-model="record.type" value="warning"><span class="alert alert-warning alert-type-sample"></span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="type" ng-model="record.type" value="danger"><span class="alert alert-danger alert-type-sample"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="keywords">关键词</label>
+              <input type="text" class="form-control" name="keywords" id="keywords" ng-model="record.keywords" placeholder="关键词">
+            </div>
+            <div class="form-group">
+              <label for="content">内容</label>
+              <textarea class="form-control" msd-elastic name="content" id="content" ng-model="record.content" placeholder="公告详细内容"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">返回</button>
+            <button type="button" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

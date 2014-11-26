@@ -1,4 +1,4 @@
-app.controller('AnnouncementPageController', function($scope, $filter, ngTableParams, Announcement) {
+app.controller('AnnouncementRecordsPageController', function($scope, $filter, ngTableParams, Announcement) {
   $scope.tableParams = new ngTableParams({
     page: 1,
     count: 25
