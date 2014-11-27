@@ -139,22 +139,19 @@ public abstract class AbstractDao<T> implements Dao<T> {
     return entry;
   }
 
-  @Nonnull
   @Override
   @SuppressWarnings("unchecked")
-  public T delete(int id) {
+  public void delete(int id) {
     Session session = sf.getCurrentSession();
     T entry = (T)session.load(getPersistentClass(), id);
-    return delete(entry);
+    delete(entry);
   }
 
-  @Nonnull
   @Override
-  public T delete(@Nonnull T entry) {
+  public void delete(@Nonnull T entry) {
     Session session = sf.getCurrentSession();
     session.delete(entry);
     session.flush();
-    return entry;
   }
 
   @Nonnull

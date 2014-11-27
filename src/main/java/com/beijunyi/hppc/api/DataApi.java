@@ -48,7 +48,8 @@ public abstract class DataApi<T> {
   @Path("{id}")
   @Secured("ROLE_ADMIN")
   public Response delete(@PathParam("id") int id) {
-    return Response.ok(service.delete(id)).build();
+    service.delete(id);
+    return Response.ok().build();
   }
 
 }

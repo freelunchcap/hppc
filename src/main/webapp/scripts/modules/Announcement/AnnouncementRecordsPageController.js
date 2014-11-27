@@ -24,7 +24,9 @@ app.controller('AnnouncementRecordsPageController', function($scope, $filter, ng
   $scope.remove = function(record) {
     DialogService.confirm('移除 ' + record.title, '请确认要永久性地删除 ' + record.title + ' 吗？')
       .result.then(function() {
-        record.$delete();
+        Announcement.remove({id: record.id}, function() {
+          $scope.tableParams.reload();
+        });
       });
   }
 

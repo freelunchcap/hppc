@@ -34,11 +34,9 @@ public interface Dao<T> {
   @Nonnull
   T save(@Nonnull T entry);
 
-  @Nonnull
-  T delete(int id);
+  void delete(int id);
 
-  @Nonnull
-  T delete(@Nonnull T entry);
+  void delete(@Nonnull T entry);
 
   @Nonnull
   T create(@Nonnull T entry);

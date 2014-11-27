@@ -35,10 +35,9 @@ public abstract class DataService<T> {
     return dao.get(id);
   }
 
-  @Nonnull
   @Transactional
-  public T delete(int id) {
-    return dao.delete(id);
+  public void delete(int id) {
+    dao.delete(id);
   }
 
 }
