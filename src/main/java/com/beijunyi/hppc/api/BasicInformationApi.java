@@ -23,6 +23,7 @@ public class BasicInformationApi extends DataApi<BasicInformation> {
   }
 
   @Override
+  @POST
   @Secured("ROLE_STAFF")
   public Response save(@Nullable BasicInformation obj) {
     return super.save(obj);

@@ -17,7 +17,6 @@ app.controller('BasicInformationFormController', function($scope, $stateParams, 
     record.petLastEstrusDate = record.petLastEstrusDate != null ? new Date(record.petLastEstrusDate) : undefined;
     record.petLastPregnantDate = record.petLastPregnantDate != null ? new Date(record.petLastPregnantDate) : undefined;
     record.updateTimestamp = record.updateTimestamp != null ? new Date(record.updateTimestamp) : undefined;
-    record.petNeutered = record.petNeutered || false;
   }
 
   if($stateParams.id != 'new') {
@@ -30,6 +29,7 @@ app.controller('BasicInformationFormController', function($scope, $stateParams, 
   } else {
     $scope.record = new BasicInformation();
     $scope.record.createTimestamp = new Date();
+    $scope.petNeutered = false;
     $scope.newRecord = true;
     detectChanges();
   }
