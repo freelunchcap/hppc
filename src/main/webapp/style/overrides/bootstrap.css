@@ -17,10 +17,13 @@
 
 .navbar+.container {
   background: #fff;
-  height: 100%;
   padding: 80px 15px;
   border-left: 1px solid  #ddd;
   border-right: 1px solid  #ddd;
+  position: absolute;
+  left: 50%;
+  margin-left: -585px;
+  min-height: 100%;
 }
 
 .alert span {
