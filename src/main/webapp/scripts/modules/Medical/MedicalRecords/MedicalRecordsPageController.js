@@ -10,6 +10,7 @@ app.controller('MedicalRecordsPageController', function($scope, $filter, ngTable
       BasicInformation.query(query, function (data, responseHeaders) {
         params.total(parseInt(responseHeaders('total')));
         $defer.resolve(data);
+        $scope.tableParams.$selection = null;
       });
     }
   });

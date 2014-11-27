@@ -9,6 +9,7 @@ app.controller('AnnouncementRecordsPageController', function($scope, $filter, ng
       Announcement.query(query, function (data, responseHeaders) {
         params.total(parseInt(responseHeaders('total')));
         $defer.resolve(data);
+        $scope.tableParams.$selection = null;
       });
     }
   });
