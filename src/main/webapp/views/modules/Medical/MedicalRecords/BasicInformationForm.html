@@ -73,7 +73,7 @@
         <div class="col-sm-1">
           <div class="radio">
             <label>
-              <input type="radio" name="petType" ng-model="record.petType" value="猫">
+              <input type="radio" name="petType" ng-model="record.petType" value="猫" ng-required="true">
               <span>猫</span>
             </label>
           </div>
@@ -81,7 +81,7 @@
         <div class="col-sm-1">
           <div class="radio">
             <label>
-              <input type="radio" name="petType" ng-model="record.petType" value="狗">
+              <input type="radio" name="petType" ng-model="record.petType" value="狗" ng-required="true">
               <span>狗</span>
             </label>
           </div>
@@ -89,13 +89,14 @@
         <div class="col-sm-10">
           <div class="radio">
             <label>
-              <input type="radio" name="petType" ng-model="record.petType" value="OTHER">
-              <input type="text" name="otherPetType" ng-model="record.otherPetType" class="form-control" placeholder="其他（请注明）">
+              <input type="radio" name="petType" ng-model="record.petType" value="其它" ng-required="true">
+              <input type="text" name="otherPetType" ng-model="record.otherPetType" class="form-control" placeholder="其它（请注明）" ng-readonly="record.petType != '其它'" ng-required="record.petType == '其它'">
             </label>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-sm-2 form-alert" ng-show="form.petType.$invalid || form.otherPetType.$invalid">必填</div>
   </div>
   <div class="form-group">
     <label for="petBirthday" class="col-sm-2 control-label">*出生日期</label>
@@ -150,12 +151,13 @@
           <div class="checkbox">
             <label>
               <input type="checkbox" id="petNeutered" name="petNeutered" ng-model="record.petNeutered">
-              <input hppc-datefield id="petNeuterDate" name="petNeuterDate" class="form-control" ng-model="record.petNeuterDate"/>
+              <input hppc-datefield id="petNeuterDate" name="petNeuterDate" class="form-control" ng-model="record.petNeuterDate" ng-readonly="!record.petNeutered" ng-required="record.petNeutered"/>
             </label>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-sm-2 form-alert" ng-show="form.petNeutered.$invalid || form.petNeuterDate.$invalid">必填</div>
   </div>
 </accordion-group>
 <accordion-group is-open="accorionStatus[1]">
@@ -186,20 +188,20 @@
   <div class="form-group">
     <label class="col-sm-2 control-label">生活环境及方式</label>
     <div class="col-sm-8">
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petLivingConditions" ng-model="record.petLivingConditions" value="平房">
+      <label class="radio-inline">
+        <input type="radio" name="petLivingCondition" ng-model="record.petLivingCondition" value="平房">
         <span>平房</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petLivingConditions" ng-model="record.petLivingConditions" value="楼房">
+      <label class="radio-inline">
+        <input type="radio" name="petLivingCondition" ng-model="record.petLivingCondition" value="楼房">
         <span>楼房</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petLivingConditions" ng-model="record.petLivingConditions" value="经常到公园散步">
+      <label class="radio-inline">
+        <input type="radio" name="petLivingCondition" ng-model="record.petLivingCondition" value="经常到公园散步">
         <span>经常到公园散步</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petLivingConditions" ng-model="record.petLivingConditions" value="每天运动">
+      <label class="radio-inline">
+        <input type="radio" name="petLivingCondition" ng-model="record.petLivingCondition" value="每天运动">
         <span>每天运动</span>
       </label>
     </div>
@@ -213,24 +215,24 @@
   <div class="form-group">
     <label class="col-sm-2 control-label">行为</label>
     <div class="col-sm-8">
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petBehaviours" ng-model="record.petBehaviours" value="平静">
+      <label class="radio-inline">
+        <input type="radio" name="petBehaviour" ng-model="record.petBehaviour" value="平静">
         <span>平静</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petBehaviours" ng-model="record.petBehaviours" value="友好">
+      <label class="radio-inline">
+        <input type="radio" name="petBehaviour" ng-model="record.petBehaviour" value="友好">
         <span>友好</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petBehaviours" ng-model="record.petBehaviours" value="紧张">
+      <label class="radio-inline">
+        <input type="radio" name="petBehaviour" ng-model="record.petBehaviour" value="紧张">
         <span>紧张</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petBehaviours" ng-model="record.petBehaviours" value="好斗">
+      <label class="radio-inline">
+        <input type="radio" name="petBehaviour" ng-model="record.petBehaviour" value="好斗">
         <span>好斗</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petBehaviours" ng-model="record.petBehaviours" value="经常损坏家中物品">
+      <label class="radio-inline">
+        <input type="radio" name="petBehaviour" ng-model="record.petBehaviour" value="经常损坏家中物品">
         <span>经常损坏家中物品</span>
       </label>
     </div>
@@ -264,16 +266,16 @@
   <div class="form-group">
     <label class="col-sm-2 control-label">宠物食物</label>
     <div class="col-sm-8">
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petFoods" ng-model="record.petFoods" value="自己制作">
+      <label class="radio-inline">
+        <input type="radio" name="petFood" ng-model="record.petFood" value="自己制作">
         <span>自己制作</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petFoods" ng-model="record.petFoods" value="干性商品性宠物食品">
+      <label class="radio-inline">
+        <input type="radio" name="petFood" ng-model="record.petFood" value="干性商品性宠物食品">
         <span>干性商品性宠物食品</span>
       </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="petFoods" ng-model="record.petFoods" value="湿性商品食物">
+      <label class="radio-inline">
+        <input type="radio" name="petFood" ng-model="record.petFood" value="湿性商品食物">
         <span>湿性商品食物</span>
       </label>
     </div>

@@ -1,7 +1,6 @@
 package com.beijunyi.hppc.models.data.forms;
 
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -60,20 +59,17 @@ public class BasicInformation {
 
   private Double petAdoptedAge;
 
-  @ElementCollection(fetch = FetchType.EAGER)
-  private Set<String> petLivingConditions;
+  private String petLivingCondition;
 
   private String petLivingConditionChanges;
 
-  @ElementCollection(fetch = FetchType.EAGER)
-  private Set<String> petBehaviours;
+  private String petBehaviour;
 
   private String petBehaviourChanges;
 
   private String petWaterDrinkingStatus;
 
-  @ElementCollection(fetch = FetchType.EAGER)
-  private Set<String> petFoods;
+  private String petFood;
 
   private String petFoodBrand;
 
@@ -249,12 +245,12 @@ public class BasicInformation {
     this.petAdoptedAge = petAdoptedAge;
   }
 
-  public Set<String> getPetLivingConditions() {
-    return petLivingConditions;
+  public String getPetLivingCondition() {
+    return petLivingCondition;
   }
 
-  public void setPetLivingConditions(Set<String> petLivingConditions) {
-    this.petLivingConditions = petLivingConditions;
+  public void setPetLivingCondition(String petLivingCondition) {
+    this.petLivingCondition = petLivingCondition;
   }
 
   public String getPetLivingConditionChanges() {
@@ -265,12 +261,12 @@ public class BasicInformation {
     this.petLivingConditionChanges = petLivingConditionChanges;
   }
 
-  public Set<String> getPetBehaviours() {
-    return petBehaviours;
+  public String getPetBehaviour() {
+    return petBehaviour;
   }
 
-  public void setPetBehaviours(Set<String> petBehaviours) {
-    this.petBehaviours = petBehaviours;
+  public void setPetBehaviour(String petBehaviour) {
+    this.petBehaviour = petBehaviour;
   }
 
   public String getPetBehaviourChanges() {
@@ -289,12 +285,12 @@ public class BasicInformation {
     this.petWaterDrinkingStatus = petWaterDrinkingStatus;
   }
 
-  public Set<String> getPetFoods() {
-    return petFoods;
+  public String getPetFood() {
+    return petFood;
   }
 
-  public void setPetFoods(Set<String> petFoods) {
-    this.petFoods = petFoods;
+  public void setPetFood(String petFood) {
+    this.petFood = petFood;
   }
 
   public String getPetFoodBrand() {
