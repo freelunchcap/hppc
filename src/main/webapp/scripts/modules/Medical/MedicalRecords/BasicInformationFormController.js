@@ -29,7 +29,7 @@ app.controller('BasicInformationFormController', function($scope, $stateParams, 
   } else {
     $scope.record = new BasicInformation();
     $scope.record.createTimestamp = new Date();
-    $scope.petNeutered = false;
+    $scope.record.petNeutered = false;
     $scope.newRecord = true;
     detectChanges();
   }

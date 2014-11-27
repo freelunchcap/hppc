@@ -1,7 +1,9 @@
 <div id="medical-record-details-page">
   <h2 class="col-md-offset-1">医疗记录</h2>
   <tabset class="router-tabs tools-tabs">
-    <tab heading="基本信息"></tab>
+    <tab ng-repeat="tab in tabs" ui-sref="{{tab.sref}}({id: $stateParams.id})">
+      <tab-heading>{{tab.title}}</tab-heading>
+    </tab>
   </tabset>
   <div ui-view></div>
 </div>

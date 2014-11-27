@@ -6,16 +6,16 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.ws.rs.Path;
 
-import com.beijunyi.hppc.models.data.forms.MedicalRecord;
+import com.beijunyi.hppc.models.data.forms.DiagnosisRecord;
 import com.beijunyi.hppc.services.data.DataService;
 
 @Named
 @Singleton
-@Path("/api/medical/medical-record")
-public class MedicalRecordApi extends DataApi<MedicalRecord> {
+@Path("/api/medical/diagnosis-record")
+public class DiagnosisRecordApi extends DataApi<DiagnosisRecord> {
 
   @Inject
-  public MedicalRecordApi(@Nonnull DataService<MedicalRecord> service) {
+  public DiagnosisRecordApi(@Nonnull DataService<DiagnosisRecord> service) {
     super(service);
   }
 

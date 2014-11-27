@@ -4,7 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-public class MedicalRecord {
+public class DiagnosisRecord {
 
   @Id
   @GeneratedValue
@@ -17,7 +17,7 @@ public class MedicalRecord {
   private Date timestamp;
 
   @Column(nullable = false)
-  private String treatments;
+  private String diagnosis;
 
   public Integer getId() {
     return id;
@@ -43,11 +43,11 @@ public class MedicalRecord {
     this.timestamp = timestamp;
   }
 
-  public String getTreatments() {
-    return treatments;
+  public String getDiagnosis() {
+    return diagnosis;
   }
 
-  public void setTreatments(String treatments) {
-    this.treatments = treatments;
+  public void setDiagnosis(String diagnosis) {
+    this.diagnosis = diagnosis;
   }
 }

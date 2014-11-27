@@ -16,6 +16,11 @@ app.config(function ($stateProvider) {
       url: '/basic-information',
       templateUrl: 'views/modules/Medical/MedicalRecords/BasicInformationForm.html',
       controller: 'BasicInformationFormController'
+    })
+    .state('medical.record.diagnosis-record', {
+      url: '/diagnosis-record',
+      templateUrl: 'views/modules/Medical/MedicalRecords/DiagnosisRecordForm.html',
+      controller: 'DiagnosisRecordFormController'
     });
 
 });
