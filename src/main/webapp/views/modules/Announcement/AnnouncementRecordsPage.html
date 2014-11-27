@@ -18,9 +18,9 @@
         <a class="btn btn-sm btn-info" ui-sref="announcement.record({id: params.$selection.id})" ng-disabled="params.$selection == null">
           编辑
         </a>
-        <a class="btn btn-sm btn-danger" ng-click="delete(params.$selection)" ng-disabled="params.$selection == null">
+        <button class="btn btn-sm btn-danger" ng-click="params.$pageScope().remove(params.$selection)" ng-disabled="params.$selection == null">
           删除
-        </a>
+        </button>
       </div>
       <div class="col-md-4">
 
