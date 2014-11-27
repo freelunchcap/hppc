@@ -94,3 +94,8 @@
   color: #666;
   vertical-align: text-top;
 }
+
+.ng-table-tools .btn {
+  padding: 2px 5px;
+  margin: 3px 3px 3px 0;
+}

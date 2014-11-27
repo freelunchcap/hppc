@@ -40,7 +40,7 @@ public class AppInitializer {
 
   private void init() throws Exception {
     ss.createAccount(new UpdateAccountRequest("admin", "Admin", "password", true));
-    as.save(new Announcement(new Date(), "success", "Welcome to " + Constants.APP_NAME + "!", "Web portal " + Constants.APP_NAME + " is now online."));
+    as.save(new Announcement(new Date(), "success", "Welcome to " + Constants.APP_NAME + "!", null, "Web portal " + Constants.APP_NAME + " is now online."));
   }
 
 }

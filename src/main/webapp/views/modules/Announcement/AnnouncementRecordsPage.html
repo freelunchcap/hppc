@@ -2,9 +2,9 @@
   <table ng-table="tableParams" show-filter="true" template-pagination="announcements-records-table-tools" class="table table-selectable">
     <tbody ng-repeat="record in $data">
     <tr ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
-      <td class="col-md-2" data-title="'时间'" filter="{'id': 'text'}" sortable="'timestamp'">{{record.timestamp}}</td>
-      <td class="col-md-4" data-title="'标题'" filter="{'ownerName': 'text'}" sortable="'title'">{{record.title}}</td>
-      <td class="col-md-6" data-title="'内容'" filter="{'ownerName': 'text'}" sortable="'content'">{{record.content}}</td>
+      <td class="col-md-2" data-title="'时间'" sortable="'timestamp'">{{record.timestamp | date: 'yyyy年M月d日'}}</td>
+      <td class="col-md-5" data-title="'标题'" filter="{'title': 'text'}" sortable="'title'">{{record.title}}</td>
+      <td class="col-md-5" data-title="'关键词'" filter="{'keywords': 'text'}" sortable="'keywords'">{{record.keywords}}</td>
     </tr>
     </tbody>
   </table>
@@ -15,8 +15,11 @@
         <a class="btn btn-sm btn-success" ui-sref="announcement.record({id: 'new'})">
           添加
         </a>
-        <a class="btn btn-sm btn-info" ui-sref="medical.record({id: params.$selection.id})" ng-disabled="params.$selection == null">
+        <a class="btn btn-sm btn-info" ui-sref="announcement.record({id: params.$selection.id})" ng-disabled="params.$selection == null">
           编辑
+        </a>
+        <a class="btn btn-sm btn-danger" ng-click="delete(params.$selection)" ng-disabled="params.$selection == null">
+          删除
         </a>
       </div>
       <div class="col-md-4">

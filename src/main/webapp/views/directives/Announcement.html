@@ -1,0 +1,6 @@
+<div class="alert alert-{{announcement.type}}">
+  <h4><strong>{{announcement.title || '标题'}}</strong></h4>
+  <h6><strong>{{announcement.timestamp | date: 'yyyy年M月d日 HH:mm'}}</strong></h6>
+  <hr/>
+  <span>{{announcement.content || '公告详细内容'}}</span>
+</div>

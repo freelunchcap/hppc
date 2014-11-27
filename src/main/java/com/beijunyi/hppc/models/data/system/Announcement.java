@@ -19,13 +19,17 @@ public class Announcement {
   @Column(nullable = false)
   private String title;
 
+  @Column(nullable = true)
+  private String keywords;
+
   @Column(nullable = false)
   private String content;
 
-  public Announcement(Date timestamp, String type, String title, String content) {
+  public Announcement(Date timestamp, String type, String title, String keywords, String content) {
     this.timestamp = timestamp;
     this.type = type;
     this.title = title;
+    this.keywords = keywords;
     this.content = content;
   }
 
@@ -62,6 +66,14 @@ public class Announcement {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public String getKeywords() {
+    return keywords;
+  }
+
+  public void setKeywords(String keywords) {
+    this.keywords = keywords;
   }
 
   public String getContent() {
