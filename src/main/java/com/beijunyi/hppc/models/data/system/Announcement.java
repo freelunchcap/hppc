@@ -3,7 +3,11 @@ package com.beijunyi.hppc.models.data.system;
 import java.util.Date;
 import javax.persistence.*;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
+@Table(name = "announcement")
+@DynamicUpdate
 public class Announcement {
 
   @Id

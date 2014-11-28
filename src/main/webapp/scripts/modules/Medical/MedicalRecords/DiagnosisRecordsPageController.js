@@ -1,0 +1,23 @@
+app.controller('DiagnosisRecordsPageController', function($scope, $stateParams, $filter, ngTableParams, DiagnosisRecord) {
+
+  $scope.tableParams = new ngTableParams({
+    page: 1,
+    count: 25
+  },{
+    counts: [],
+    getData: function($defer, params) {
+      var query = $filter('hppcParamsFilter')(params);
+      query['filter-parent'] = $stateParams.id;
+      DiagnosisRecord.query(query, function (data, responseHeaders) {
+        params.total(parseInt(responseHeaders('total')));
+        $defer.resolve(data);
+        $scope.tableParams.$selection = null;
+      });
+    }
+  });
+
+  $scope.select = function(record) {
+    $scope.tableParams.$selection = record;
+  };
+
+});
