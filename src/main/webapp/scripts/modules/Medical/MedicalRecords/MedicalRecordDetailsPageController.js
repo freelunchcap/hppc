@@ -12,8 +12,9 @@ app.controller('MedicalRecordDetailsPageController', function($scope, $state, $s
     }
   ];
 
-  angular.forEach($scope.tabs, function(tab) {
+  angular.forEach($scope.tabs, function(tab, index) {
     tab.$active = $state.current.name == tab.sref;
+    tab.$show = index == 0 || $stateParams.id != 'new'
   })
 
 
