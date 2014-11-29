@@ -17,10 +17,10 @@ app.config(function ($stateProvider) {
       templateUrl: 'views/modules/Medical/MedicalRecords/BasicInformationForm.html',
       controller: 'BasicInformationFormController'
     })
-    .state('medical.record.diagnosis-record', {
+    .state('medical.record.diagnosis-records', {
       url: '/diagnosis-record',
-      templateUrl: 'views/modules/Medical/MedicalRecords/DiagnosisRecordForm.html',
-      controller: 'DiagnosisRecordFormController'
+      templateUrl: 'views/modules/Medical/MedicalRecords/DiagnosisRecordsPage.html',
+      controller: 'DiagnosisRecordsPageController'
     });
 
 });

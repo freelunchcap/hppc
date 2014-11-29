@@ -1,42 +1,47 @@
 <div id="diagnosis-records-page">
-  <table ng-table="tableParams" show-filter="true" template-pagination="medical-records-table-tools" class="table table-selectable">
-    <tbody>
-    <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
-      <td class="col-md-2" data-title="'档案号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
-      <td class="col-md-2" data-title="'主人姓名'" filter="{'ownerName': 'text'}" sortable="'ownerName'">{{record.ownerName}}</td>
-      <td class="col-md-2" data-title="'种类'" sortable="'petType'">{{record.petType}}</td>
-      <td class="col-md-2" data-title="'品种'" filter="{'petBreed': 'text'}" sortable="'petBreed'">{{record.petBreed}}</td>
-      <td class="col-md-2" data-title="'宠物名'" filter="{'petName': 'text'}" sortable="'petName'">{{record.petName}}</td>
-      <td class="col-md-2" data-title="'入档时间'" sortable="'createTimestamp'">{{record.createTimestamp | date: 'yyyy年M月d日'}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="tab-tools">
+    <button class="btn btn-primary btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()">返回</button>
+  </div>
+  <div class="tab-content">
+    <table ng-table="tableParams" show-filter="true" template-pagination="medical-records-table-tools" class="table table-selectable">
+      <tbody>
+      <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
+        <td class="col-md-2" data-title="'档案号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
+        <td class="col-md-2" data-title="'主人姓名'" filter="{'ownerName': 'text'}" sortable="'ownerName'">{{record.ownerName}}</td>
+        <td class="col-md-2" data-title="'种类'" sortable="'petType'">{{record.petType}}</td>
+        <td class="col-md-2" data-title="'品种'" filter="{'petBreed': 'text'}" sortable="'petBreed'">{{record.petBreed}}</td>
+        <td class="col-md-2" data-title="'宠物名'" filter="{'petName': 'text'}" sortable="'petName'">{{record.petName}}</td>
+        <td class="col-md-2" data-title="'入档时间'" sortable="'createTimestamp'">{{record.createTimestamp | date: 'yyyy年M月d日'}}</td>
+      </tr>
+      </tbody>
+    </table>
 
-  <script type="text/ng-template" id="medical-records-table-tools">
-    <div class="clearfix ng-table-tools">
-      <div class="col-md-4">
-        <a class="btn btn-sm btn-success" ui-sref="medical.record.basic-information({id: 'new'})">
-          添加
-        </a>
-        <a class="btn btn-sm btn-info" ui-sref="medical.record.basic-information({id: params.$selection.id})" ng-disabled="params.$selection == null">
-          编辑
-        </a>
-      </div>
-      <div class="col-md-4">
+    <script type="text/ng-template" id="medical-records-table-tools">
+      <div class="clearfix ng-table-tools">
+        <div class="col-md-4">
+          <a class="btn btn-sm btn-success" ui-sref="medical.record.basic-information({id: 'new'})">
+            添加
+          </a>
+          <a class="btn btn-sm btn-info" ui-sref="medical.record.basic-information({id: params.$selection.id})" ng-disabled="params.$selection == null">
+            编辑
+          </a>
+        </div>
+        <div class="col-md-4">
 
-      </div>
-      <div class="col-md-4">
-        <div class="pull-right">
-          <span ng-show="params.total() == 0">没有找到记录</span>
-          <span ng-show="params.total() != 0">正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.total() > params.page() * params.count() ? params.page() * params.count() : params.total()}}</span>
-          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1">
-            上一页
-          </button>
-          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() + 1)" ng-disabled="params.page() >= params.total() / params.count()">
-            下一页
-          </button>
+        </div>
+        <div class="col-md-4">
+          <div class="pull-right">
+            <span ng-show="params.total() == 0">没有找到记录</span>
+            <span ng-show="params.total() != 0">正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.total() > params.page() * params.count() ? params.page() * params.count() : params.total()}}</span>
+            <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1">
+              上一页
+            </button>
+            <button class="btn btn-sm btn-default" ng-click="params.page(params.page() + 1)" ng-disabled="params.page() >= params.total() / params.count()">
+              下一页
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </script>
+    </script>
+  </div>
 </div>
