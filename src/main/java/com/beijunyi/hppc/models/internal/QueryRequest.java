@@ -5,20 +5,26 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public final class QueryRequest {
-  private Integer from;
-  private Integer size;
-  private String sortKey;
-  private String sortDir;
-  private Boolean findTotal;
-  private Map<String, String> filters;
+  private final Integer from;
+  private final Integer size;
+  private final String sortKey;
+  private final String sortDir;
+  private final Boolean findTotal;
+  private final Map<String, String> matchMap;
+  private final Map<String, String> containMap;
+  private final Map<String, String> gtMap;
+  private final Map<String, String> ltMap;
 
-  public QueryRequest(@Nullable Integer from, @Nullable Integer size, @Nullable String sortKey, @Nullable String sortDir, @Nullable Boolean findTotal, @Nullable Map<String, String> filters) {
+  public QueryRequest(@Nullable Integer from, @Nullable Integer size, @Nullable String sortKey, @Nullable String sortDir, @Nullable Boolean findTotal, @Nonnull Map<String, String> matchMap, @Nonnull Map<String, String> containMap, @Nonnull Map<String, String> gtMap, @Nonnull Map<String, String> ltMap) {
     this.from = from;
     this.size = size;
     this.sortKey = sortKey;
     this.sortDir = sortDir;
     this.findTotal = findTotal;
-    this.filters = filters;
+    this.matchMap = matchMap;
+    this.containMap = containMap;
+    this.gtMap = gtMap;
+    this.ltMap = ltMap;
   }
 
   @Nullable
@@ -26,17 +32,9 @@ public final class QueryRequest {
     return from;
   }
 
-  public void setFrom(@Nullable Integer from) {
-    this.from = from;
-  }
-
   @Nullable
   public Integer getSize() {
     return size;
-  }
-
-  public void setSize(@Nullable Integer size) {
-    this.size = size;
   }
 
   @Nullable
@@ -44,17 +42,9 @@ public final class QueryRequest {
     return sortKey;
   }
 
-  public void setSortKey(@Nullable String sortKey) {
-    this.sortKey = sortKey;
-  }
-
   @Nullable
   public String getSortDir() {
     return sortDir;
-  }
-
-  public void setSortDir(@Nullable String sortDir) {
-    this.sortDir = sortDir;
   }
 
   @Nullable
@@ -62,16 +52,23 @@ public final class QueryRequest {
     return findTotal;
   }
 
-  public void setFindTotal(@Nullable Boolean findTotal) {
-    this.findTotal = findTotal;
+  @Nonnull
+  public Map<String, String> getMatchMap() {
+    return matchMap;
   }
 
-  @Nullable
-  public Map<String, String> getFilters() {
-    return filters;
+  @Nonnull
+  public Map<String, String> getContainMap() {
+    return containMap;
   }
 
-  public void setFilters(@Nullable Map<String, String> filters) {
-    this.filters = filters;
+  @Nonnull
+  public Map<String, String> getGtMap() {
+    return gtMap;
+  }
+
+  @Nonnull
+  public Map<String, String> getLtMap() {
+    return ltMap;
   }
 }

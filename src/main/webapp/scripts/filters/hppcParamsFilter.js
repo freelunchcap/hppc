@@ -11,7 +11,7 @@ app.filter('hppcParamsFilter', function() {
     angular.forEach(params.filter(), function(value, key) {
       value = value.trim();
       if(value != '')
-        query['filter-' + key] = value;
+        query['contain-' + key] = value;
     });
     return query;
   }

@@ -7,7 +7,7 @@ app.controller('DiagnosisRecordsPageController', function($scope, $stateParams, 
     counts: [],
     getData: function($defer, params) {
       var query = $filter('hppcParamsFilter')(params);
-      query['filter-parent'] = $stateParams.id;
+      query['match-parent'] = $stateParams.id;
       DiagnosisRecord.query(query, function (data, responseHeaders) {
         params.total(parseInt(responseHeaders('total')));
         $defer.resolve(data);

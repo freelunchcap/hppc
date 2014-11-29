@@ -1,9 +1,12 @@
 package com.beijunyi.hppc.dao;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.PostConstruct;
 
 import com.beijunyi.hppc.models.internal.QueryRequest;
 import com.beijunyi.hppc.models.internal.QueryResult;
@@ -15,13 +18,29 @@ import org.hibernate.criterion.*;
 public abstract class AbstractDao<T> implements Dao<T> {
 
   protected SessionFactory sf;
+  protected Map<String, Class> fieldClassMap = new HashMap<>();
 
   protected AbstractDao(@Nonnull SessionFactory sf) {
     this.sf = sf;
+    fieldClassMap = createFieldClassMap();
   }
 
   @Nonnull
   protected abstract Class<T> getPersistentClass();
+
+  @Nonnull
+  protected Map<String, Class> createFieldClassMap() {
+    Class<T> clazz = getPersistentClass();
+    Map<String, Class> result = new HashMap<>();
+    for(Field field : clazz.getDeclaredFields()) {
+      Class fieldClass = field.getType();
+      if(fieldClass == String.class)
+        continue;
+      String fieldName = field.getName();
+      result.put(fieldName, fieldClass);
+    }
+    return result;
+  }
 
   @Nonnull
   @Override
@@ -83,6 +102,18 @@ public abstract class AbstractDao<T> implements Dao<T> {
   }
 
   @Nonnull
+  protected Object castValue(@Nonnull String key, @Nonnull String value) {
+    Class<?> fieldClass = fieldClassMap.get(key);
+    if(fieldClass == null)
+      return value;
+    try {
+      return fieldClass.getMethod("valueOf", String.class).invoke(null, value);
+    } catch(Exception e) {
+      throw new RuntimeException("cannot cast " + value + " to " + fieldClass.getName());
+    }
+  }
+
+  @Nonnull
   @SuppressWarnings("unchecked")
   protected QueryResult<T> criterionQuery(@Nonnull QueryRequest request, @Nonnull Criterion... criterion) {
     Criteria dataCriteria = sf.getCurrentSession()
@@ -91,13 +122,24 @@ public abstract class AbstractDao<T> implements Dao<T> {
                                .createCriteria(getPersistentClass())
                                .setProjection(Projections.rowCount());
 
-    if(request.getFilters() != null) {
-      Conjunction conj = Restrictions.conjunction();
-      for(Map.Entry<String, String> filter : request.getFilters().entrySet()) {
-        conj.add(Restrictions.ilike(filter.getKey(), "%" + filter.getValue() + "%"));
-      }
-      dataCriteria.add(conj);
-      totalCriteria.add(conj);
+    Conjunction conj = Restrictions.conjunction();
+    dataCriteria.add(conj);
+    totalCriteria.add(conj);
+
+    for(Map.Entry<String, String> match : request.getMatchMap().entrySet()) {
+      conj.add(Restrictions.eq(match.getKey(), castValue(match.getKey(), match.getValue())));
+    }
+
+    for(Map.Entry<String, String> contain : request.getContainMap().entrySet()) {
+      conj.add(Restrictions.ilike(contain.getKey(), "%" + contain.getValue() + "%"));
+    }
+
+    for(Map.Entry<String, String> gt : request.getGtMap().entrySet()) {
+      conj.add(Restrictions.gt(gt.getKey(), castValue(gt.getKey(), gt.getValue())));
+    }
+
+    for(Map.Entry<String, String> lt : request.getLtMap().entrySet()) {
+      conj.add(Restrictions.gt(lt.getKey(), castValue(lt.getKey(), lt.getValue())));
     }
 
     for(Criterion c : criterion) {
