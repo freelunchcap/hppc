@@ -1,5 +1,7 @@
 app.controller('DiagnosisRecordFormController', function($scope, $stateParams, DiagnosisRecord) {
 
+  $scope.$stateParams = $stateParams;
+
   function detectChanges() {
     $scope.recordChanged = false;
     var stopFn = $scope.$watch('record', function(newValue, oldValue) {
