@@ -13,7 +13,10 @@ app.controller('MedicalRecordDetailsPageController', function($scope, $state, $s
   ];
 
   angular.forEach($scope.tabs, function(tab, index) {
-    tab.$active = $state.current.name == tab.sref;
+    var matchedStates = [$state.current.name];
+    if($state.current.data.parents != null)
+      matchedStates = matchedStates.concat($state.current.data.parents)
+    tab.$active = matchedStates.indexOf(tab.sref) != -1;
     tab.$show = index == 0 || $stateParams.id != 'new'
   })
 

@@ -18,9 +18,17 @@ app.config(function ($stateProvider) {
       controller: 'BasicInformationFormController'
     })
     .state('medical.record.diagnosis-records', {
-      url: '/diagnosis-record',
+      url: '/diagnosis-records',
       templateUrl: 'views/modules/Medical/MedicalRecords/DiagnosisRecordsPage.html',
       controller: 'DiagnosisRecordsPageController'
+    })
+    .state('medical.record.diagnosis-record', {
+      url: '/diagnosis-record/:did',
+      data: {
+        parents: ['medical.record.diagnosis-records']
+      },
+      templateUrl: 'views/modules/Medical/MedicalRecords/DiagnosisRecordForm.html',
+      controller: 'DiagnosisRecordFormController'
     });
 
 });

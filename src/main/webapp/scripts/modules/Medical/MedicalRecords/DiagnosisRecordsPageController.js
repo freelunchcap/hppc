@@ -11,10 +11,16 @@ app.controller('DiagnosisRecordsPageController', function($scope, $stateParams, 
       DiagnosisRecord.query(query, function (data, responseHeaders) {
         params.total(parseInt(responseHeaders('total')));
         $defer.resolve(data);
-        $scope.tableParams.$selection = null;
+        params.$selection = null;
       });
+      params.$stateParams = function() {
+        return $stateParams;
+      }
     }
   });
+
+  $scope.$stateParams = $stateParams;
+
 
   $scope.select = function(record) {
     $scope.tableParams.$selection = record;

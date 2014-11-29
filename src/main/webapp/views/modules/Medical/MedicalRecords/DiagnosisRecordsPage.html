@@ -3,26 +3,24 @@
     <button class="btn btn-primary btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()">返回</button>
   </div>
   <div class="tab-content">
-    <table ng-table="tableParams" show-filter="true" template-pagination="medical-records-table-tools" class="table table-selectable">
+    <table ng-table="tableParams" show-filter="true" template-pagination="diagnosis-records-table-tools" class="table table-selectable">
       <tbody>
-      <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
-        <td class="col-md-2" data-title="'档案号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
-        <td class="col-md-2" data-title="'主人姓名'" filter="{'ownerName': 'text'}" sortable="'ownerName'">{{record.ownerName}}</td>
-        <td class="col-md-2" data-title="'种类'" sortable="'petType'">{{record.petType}}</td>
-        <td class="col-md-2" data-title="'品种'" filter="{'petBreed': 'text'}" sortable="'petBreed'">{{record.petBreed}}</td>
-        <td class="col-md-2" data-title="'宠物名'" filter="{'petName': 'text'}" sortable="'petName'">{{record.petName}}</td>
-        <td class="col-md-2" data-title="'入档时间'" sortable="'createTimestamp'">{{record.createTimestamp | date: 'yyyy年M月d日'}}</td>
-      </tr>
+        <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
+          <td class="col-md-2" data-title="'记录编号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
+          <td class="col-md-2" data-title="'时间'" filter="{'timestamp': 'text'}" sortable="'timestamp'">{{record.timestamp | date: 'yyyy年M月d日'}}</td>
+          <td class="col-md-6" data-title="'关键词'" filter="{'keywords': 'text'}" sortable="'keywords'">{{record.keywords}}</td>
+          <td class="col-md-2" data-title="'医生'" filter="{'doctor': 'text'}" sortable="'doctor'">{{record.doctor}}</td>
+        </tr>
       </tbody>
     </table>
 
-    <script type="text/ng-template" id="medical-records-table-tools">
+    <script type="text/ng-template" id="diagnosis-records-table-tools">
       <div class="clearfix ng-table-tools">
         <div class="col-md-4">
-          <a class="btn btn-sm btn-success" ui-sref="medical.record.basic-information({id: 'new'})">
+          <a class="btn btn-sm btn-success" ui-sref="medical.record.diagnosis-record({id: params.$stateParams().id, did: 'new'})">
             添加
           </a>
-          <a class="btn btn-sm btn-info" ui-sref="medical.record.basic-information({id: params.$selection.id})" ng-disabled="params.$selection == null">
+          <a class="btn btn-sm btn-info" ui-sref="medical.record.diagnosis-record({id: params.$stateParams().id, did: params.$selection.id})" ng-disabled="params.$selection == null">
             编辑
           </a>
         </div>
