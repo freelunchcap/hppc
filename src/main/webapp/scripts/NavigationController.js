@@ -6,7 +6,7 @@ app.controller('NavigationController', function($scope, SecurityApi) {
     }
   ];
 
-  SecurityApi.getLoginInformation().success(function(loginInformation) {
+  SecurityApi.getLoginInformation().then(function(loginInformation) {
     $scope.loginInformation = loginInformation;
   });
 

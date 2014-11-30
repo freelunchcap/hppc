@@ -1,8 +1,8 @@
-<div id="basic-information-form">
+<div id="diagnosis-record-form">
   <div class="tab-tools">
-    <a class="btn btn-primary btn-sm" ui-sref="medical.record.diagnosis-records({id: $stateParams.id})">返回</a>
+    <a class="btn btn-primary btn-sm" ui-sref="medical.record.diagnosis-records({id: $stateParams.id})"><i class="fa fa-arrow-left"></i>返回</a>
     <div class="pull-right">
-      <button class="btn btn-primary btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()">保存</button>
+      <button class="btn btn-success btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()"><i class="fa fa-floppy-o"></i>保存</button>
     </div>
   </div>
   <div class="tab-content">
