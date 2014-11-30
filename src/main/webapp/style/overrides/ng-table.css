@@ -92,7 +92,7 @@
   border-top: 1px solid #e1e1e1;
   font-size: 12px;
   color: #666;
-  vertical-align: text-top;
+  line-height: 30px;
 }
 
 .ng-table-tools .btn {

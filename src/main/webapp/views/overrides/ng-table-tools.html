@@ -1,0 +1,8 @@
+<div class="clearfix ng-table-tools">
+  <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1"><i class="fa fa-angle-double-left"></i>上一页</button>
+  <button class="btn btn-sm btn-default" ng-click="params.page(params.page() + 1)" ng-disabled="params.page() >= params.total() / params.count()"><i class="fa fa-angle-double-right"></i>下一页</button>
+  <div class="pull-right">
+    <span ng-show="params.total() == 0">没有找到记录</span>
+    <span ng-show="params.total() != 0">正在显示记录 {{(params.page() - 1) * params.count() + 1}} - {{params.total() > params.page() * params.count() ? params.page() * params.count() : params.total()}}</span>
+  </div>
+</div>

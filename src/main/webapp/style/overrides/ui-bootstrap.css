@@ -7,7 +7,7 @@
   display: none;
 }
 
-.tools-tabs li.active > a,
-.tools-tabs li.active > a:hover {
+.nav-tabs li.active > a,
+.nav-tabs li.active > a:hover {
   background-color: #eff3f8;
 }

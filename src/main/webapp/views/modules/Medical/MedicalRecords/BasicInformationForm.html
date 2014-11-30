@@ -1,6 +1,9 @@
 <div id="basic-information-form">
   <div class="tab-tools">
-    <button class="btn btn-primary btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()">保存</button>
+    <a class="btn btn-primary btn-sm" ui-sref="medical.records"><i class="fa fa-arrow-left"></i>返回（记录列表）</a>
+    <div class="pull-right">
+      <button class="btn btn-success btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()"><i class="fa fa-floppy-o"></i>保存</button>
+    </div>
   </div>
   <div class="tab-content">
     <form class="form-horizontal" name="form" ng-show="record != null">

@@ -1,5 +1,7 @@
 app.controller('DiagnosisRecordsPageController', function($scope, $stateParams, $filter, ngTableParams, DiagnosisRecord) {
 
+  $scope.$stateParams = $stateParams;
+
   $scope.tableParams = new ngTableParams({
     page: 1,
     count: 25
@@ -13,13 +15,9 @@ app.controller('DiagnosisRecordsPageController', function($scope, $stateParams, 
         $defer.resolve(data);
         params.$selection = null;
       });
-      params.$stateParams = function() {
-        return $stateParams;
-      }
     }
   });
 
-  $scope.$stateParams = $stateParams;
 
 
   $scope.select = function(record) {

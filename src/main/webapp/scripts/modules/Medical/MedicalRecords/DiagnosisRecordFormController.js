@@ -13,7 +13,7 @@ app.controller('DiagnosisRecordFormController', function($scope, $stateParams, S
   }
 
   function fixRecord(record) {
-
+    record.timestamp = record.timestamp != null ? new Date(record.timestamp) : undefined;
   }
 
   if($stateParams.did != 'new') {

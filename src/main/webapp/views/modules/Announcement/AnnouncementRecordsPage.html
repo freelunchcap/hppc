@@ -1,42 +1,24 @@
 <div id="announcements-records-page">
-  <table ng-table="tableParams" show-filter="true" template-pagination="announcements-records-table-tools" class="table table-selectable">
-    <tbody ng-repeat="record in $data">
-    <tr ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
-      <td class="col-md-2" data-title="'时间'" sortable="'timestamp'">{{record.timestamp | date: 'yyyy年M月d日'}}</td>
-      <td class="col-md-5" data-title="'标题'" filter="{'title': 'text'}" sortable="'title'">{{record.title}}</td>
-      <td class="col-md-5" data-title="'关键词'" filter="{'keywords': 'text'}" sortable="'keywords'">{{record.keywords}}</td>
-    </tr>
-    </tbody>
-  </table>
-
-  <script type="text/ng-template" id="announcements-records-table-tools">
-    <div class="clearfix ng-table-tools">
-      <div class="col-md-4">
-        <a class="btn btn-sm btn-success" ui-sref="announcement.record({id: 'new'})">
-          添加
-        </a>
-        <a class="btn btn-sm btn-info" ui-sref="announcement.record({id: params.$selection.id})" ng-disabled="params.$selection == null">
-          编辑
-        </a>
-        <button class="btn btn-sm btn-danger" ng-click="params.$pageScope().remove(params.$selection)" ng-disabled="params.$selection == null">
-          删除
-        </button>
-      </div>
-      <div class="col-md-4">
-
-      </div>
-      <div class="col-md-4">
-        <div class="pull-right">
-          <span ng-show="params.total() == 0">没有找到记录</span>
-          <span ng-show="params.total() != 0">正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.total() > params.page() * params.count() ? params.page() * params.count() : params.total()}}</span>
-          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1">
-            上一页
-          </button>
-          <button class="btn btn-sm btn-default" ng-click="params.page(params.page() + 1)" ng-disabled="params.page() >= params.total() / params.count()">
-            下一页
-          </button>
-        </div>
-      </div>
+  <h2 class="col-md-offset-1">公告设置</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a>公告列表</a></li>
+  </ul>
+  <div class="tab-tools clearfix">
+    <div class="pull-right">
+      <a class="btn btn-sm btn-success" ui-sref="announcement.record({id: 'new'})"><i class="fa fa-plus-square"></i>添加</a>
+      <a class="btn btn-sm btn-info" ui-sref="announcement.record({id: tableParams.$selection.id})" ng-disabled="tableParams.$selection == null"><i class="fa fa-pencil-square-o"></i>编辑</a>
+      <button class="btn btn-sm btn-danger" ng-click="remove(tableParams.$selection)" ng-disabled="tableParams.$selection == null"><i class="fa fa-trash-o"></i>移除</button>
     </div>
-  </script>
+  </div>
+  <div class="tab-content">
+    <table ng-table="tableParams" show-filter="true" template-pagination="views/overrides/ng-table-tools.html" class="table table-selectable">
+      <tbody ng-repeat="record in $data">
+      <tr ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
+        <td class="col-md-2" data-title="'时间'" sortable="'timestamp'">{{record.timestamp | date: 'yyyy年M月d日'}}</td>
+        <td class="col-md-5" data-title="'标题'" filter="{'title': 'text'}" sortable="'title'">{{record.title}}</td>
+        <td class="col-md-5" data-title="'关键词'" filter="{'keywords': 'text'}" sortable="'keywords'">{{record.keywords}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

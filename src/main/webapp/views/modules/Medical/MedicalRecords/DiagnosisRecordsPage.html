@@ -1,9 +1,13 @@
 <div id="diagnosis-records-page">
   <div class="tab-tools">
-    <button class="btn btn-primary btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()">返回</button>
+    <a class="btn btn-primary btn-sm" ui-sref="medical.records"><i class="fa fa-arrow-left"></i>返回（记录列表）</a>
+    <div class="pull-right">
+      <a class="btn btn-sm btn-success" ui-sref="medical.record.diagnosis-record({id: $stateParams.id, did: 'new'})"><i class="fa fa-plus-square"></i>添加</a>
+      <a class="btn btn-sm btn-info" ui-sref="medical.record.diagnosis-record({id: $stateParams.id, did: tableParams.$selection.id})" ng-disabled="tableParams.$selection == null"><i class="fa fa-pencil-square-o"></i>编辑</a>
+    </div>
   </div>
   <div class="tab-content">
-    <table ng-table="tableParams" show-filter="true" template-pagination="diagnosis-records-table-tools" class="table table-selectable">
+    <table ng-table="tableParams" show-filter="true" template-pagination="views/overrides/ng-table-tools.html" class="table table-selectable">
       <tbody>
         <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
           <td class="col-md-2" data-title="'记录编号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
@@ -13,33 +17,5 @@
         </tr>
       </tbody>
     </table>
-
-    <script type="text/ng-template" id="diagnosis-records-table-tools">
-      <div class="clearfix ng-table-tools">
-        <div class="col-md-4">
-          <a class="btn btn-sm btn-success" ui-sref="medical.record.diagnosis-record({id: params.$stateParams().id, did: 'new'})">
-            添加
-          </a>
-          <a class="btn btn-sm btn-info" ui-sref="medical.record.diagnosis-record({id: params.$stateParams().id, did: params.$selection.id})" ng-disabled="params.$selection == null">
-            编辑
-          </a>
-        </div>
-        <div class="col-md-4">
-
-        </div>
-        <div class="col-md-4">
-          <div class="pull-right">
-            <span ng-show="params.total() == 0">没有找到记录</span>
-            <span ng-show="params.total() != 0">正在显示{{(params.page() - 1) * params.count() + 1}}-{{params.total() > params.page() * params.count() ? params.page() * params.count() : params.total()}}</span>
-            <button class="btn btn-sm btn-default" ng-click="params.page(params.page() - 1)" ng-disabled="params.page() == 1">
-              上一页
-            </button>
-            <button class="btn btn-sm btn-default" ng-click="params.page(params.page() + 1)" ng-disabled="params.page() >= params.total() / params.count()">
-              下一页
-            </button>
-          </div>
-        </div>
-      </div>
-    </script>
   </div>
 </div>
