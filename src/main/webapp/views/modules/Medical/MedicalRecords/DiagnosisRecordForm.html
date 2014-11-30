@@ -1,7 +1,52 @@
 <div id="basic-information-form">
   <div class="tab-tools">
-    <button class="btn btn-primary btn-sm" ui-sref="medical.record.diagnosis-records({id: $stateParams.id})">返回</button>
+    <a class="btn btn-primary btn-sm" ui-sref="medical.record.diagnosis-records({id: $stateParams.id})">返回</a>
+    <div class="pull-right">
+      <button class="btn btn-primary btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()">保存</button>
+    </div>
   </div>
   <div class="tab-content">
+    <form class="form-horizontal " name="form">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          诊断记录
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="timestamp" class="col-sm-2 control-label">*录入时间</label>
+            <div class="col-sm-8">
+              <input hppc-datefield class="form-control" name="timestamp" ng-model="record.timestamp" id="timestamp" placeholder="录入时间" ng-readonly="true" ng-required="true"/>
+            </div>
+            <div class="col-sm-2 form-alert" ng-show="form.timestamp.$invalid">必填</div>
+          </div>
+          <div class="form-group">
+            <label for="doctorName" class="col-sm-2 control-label">*负责医生</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="doctorName" ng-model="record.doctorName" id="doctorName" placeholder="负责医生" ng-required="true" readonly/>
+            </div>
+            <div class="col-sm-2 form-alert" ng-show="form.doctorName.$invalid">必填</div>
+          </div>
+          <div class="form-group">
+            <label for="keywords" class="col-sm-2 control-label">关键词</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="keywords" ng-model="record.keywords" id="keywords" placeholder="关键词"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="diagnosis" class="col-sm-2 control-label">*诊断结果</label>
+            <div class="col-sm-8">
+              <textarea class="form-control" name="diagnosis" ng-model="record.diagnosis" id="diagnosis" placeholder="诊断结果" ng-required="true"></textarea>
+            </div>
+            <div class="col-sm-2 form-alert" ng-show="form.diagnosis.$invalid">必填</div>
+          </div>
+          <div class="form-group">
+            <label for="supplementaryInformation" class="col-sm-2 control-label">补充信息</label>
+            <div class="col-sm-8">
+              <textarea class="form-control" name="supplementaryInformation" ng-model="record.supplementaryInformation" id="supplementaryInformation" placeholder="补充信息"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

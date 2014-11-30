@@ -10,20 +10,23 @@ public class DiagnosisRecord {
   @GeneratedValue
   private Integer id;
 
-  @Column(nullable = false, updatable = false)
-  private Integer parent;
+  @Column(name = "parent_form", nullable = false, updatable = false)
+  private Integer parentForm;
 
-  @Column(nullable = false, updatable = false)
+  @Column(name = "timestamp", nullable = false, updatable = false)
   private Date timestamp;
 
-  @Column
+  @Column(name = "keywords")
   private String keywords;
 
-  @Column(nullable = false)
+  @Column(name ="diagnosis", nullable = false)
   private String diagnosis;
 
-  @Column(nullable = false)
-  private Integer doctor;
+  @Column(name = "doctor_name", nullable = false)
+  private String doctorName;
+
+  @Column(name = "supplementary_information")
+  private String supplementaryInformation;
 
   public Integer getId() {
     return id;
@@ -33,12 +36,12 @@ public class DiagnosisRecord {
     this.id = id;
   }
 
-  public Integer getParent() {
-    return parent;
+  public Integer getParentForm() {
+    return parentForm;
   }
 
-  public void setParent(Integer parent) {
-    this.parent = parent;
+  public void setParentForm(Integer parentForm) {
+    this.parentForm = parentForm;
   }
 
   public Date getTimestamp() {
@@ -65,11 +68,19 @@ public class DiagnosisRecord {
     this.diagnosis = diagnosis;
   }
 
-  public Integer getDoctor() {
-    return doctor;
+  public String getDoctorName() {
+    return doctorName;
   }
 
-  public void setDoctor(Integer doctor) {
-    this.doctor = doctor;
+  public void setDoctorName(String doctorName) {
+    this.doctorName = doctorName;
+  }
+
+  public String getSupplementaryInformation() {
+    return supplementaryInformation;
+  }
+
+  public void setSupplementaryInformation(String supplementaryInformation) {
+    this.supplementaryInformation = supplementaryInformation;
   }
 }
