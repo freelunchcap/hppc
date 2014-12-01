@@ -1,3 +1,15 @@
 <div id="accounts-page">
-
+  <div class="tab-content">
+    <table ng-table="tableParams" show-filter="true" template-pagination="views/overrides/ng-table-tools.html" class="table table-selectable">
+      <tbody>
+      <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
+        <td class="col-md-2" data-title="'编号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
+        <td class="col-md-3" data-title="'用户名'" filter="{'username': 'text'}" sortable="'username'">{{record.username}}</td>
+        <td class="col-md-3" data-title="'昵称'" filter="{'alias': 'text'}" sortable="'alias'">{{record.alias}}</td>
+        <td class="col-md-2" data-title="'管理员权限'" filter="{'admin': 'text'}" sortable="'admin'">{{record.admin}}</td>
+        <td class="col-md-2" data-title="'已激活'" filter="{'active': 'text'}" sortable="'active'">{{record.active}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

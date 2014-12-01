@@ -1,3 +1,14 @@
 <div id="roles-page">
-
+  <div class="tab-content">
+    <table ng-table="tableParams" show-filter="true" template-pagination="views/overrides/ng-table-tools.html" class="table table-selectable">
+      <tbody>
+      <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
+        <td class="col-md-2" data-title="'编号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
+        <td class="col-md-3" data-title="'名称'" filter="{'name': 'text'}" sortable="'name'">{{record.name}}</td>
+        <td class="col-md-5" data-title="'描述'" filter="{'description': 'text'}" sortable="'description'">{{record.description}}</td>
+        <td class="col-md-2" data-title="'已激活'" filter="{'active': 'text'}" sortable="'active'">{{record.active}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
