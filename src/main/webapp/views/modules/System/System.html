@@ -1,0 +1,9 @@
+<div id="system">
+  <h2 class="col-md-offset-1">系统设置</h2>
+  <tabset class="router-tabs tools-tabs">
+    <tab ng-repeat="tab in tabs" ui-sref="{{tab.sref}}({id: $stateParams.id})" active="tab.$active" ng-show="tab.$show">
+      <tab-heading>{{tab.title}}</tab-heading>
+    </tab>
+  </tabset>
+  <div ui-view></div>
+</div>

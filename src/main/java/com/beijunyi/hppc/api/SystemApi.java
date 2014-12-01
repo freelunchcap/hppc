@@ -5,9 +5,7 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -27,6 +25,12 @@ public class SystemApi {
   @Path("accounts")
   public Response queryAccounts(@Nonnull @Context UriInfo uriInfo) {
     return Response.ok(ss.queryAccounts(ApiUtils.getRequest(uriInfo))).build();
+  }
+
+  @GET
+  @Path("account/{id}")
+  public Response getAccount(@PathParam("id") int id) {
+    return Response.ok(ss.getAccount(id)).build();
   }
 
   @POST
@@ -67,6 +71,12 @@ public class SystemApi {
     return Response.ok(ss.queryRoles(ApiUtils.getRequest(uriInfo))).build();
   }
 
+  @GET
+  @Path("role/{id}")
+  public Response getRole(@PathParam("id") int id) {
+    return Response.ok(ss.getRole(id)).build();
+  }
+
   @POST
   @Path("role/create")
   public Response createRole(@Nullable UpdateRoleRequest request) {
@@ -95,6 +105,11 @@ public class SystemApi {
   @Path("privileges")
   public Response queryPrivileges(@Nonnull @Context UriInfo uriInfo) {
     return Response.ok(ss.queryPrivileges(ApiUtils.getRequest(uriInfo))).build();
+  }
+  @GET
+  @Path("privilege/{id}")
+  public Response getPrivilege(@PathParam("id") int id) {
+    return Response.ok(ss.getPrivilege(id)).build();
   }
 
   @POST

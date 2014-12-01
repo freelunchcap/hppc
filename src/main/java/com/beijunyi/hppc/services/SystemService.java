@@ -1,6 +1,7 @@
 package com.beijunyi.hppc.services;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -38,6 +39,12 @@ public class SystemService {
   @Transactional
   public QueryResult<Account> queryAccounts(@Nonnull QueryRequest request) {
     return ad.query(request);
+  }
+
+  @Nullable
+  @Transactional
+  public Account getAccount(int id) {
+    return ad.get(id);
   }
 
   @Nonnull
@@ -121,6 +128,12 @@ public class SystemService {
     return rd.query(request);
   }
 
+  @Nullable
+  @Transactional
+  public Role getRole(int id) {
+    return rd.get(id);
+  }
+
   @Nonnull
   public Role createRole(@Nonnull UpdateRoleRequest request) {
     return rd.create(new Role(request.getName(), request.getDescription()));
@@ -181,6 +194,12 @@ public class SystemService {
   @Nonnull
   public QueryResult<Privilege> queryPrivileges(@Nonnull QueryRequest request) {
     return pd.query(request);
+  }
+
+  @Nullable
+  @Transactional
+  public Privilege getPrivilege(int id) {
+    return pd.get(id);
   }
 
   @Nonnull

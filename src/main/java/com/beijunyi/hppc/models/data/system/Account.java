@@ -23,6 +23,7 @@ public final class Account {
   private String alias;
 
   @Column(name = "password", nullable = false)
+  @JsonIgnore
   private String password;
 
   @Column(name = "admin", nullable = false)

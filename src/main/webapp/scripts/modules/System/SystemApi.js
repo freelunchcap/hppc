@@ -3,6 +3,9 @@ app.service('SystemApi', function($http) {
     queryAccounts: function(params) {
       return $http.get('/api/system/accounts', {params: params});
     },
+    getAccount: function(id) {
+      return $http.get('/api/system/account/' + id, {});
+    },
     createAccount: function(account) {
       return $http.post('/api/system/account/create', account);
     },
@@ -18,6 +21,9 @@ app.service('SystemApi', function($http) {
     queryRoles: function(params) {
       return $http.get('/api/system/roles', {params: params});
     },
+    getRole: function(id) {
+      return $http.get('/api/system/role/' + id, {});
+    },
     createRole: function(role) {
       return $http.post('/api/system/role/create', role);
     },
@@ -29,6 +35,9 @@ app.service('SystemApi', function($http) {
     },
     queryPrivileges: function(params) {
       return $http.get('/api/system/privileges', {params: params});
+    },
+    getPrivilege: function(id) {
+      return $http.get('/api/system/privilege/' + id, {});
     },
     createPrivilege: function(privilege) {
       return $http.post('/api/system/privilege/create', privilege);

@@ -31,7 +31,7 @@
         <ul class="dropdown-menu" role="menu">
           <li><a href="#"><i class="fa fa-exclamation-circle fa-fw"></i>用户信息</a></li>
           <li class="divider" ng-if="loginInformation.admin"></li>
-          <li ng-if="loginInformation.admin"><a><i class="fa fa-cogs fa-fw"></i>系统设置</a></li>
+          <li ng-if="loginInformation.admin"><a ui-sref="system.user"><i class="fa fa-cogs fa-fw"></i>系统设置</a></li>
           <li ng-if="loginInformation.admin"><a ui-sref="announcement.records"><i class="fa fa-newspaper-o fa-fw"></i>公告设置</a></li>
           <li class="divider"></li>
           <li><a href="/security/logout"><i class="fa fa-sign-out fa-fw"></i>登出</a></li>
