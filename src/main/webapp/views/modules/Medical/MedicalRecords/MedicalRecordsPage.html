@@ -13,7 +13,7 @@
   <div class="tab-content">
     <table ng-table="tableParams" show-filter="true" template-pagination="views/overrides/ng-table-tools.html" class="table table-selectable">
       <tbody>
-      <tr ng-repeat="record in $data" ng-click="select(record)" ng-class="{active: record == tableParams.$selection}">
+      <tr ng-repeat="record in $data" ng-click="select(record)" ng-dblclick="edit(record)" ng-class="{active: record == tableParams.$selection}">
         <td class="col-md-2" data-title="'档案编号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
         <td class="col-md-2" data-title="'主人姓名'" filter="{'ownerName': 'text'}" sortable="'ownerName'">{{record.ownerName}}</td>
         <td class="col-md-2" data-title="'种类'" sortable="'petType'">{{record.petType}}</td>

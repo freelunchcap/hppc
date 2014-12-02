@@ -1,4 +1,4 @@
-app.controller('DiagnosisRecordsPageController', function($scope, $stateParams, $filter, ngTableParams, DiagnosisRecord) {
+app.controller('DiagnosisRecordsPageController', function($scope, $state, $stateParams, $filter, ngTableParams, DiagnosisRecord) {
 
   $scope.$stateParams = $stateParams;
 
@@ -18,10 +18,15 @@ app.controller('DiagnosisRecordsPageController', function($scope, $stateParams, 
     }
   });
 
-
-
   $scope.select = function(record) {
     $scope.tableParams.$selection = record;
+  };
+
+  $scope.edit = function(record) {
+    $state.go('medical.record.diagnosis-record', {
+      id: $stateParams.id,
+      did: record.id
+    });
   };
 
 });

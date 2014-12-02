@@ -1,4 +1,4 @@
-app.controller('MedicalRecordsPageController', function($scope, $filter, ngTableParams, BasicInformation) {
+app.controller('MedicalRecordsPageController', function($scope, $state, $filter, ngTableParams, BasicInformation) {
 
   $scope.tableParams = new ngTableParams({
     page: 1,
@@ -17,6 +17,12 @@ app.controller('MedicalRecordsPageController', function($scope, $filter, ngTable
 
   $scope.select = function(record) {
     $scope.tableParams.$selection = record;
+  };
+
+  $scope.edit = function(record) {
+    $state.go('medical.record.basic-information', {
+      id: record.id
+    });
   };
 
 });
