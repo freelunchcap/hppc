@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class BiochemistryTestReport {
+public class BiochemistryTestRecord {
 
   @Id
   @GeneratedValue

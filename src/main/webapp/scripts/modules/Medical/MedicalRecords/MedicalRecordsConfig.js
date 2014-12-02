@@ -29,6 +29,16 @@ app.config(function ($stateProvider) {
       },
       templateUrl: 'views/modules/Medical/MedicalRecords/DiagnosisRecordForm.html',
       controller: 'DiagnosisRecordFormController'
+    })
+    .state('medical.record.test-records', {
+      url: '/test-records',
+      templateUrl: 'views/modules/Medical/MedicalRecords/TestRecordsPage.html',
+      controller: 'TestRecordsPageController'
+    })
+    .state('medical.record.blood-test-records', {
+      url: '/blood-test-records',
+      templateUrl: 'views/modules/Medical/MedicalRecords/BloodTestRecordsPage.html',
+      controller: 'BloodTestRecordsPageController'
     });
 
 });

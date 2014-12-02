@@ -22,7 +22,7 @@ app.config(function ($stateProvider) {
       templateUrl: 'views/modules/System/Roles/RolesPage.html',
       controller: 'RolesPageController'
     })
-    .state('system.roles', {
+    .state('system.role', {
       url: '/role/:id',
       templateUrl: 'views/modules/System/Roles/RoleDetailsPage.html',
       controller: 'RoleDetailsPageController'

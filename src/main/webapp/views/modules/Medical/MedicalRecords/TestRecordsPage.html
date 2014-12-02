@@ -1,0 +1,19 @@
+<div id="test-records-page">
+  <div class="tab-tools">
+    <a class="btn btn-primary btn-sm" ui-sref="medical.records"><i class="fa fa-arrow-left"></i>返回（记录列表）</a>
+  </div>
+  <div class="tab-content">
+    <table ng-table="tableParams" template-pagination="views/overrides/ng-table-tools.html" class="table">
+      <tbody>
+      <tr ng-repeat="record in $data">
+        <td class="col-md-3" data-title="'检验项目'">{{record.title}}</td>
+        <td class="col-md-6" data-title="'最近记录'">{{record.ownerName}}</td>
+        <td class="col-md-3" data-title="'操作'">
+          <a class="btn btn-info btn-xs">查看最近</a>
+          <a class="btn btn-info btn-xs">查看所有</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

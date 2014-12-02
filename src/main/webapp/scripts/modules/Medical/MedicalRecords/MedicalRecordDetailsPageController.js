@@ -10,7 +10,7 @@ app.controller('MedicalRecordDetailsPageController', function($scope, $state, $s
       title: '诊断记录',
       sref: 'medical.record.diagnosis-records'
     }, {
-      title: '化验记录',
+      title: '检验记录',
       sref: 'medical.record.test-records'
     }
   ];
