@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "blood_test_record")
 public class BloodTestRecord {
 
   @Id
@@ -11,10 +12,13 @@ public class BloodTestRecord {
   @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
+  @Column(name = "parent_form", nullable = false, updatable = false)
+  private Integer parentForm;
+
   @Column(name = "timestamp")
   private Date timestamp;
 
-  @Column(name = "veterinarian _name")
+  @Column(name = "veterinarian_name")
   private String veterinarianName;
 
   @Column(name = "docimaster_name")
@@ -53,6 +57,14 @@ public class BloodTestRecord {
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public Integer getParentForm() {
+    return parentForm;
+  }
+
+  public void setParentForm(Integer parentForm) {
+    this.parentForm = parentForm;
   }
 
   public Date getTimestamp() {

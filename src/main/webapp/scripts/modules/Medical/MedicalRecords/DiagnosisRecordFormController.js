@@ -28,7 +28,7 @@ app.controller('DiagnosisRecordFormController', function($scope, $stateParams, S
     $scope.record.timestamp = new Date();
     $scope.record.parentForm = $stateParams.id;
     SecurityApi.getLoginInformation().then(function(loginInformation) {
-      $scope.record.doctorName = loginInformation.alias;
+      $scope.record.veterinarianName = loginInformation.alias;
     });
     $scope.newRecord = true;
     detectChanges();

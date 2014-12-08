@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "basic_information")
 public class BasicInformation {
 
   public static final String ACCESS_POINT = BasicInformation.class.getSimpleName();

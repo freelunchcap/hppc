@@ -2,4 +2,16 @@
   <div class="tab-tools">
     <a class="btn btn-primary btn-sm" ui-sref="medical.record.test-records({id: $stateParams.id})"><i class="fa fa-arrow-left"></i>返回（检验记录列表）</a>
   </div>
+  <div class="tab-content">
+    <table ng-table="tableParams" show-filter="true" template-pagination="views/overrides/ng-table-tools.html" class="table table-selectable">
+      <tbody>
+      <tr ng-repeat="record in $data" ng-click="select(record)" ng-dblclick="edit(record)" ng-class="{active: record == tableParams.$selection}">
+        <td class="col-md-2" data-title="'记录编号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
+        <td class="col-md-2" data-title="'录入时间'" filter="{'timestamp': 'text'}" sortable="'timestamp'">{{record.timestamp | date: 'yyyy年M月d日'}}</td>
+        <td class="col-md-6" data-title="'兽医师'" filter="{'keywords': 'text'}" sortable="'veterinarianName'">{{record.keywords}}</td>
+        <td class="col-md-2" data-title="'检验师'" filter="{'doctorName': 'text'}" sortable="'docimasterName'">{{record.doctorName}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

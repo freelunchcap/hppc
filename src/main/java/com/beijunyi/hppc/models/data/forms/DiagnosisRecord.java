@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "diagnosis_record")
 public class DiagnosisRecord {
 
   @Id
@@ -23,8 +24,8 @@ public class DiagnosisRecord {
   @Column(name ="diagnosis", nullable = false)
   private String diagnosis;
 
-  @Column(name = "doctor_name", nullable = false)
-  private String doctorName;
+  @Column(name = "veterinarian_name", nullable = false)
+  private String veterinarianName;
 
   @Column(name = "supplementary_information")
   private String supplementaryInformation;
@@ -69,12 +70,12 @@ public class DiagnosisRecord {
     this.diagnosis = diagnosis;
   }
 
-  public String getDoctorName() {
-    return doctorName;
+  public String getVeterinarianName() {
+    return veterinarianName;
   }
 
-  public void setDoctorName(String doctorName) {
-    this.doctorName = doctorName;
+  public void setVeterinarianName(String veterinarianName) {
+    this.veterinarianName = veterinarianName;
   }
 
   public String getSupplementaryInformation() {
