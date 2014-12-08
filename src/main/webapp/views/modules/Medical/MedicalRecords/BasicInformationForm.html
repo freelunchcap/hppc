@@ -162,6 +162,13 @@
             </div>
             <div class="col-sm-2 form-alert" ng-show="form.petNeutered.$invalid || form.petNeuterDate.$invalid">必填</div>
           </div>
+          <div class="form-group">
+            <label for="supplementaryInformation" class="col-sm-2 control-label">补充信息</label>
+            <div class="col-sm-8">
+              <textarea id="supplementaryInformation" name="supplementaryInformation" class="form-control" ng-model="record.supplementaryInformation"></textarea>
+            </div>
+            <div class="col-sm-2 form-alert" ng-show="form.petBreed.$invalid">必填</div>
+          </div>
         </accordion-group>
         <accordion-group is-open="accorionStatus[1]">
           <accordion-heading>一般性记录<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': accorionStatus[1], 'glyphicon-chevron-right': !accorionStatus[1]}"></i></accordion-heading>
@@ -379,11 +386,11 @@
             <label class="col-sm-2 control-label">雄性特征和行为</label>
             <div class="col-sm-8">
               <label class="radio-inline">
-                <input type="radio" name="petObviousMaleBehavious" ng-model="record.petObviousMaleBehavious" value="true">
+                <input type="radio" name="petObviousMaleBehaviours" ng-model="record.petObviousMaleBehaviours" value="true">
                 <span>明显</span>
               </label>
               <label class="radio-inline">
-                <input type="radio" name="petObviousMaleBehavious" ng-model="record.petObviousMaleBehavious" value="false">
+                <input type="radio" name="petObviousMaleBehaviours" ng-model="record.petObviousMaleBehaviours" value="false">
                 <span>不明显</span>
               </label>
             </div>

@@ -14,19 +14,19 @@ public class Announcement {
   @GeneratedValue
   private Integer id;
 
-  @Column(nullable = false, updatable = false)
+  @Column(name = "timestamp", nullable = false, updatable = false)
   private Date timestamp;
 
-  @Column(nullable = false)
+  @Column(name = "type", nullable = false)
   private String type;
 
-  @Column(nullable = false)
+  @Column(name = "title", nullable = false)
   private String title;
 
-  @Column(nullable = true)
+  @Column(name = "keywords", nullable = true)
   private String keywords;
 
-  @Column(nullable = false)
+  @Column(name = "content", nullable = false)
   private String content;
 
   public Announcement(Date timestamp, String type, String title, String keywords, String content) {

@@ -10,88 +10,116 @@ public class BasicInformation {
 
   @Id
   @GeneratedValue
+  @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
-  @Column(nullable = false, updatable = false)
+  @Column(name = "create_timestamp", nullable = false, updatable = false)
   private Date createTimestamp;
 
-  @Column(nullable = false)
+  @Column(name = "owner_name", nullable = false)
   private String ownerName;
 
+  @Column(name = "address")
   private String address;
 
+  @Column(name = "post_code")
   private String postCode;
 
-  @Column(nullable = false)
+  @Column(name = "cell_phone", nullable = false)
   private String cellPhone;
 
+  @Column(name = "email")
   private String email;
 
-  @Column(nullable = false)
+  @Column(name = "pet_name", nullable = false)
   private String petName;
 
-  @Column(nullable = false)
+  @Column(name = "pet_weight", nullable = false)
   private Double petWeight;
 
-  @Column(nullable = false)
+  @Column(name = "pet_type", nullable = false)
   private String petType;
 
+  @Column(name = "other_pet_type")
   private String otherPetType;
 
-  @Column(nullable = false)
+  @Column(name = "pet_birthday", nullable = false)
   private Date petBirthday;
 
-  @Column(nullable = false)
+  @Column(name = "pet_breed", nullable = false)
   private String petBreed;
 
-  @Column(nullable = false)
+  @Column(name = "pet_color", nullable = false)
   private String petColor;
 
-  @Column(nullable = false)
+  @Column(name = "pet_gender", nullable = false)
   private String petGender;
 
-  @Column(nullable = false)
+  @Column(name = "pet_neutered", nullable = false)
   private Boolean petNeutered;
 
+  @Column(name = "pet_neuter_date")
   private Date petNeuterDate;
 
+  @Column(name = "pet_source")
   private String petSource;
 
+  @Column(name = "pet_adopted_age")
   private Double petAdoptedAge;
 
+  @Column(name = "pet_living_condition")
   private String petLivingCondition;
 
+  @Column(name = "pet_living_condition_changes")
   private String petLivingConditionChanges;
 
+  @Column(name = "pet_behaviour")
   private String petBehaviour;
 
+  @Column(name = "pet_behaviour_changes")
   private String petBehaviourChanges;
 
+  @Column(name = "pet_water_drinking_status")
   private String petWaterDrinkingStatus;
 
+  @Column(name = "pet_food")
   private String petFood;
 
+  @Column(name = "pet_food_brand")
   private String petFoodBrand;
 
+  @Column(name = "pet_feeding_frequency")
   private String petFeedingFrequency;
 
+  @Column(name = "pet_food_container")
   private String petFoodContainer;
 
+  @Column(name = "other_pet_food_container")
   private String otherPetFoodContainer;
 
+  @Column(name = "pet_food_changes")
   private String petFoodChanges;
 
+  @Column(name = "pet_regular_estrus_cycle")
   private Boolean petRegularEstrusCycle;
 
+  @Column(name = "pet_last_estrus_date")
   private Date petLastEstrusDate;
 
+  @Column(name = "pet_last_pregnant_date")
   private Date petLastPregnantDate;
 
-  private Boolean petObviousMaleBehavious;
+  @Column(name = "pet_obvious_male_behaviours")
+  private Boolean petObviousMaleBehaviours;
 
+  @Column(name = "pet_history_illnesses_and_surgeries")
   private String petHistoryIllnessesAndSurgeries;
 
+  @Column(name = "update_timestamp")
   private Date updateTimestamp;
+
+  @Column(name = "supplementary_information")
+  private String supplementaryInformation;
 
   public Integer getId() {
     return id;
@@ -357,12 +385,12 @@ public class BasicInformation {
     this.petLastPregnantDate = petLastPregnantDate;
   }
 
-  public Boolean getPetObviousMaleBehavious() {
-    return petObviousMaleBehavious;
+  public Boolean getPetObviousMaleBehaviours() {
+    return petObviousMaleBehaviours;
   }
 
-  public void setPetObviousMaleBehavious(Boolean petObviousMaleBehavious) {
-    this.petObviousMaleBehavious = petObviousMaleBehavious;
+  public void setPetObviousMaleBehaviours(Boolean petObviousMaleBehaviours) {
+    this.petObviousMaleBehaviours = petObviousMaleBehaviours;
   }
 
   public String getPetHistoryIllnessesAndSurgeries() {

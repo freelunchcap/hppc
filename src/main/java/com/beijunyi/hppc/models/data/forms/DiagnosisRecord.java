@@ -8,6 +8,7 @@ public class DiagnosisRecord {
 
   @Id
   @GeneratedValue
+  @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
   @Column(name = "parent_form", nullable = false, updatable = false)
