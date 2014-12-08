@@ -35,10 +35,35 @@ app.config(function ($stateProvider) {
       templateUrl: 'views/modules/Medical/MedicalRecords/TestRecordsPage.html',
       controller: 'TestRecordsPageController'
     })
+    .state('medical.record.antigen-antibody-test-records', {
+      url: '/antigen-antibody-test-records',
+      templateUrl: 'views/modules/Medical/MedicalRecords/AntigenAntibodyRecordsPage.html',
+      controller: 'AntigenAntibodyTestRecordsPageController'
+    })
+    .state('medical.record.biochemistry-test-records', {
+      url: '/biochemistry-test-records',
+      templateUrl: 'views/modules/Medical/MedicalRecords/BiochemistryTestRecordsPage.html',
+      controller: 'BiochemistryTestRecordsPageController'
+    })
     .state('medical.record.blood-test-records', {
       url: '/blood-test-records',
       templateUrl: 'views/modules/Medical/MedicalRecords/BloodTestRecordsPage.html',
       controller: 'BloodTestRecordsPageController'
+    })
+    .state('medical.record.feces-test-records', {
+      url: '/feces-test-records',
+      templateUrl: 'views/modules/Medical/MedicalRecords/FecesTestRecordsPage.html',
+      controller: 'FecesTestRecordsPageController'
+    })
+    .state('medical.record.skin-test-records', {
+      url: '/skin-test-records',
+      templateUrl: 'views/modules/Medical/MedicalRecords/SkinTestRecordsPage.html',
+      controller: 'SkinTestRecordsPageController'
+    })
+    .state('medical.record.urine-test-records', {
+      url: '/urine-test-records',
+      templateUrl: 'views/modules/Medical/MedicalRecords/UrineTestRecordsPage.html',
+      controller: 'UrineTestRecordsPageController'
     });
 
 });
