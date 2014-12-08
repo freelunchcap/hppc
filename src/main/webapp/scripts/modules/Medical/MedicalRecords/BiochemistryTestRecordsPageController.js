@@ -1,3 +1,3 @@
-app.controller('BiochemistryRecordsPageController', function($scope, $stateParams) {
-
+app.controller('BiochemistryTestRecordsPageController', function($scope, $stateParams) {
+  $scope.$stateParams = $stateParams;
 });

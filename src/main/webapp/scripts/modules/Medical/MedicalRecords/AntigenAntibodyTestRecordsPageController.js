@@ -1,3 +1,3 @@
-app.controller('AntigenAntibodyRecordsPageController', function($scope, $stateParams) {
-
+app.controller('AntigenAntibodyTestRecordsPageController', function($scope, $stateParams) {
+  $scope.$stateParams = $stateParams;
 });
