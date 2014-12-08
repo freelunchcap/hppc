@@ -12,6 +12,7 @@ public class Announcement {
 
   @Id
   @GeneratedValue
+  @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
   @Column(name = "timestamp", nullable = false, updatable = false)

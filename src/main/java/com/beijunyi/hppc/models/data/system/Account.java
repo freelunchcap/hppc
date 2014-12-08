@@ -14,6 +14,7 @@ public final class Account {
 
   @Id
   @GeneratedValue
+  @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
   @Column(name = "username", unique = true, nullable = false)

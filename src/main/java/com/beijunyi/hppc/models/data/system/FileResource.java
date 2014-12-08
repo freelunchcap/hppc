@@ -5,7 +5,7 @@ import javax.persistence.*;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name = "file-resource")
+@Table(name = "file_resource")
 @DynamicUpdate
 public class FileResource {
 
