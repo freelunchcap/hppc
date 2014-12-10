@@ -1,6 +1,10 @@
 <div id="antigen-antibody-test-records-page">
   <div class="tab-tools">
     <a class="btn btn-primary btn-sm" ui-sref="medical.record.test-records({id: $stateParams.id})"><i class="fa fa-arrow-left"></i>返回（检验记录列表）</a>
+    <div class="pull-right">
+      <a class="btn btn-sm btn-success" ui-sref="medical.record.antigen-antibody-test-record({id: $stateParams.id, tid: 'new'})"><i class="fa fa-plus-square"></i>添加</a>
+      <a class="btn btn-sm btn-info" ui-sref="medical.record.antigen-antibody-test-record({id: $stateParams.id, tid: tableParams.$selection.id})" ng-disabled="tableParams.$selection == null"><i class="fa fa-pencil-square-o"></i>编辑</a>
+    </div>
   </div>
   <div class="tab-content">
     <table ng-table="tableParams" show-filter="true" template-pagination="views/overrides/ng-table-tools.html" class="table table-selectable">
