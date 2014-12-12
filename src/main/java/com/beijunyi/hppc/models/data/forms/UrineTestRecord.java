@@ -50,8 +50,8 @@ public class UrineTestRecord {
   @Column(name = "leukocytes")
   private Double leukocytes;
 
-  @Column(name = "specific_gravify")
-  private Double specificGravify;
+  @Column(name = "specific_gravity")
+  private Double specificGravity;
 
   @Column(name = "color")
   private Double color;
@@ -177,12 +177,12 @@ public class UrineTestRecord {
     this.leukocytes = leukocytes;
   }
 
-  public Double getSpecificGravify() {
-    return specificGravify;
+  public Double getSpecificGravity() {
+    return specificGravity;
   }
 
-  public void setSpecificGravify(Double specificGravify) {
-    this.specificGravify = specificGravify;
+  public void setSpecificGravity(Double specificGravity) {
+    this.specificGravity = specificGravity;
   }
 
   public Double getColor() {
