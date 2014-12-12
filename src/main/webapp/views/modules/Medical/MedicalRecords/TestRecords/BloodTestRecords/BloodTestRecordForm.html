@@ -1,3 +1,72 @@
 <div id="blood-test-record-form">
-
+  <div class="tab-tools">
+    <a class="btn btn-primary btn-sm" ui-sref="medical.records"><i class="fa fa-arrow-left"></i>返回（记录列表）</a>
+    <div class="pull-right">
+      <button class="btn btn-success btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()"><i class="fa fa-floppy-o"></i>保存</button>
+    </div>
+  </div>
+  <div class="tab-content">
+    <form name="form">
+      <table>
+        <thead>
+          <tr>
+            <th>血液项目和单位</th>
+            <th>结果</th>
+            <th>犬类参考</th>
+            <th>猫类参考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><label for="hct">红细胞压积 (HCT%)</label></td>
+            <td><input input="number" id="hct" name="hct" ng-model="record.hct"/></td>
+            <td>39.0 - 56.0</td>
+            <td>24.0 - 45.0</td>
+          </tr>
+          <tr>
+            <td><label for="hcb">血红蛋白 (HCB) G/dL</label></td>
+            <td><input input="number" id="hcb" name="hcb" ng-model="record.hcb"/></td>
+            <td>11.0 - 19.0</td>
+            <td>8.0 - 15.0</td>
+          </tr>
+          <tr>
+            <td><label for="wbc">红细胞 (WBC)×10<span class="super">9</span>/L</label></td>
+            <td><input input="number" id="wbc" name="wbc" ng-model="record.wbc"/></td>
+            <td>6.0 - 17.0</td>
+            <td>5.5 - 19.5</td>
+          </tr>
+          <tr>
+            <td><label for="plt">白小板总数 (PLT)×10<span class="super">9</span>/L</label></td>
+            <td><input input="number" id="plt" name="plt" ng-model="record.plt"/></td>
+            <td>117.0 - 460.0</td>
+            <td>100.0 - 500.0</td>
+          </tr>
+          <tr>
+            <td><label for="granRate">粒细胞比例 (GRAN%)</label></td>
+            <td><input input="number" id="granRate" name="granRate" ng-model="record.granRate"/></td>
+            <td>60.0 - 77.0</td>
+            <td>44.0 - 82.0</td>
+          </tr>
+          <tr>
+            <td><label for="gran">粒细胞 (GRAN#)×10<span class="super">9</span>/L</label></td>
+            <td><input input="number" id="gran" name="gran" ng-model="record.gran"/></td>
+            <td>4.0 - 10.8</td>
+            <td>5.5 - 16.5</td>
+          </tr>
+          <tr>
+            <td><label for="lymRate">淋巴细胞比例 (LYM%)</label></td>
+            <td><input input="number" id="lymRate" name="lymRate" ng-model="record.lymRate"/></td>
+            <td>12.0 - 30.0</td>
+            <td>15.0 - 44.0</td>
+          </tr>
+          <tr>
+            <td><label for="lym">淋巴细胞 (LYM#)×10<span class="super">9</span>/L</label></td>
+            <td><input input="number" id="lym" name="lym" ng-model="record.lym"/></td>
+            <td>0.8 - 5.1</td>
+            <td>2.0 - 9.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
 </div>
