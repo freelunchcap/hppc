@@ -15,8 +15,8 @@ app.controller('UrineTestRecordFormController', function($scope, $stateParams, S
   function fixRecord(record) {
   }
 
-  if($stateParams.did != 'new') {
-    UrineTestRecord.get({id: $stateParams.did}, function(record) {
+  if($stateParams.tid != 'new') {
+    UrineTestRecord.get({id: $stateParams.tid}, function(record) {
       fixRecord(record);
       $scope.record = record;
       detectChanges();
@@ -27,7 +27,7 @@ app.controller('UrineTestRecordFormController', function($scope, $stateParams, S
     $scope.record.timestamp = new Date();
     $scope.record.parentForm = $stateParams.id;
     SecurityApi.getLoginInformation().then(function(loginInformation) {
-      $scope.record.veterinarianName = loginInformation.alias;
+      $scope.record.docimasterName = loginInformation.alias;
     });
     $scope.newRecord = true;
     detectChanges();

@@ -1,120 +1,141 @@
 <div id="urine-test-record-form">
   <div class="tab-tools">
-    <a class="btn btn-primary btn-sm" ui-sref="medical.records"><i class="fa fa-arrow-left"></i>返回（记录列表）</a>
+    <a class="btn btn-primary btn-sm" ui-sref="medical.record.blood-test-records({id: $stateParams.id})"><i class="fa fa-arrow-left"></i>返回（血常规化验记录列表）</a>
     <div class="pull-right">
       <button class="btn btn-success btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()"><i class="fa fa-floppy-o"></i>保存</button>
     </div>
   </div>
   <div class="tab-content">
-    <form name="form">
-      <table>
+    <form name="form" class="form-horizontal">
+      <div class="form-group">
+        <label for="timestamp" class="col-sm-2 control-label">*录入时间</label>
+        <div class="col-sm-8">
+          <input hppc-datefield class="form-control" name="timestamp" ng-model="record.timestamp" id="timestamp" placeholder="录入时间" ng-readonly="true" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.timestamp.$invalid">必填</div>
+      </div>
+      <div class="form-group">
+        <label for="veterinarianName" class="col-sm-2 control-label">*兽医师</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="veterinarianName" ng-model="record.veterinarianName" id="veterinarianName" placeholder="兽医师" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.veterinarianName.$invalid">必填</div>
+      </div>
+      <div class="form-group">
+        <label for="docimasterName" class="col-sm-2 control-label">*检验师</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="docimasterName" ng-model="record.docimasterName" id="docimasterName" placeholder="检验师" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.docimasterName.$invalid">必填</div>
+      </div>
+      <table class="table table-bordered">
         <thead>
         <tr>
-          <th>项目</th>
-          <th>结果</th>
-          <th>犬类参考</th>
-          <th>猫类参考</th>
-          <th>兔类参考</th>
+          <th class="text-right">项目</th>
+          <th class="text-center">结果</th>
+          <th class="text-center">犬类参考</th>
+          <th class="text-center">猫类参考</th>
+          <th class="text-center">兔类参考</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td><label for="bilirubin">胆红素 (Bilirubin)</label></td>
-          <td><input input="number" id="bilirubin" name="bilirubin" ng-model="record.bilirubin"/></td>
-          <td>阴性 - 弱阳</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="bilirubin">胆红素 (Bilirubin)</label></td>
+          <td><input type="text" class="form-control" id="bilirubin" name="bilirubin" ng-model="record.bilirubin"/></td>
+          <td class="text-center">阴性 - 弱阳</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="urobilinogen">尿胆原 (Urobilinogen)</label></td>
-          <td><input input="number" id="urobilinogen" name="urobilinogen" ng-model="record.urobilinogen"/></td>
-          <td>阴性 - 弱阳</td>
-          <td>阴性 - 弱阳</td>
-          <td>阴性 - 弱阳</td>
+          <td class="text-right"><label for="urobilinogen">尿胆原 (Urobilinogen)</label></td>
+          <td><input type="text" class="form-control" id="urobilinogen" name="urobilinogen" ng-model="record.urobilinogen"/></td>
+          <td class="text-center">阴性 - 弱阳</td>
+          <td class="text-center">阴性 - 弱阳</td>
+          <td class="text-center">阴性 - 弱阳</td>
         </tr>
         <tr>
-          <td><label for="ketones">酮体 (Ketones)</label></td>
-          <td><input input="number" id="ketones" name="ketones" ng-model="record.ketones"/></td>
-          <td>阴性</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="ketones">酮体 (Ketones)</label></td>
+          <td><input type="text" class="form-control" id="ketones" name="ketones" ng-model="record.ketones"/></td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="vitaminC">维生素C (Vitamin C)</label></td>
-          <td><input input="number" id="vitaminC" name="vitaminC" ng-model="record.vitaminC"/></td>
-          <td>阴性</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="vitaminC">维生素C (Vitamin C)</label></td>
+          <td><input type="text" class="form-control" id="vitaminC" name="vitaminC" ng-model="record.vitaminC"/></td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="glucose">葡萄糖 (Glucose)</label></td>
-          <td><input input="number" id="glucose" name="glucose" ng-model="record.glucose"/></td>
-          <td>阴性</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="glucose">葡萄糖 (Glucose)</label></td>
+          <td><input type="text" class="form-control" id="glucose" name="glucose" ng-model="record.glucose"/></td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="protein">尿蛋白 (Protein)</label></td>
-          <td><input input="number" id="protein" name="protein" ng-model="record.protein"/></td>
-          <td>阴性</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="protein">尿蛋白 (Protein)</label></td>
+          <td><input type="text" class="form-control" id="protein" name="protein" ng-model="record.protein"/></td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="blood">潜血 (Blood)</label></td>
-          <td><input input="number" id="blood" name="blood" ng-model="record.blood"/></td>
-          <td>阴性</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="blood">潜血 (Blood)</label></td>
+          <td><input type="text" class="form-control" id="blood" name="blood" ng-model="record.blood"/></td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="ph">PH值 (pH)</label></td>
-          <td><input input="number" id="ph" name="ph" ng-model="record.ph"/></td>
-          <td>5.5 - 7.0</td>
-          <td>5.0 - 7.0</td>
-          <td>8.2</td>
+          <td class="text-right"><label for="ph">PH值 (pH)</label></td>
+          <td><input type="text" class="form-control" id="ph" name="ph" ng-model="record.ph"/></td>
+          <td class="text-center">5.5 - 7.0</td>
+          <td class="text-center">5.0 - 7.0</td>
+          <td class="text-center">8.2</td>
         </tr>
         <tr>
-          <td><label for="nitrite">亚硝酸盐 (Nitrite)</label></td>
-          <td><input input="number" id="nitrite" name="nitrite" ng-model="record.nitrite"/></td>
-          <td>阴性</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="nitrite">亚硝酸盐 (Nitrite)</label></td>
+          <td><input type="text" class="form-control" id="nitrite" name="nitrite" ng-model="record.nitrite"/></td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="leukocytes">白细胞 (Leukocytes)</label></td>
-          <td><input input="number" id="leukocytes" name="leukocytes" ng-model="record.leukocytes"/></td>
-          <td>阴性</td>
-          <td>阴性</td>
-          <td>阴性</td>
+          <td class="text-right"><label for="leukocytes">白细胞 (Leukocytes)</label></td>
+          <td><input type="text" class="form-control" id="leukocytes" name="leukocytes" ng-model="record.leukocytes"/></td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
+          <td class="text-center">阴性</td>
         </tr>
         <tr>
-          <td><label for="specificGravity">比重 (Specific Gravity)</label></td>
-          <td><input input="number" id="specificGravity" name="specificGravity" ng-model="record.specificGravity"/></td>
-          <td>1.001 - 1.065</td>
-          <td>1.001 - 1.080</td>
-          <td>1.003 - 1.036</td>
+          <td class="text-right"><label for="specificGravity">比重 (Specific Gravity)</label></td>
+          <td><input type="number" class="form-control" id="specificGravity" name="specificGravity" ng-model="record.specificGravity"/></td>
+          <td class="text-center">1.001 - 1.065</td>
+          <td class="text-center">1.001 - 1.080</td>
+          <td class="text-center">1.003 - 1.036</td>
         </tr>
         <tr>
-          <td><label for="color">颜色 (Color)</label></td>
-          <td><input input="number" id="color" name="color" ng-model="record.color"/></td>
-          <td>淡黄色 - 褐黄色</td>
-          <td>黄色 - 暗黄色</td>
-          <td>嫩黄色</td>
+          <td class="text-right"><label for="color">颜色 (Color)</label></td>
+          <td><input type="text" class="form-control" id="color" name="color" ng-model="record.color"/></td>
+          <td class="text-center">淡黄色 - 褐黄色</td>
+          <td class="text-center">黄色 - 暗黄色</td>
+          <td class="text-center">嫩黄色</td>
         </tr>
         <tr>
-          <td><label for="turbidity">浑浊度 (Turbidity)</label></td>
-          <td><input input="number" id="turbidity" name="turbidity" ng-model="record.turbidity"/></td>
-          <td>清澈</td>
-          <td>清澈</td>
-          <td>清澈 - 浑浊</td>
+          <td class="text-right"><label for="turbidity">浑浊度 (Turbidity)</label></td>
+          <td><input type="text" class="form-control" id="turbidity" name="turbidity" ng-model="record.turbidity"/></td>
+          <td class="text-center">清澈</td>
+          <td class="text-center">清澈</td>
+          <td class="text-center">清澈 - 浑浊</td>
         </tr>
         <tr>
-          <td><label for="odor">气味 (Odor)</label></td>
-          <td><input input="number" id="odor" name="odor" ng-model="record.odor"/></td>
-          <td>大蒜味、肉汤味</td>
-          <td>腐蚀味</td>
-          <td>-</td>
+          <td class="text-right"><label for="odor">气味 (Odor)</label></td>
+          <td><input type="text" class="form-control" id="odor" name="odor" ng-model="record.odor"/></td>
+          <td class="text-center">大蒜味、肉汤味</td>
+          <td class="text-center">腐蚀味</td>
+          <td class="text-center">-</td>
         </tr>
         </tbody>
       </table>
