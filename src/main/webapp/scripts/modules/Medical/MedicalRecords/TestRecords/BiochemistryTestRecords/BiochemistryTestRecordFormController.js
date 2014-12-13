@@ -13,10 +13,11 @@ app.controller('BiochemistryTestRecordFormController', function($scope, $statePa
   }
 
   function fixRecord(record) {
+    record.timestamp = record.timestamp != null ? new Date(record.timestamp) : undefined;
   }
 
-  if($stateParams.did != 'new') {
-    BiochemistryTestRecord.get({id: $stateParams.did}, function(record) {
+  if($stateParams.tid != 'new') {
+    BiochemistryTestRecord.get({id: $stateParams.tid}, function(record) {
       fixRecord(record);
       $scope.record = record;
       detectChanges();
@@ -27,7 +28,7 @@ app.controller('BiochemistryTestRecordFormController', function($scope, $statePa
     $scope.record.timestamp = new Date();
     $scope.record.parentForm = $stateParams.id;
     SecurityApi.getLoginInformation().then(function(loginInformation) {
-      $scope.record.veterinarianName = loginInformation.alias;
+      $scope.record.docimasterName = loginInformation.alias;
     });
     $scope.newRecord = true;
     detectChanges();

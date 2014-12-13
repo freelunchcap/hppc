@@ -1,3 +1,127 @@
 <div id="biochemistry-test-record-form">
-
+  <div class="tab-tools">
+    <a class="btn btn-primary btn-sm" ui-sref="medical.record.biochemistry-test-records({id: $stateParams.id})"><i class="fa fa-arrow-left"></i>返回（血常规化验记录列表）</a>
+    <div class="pull-right">
+      <button class="btn btn-success btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()"><i class="fa fa-floppy-o"></i>保存</button>
+    </div>
+  </div>
+  <div class="tab-content">
+    <form name="form" class="form-horizontal">
+      <div class="form-group">
+        <label for="timestamp" class="col-sm-2 control-label">*录入时间</label>
+        <div class="col-sm-8">
+          <input hppc-datefield class="form-control" name="timestamp" ng-model="record.timestamp" id="timestamp" placeholder="录入时间" ng-readonly="true" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.timestamp.$invalid">必填</div>
+      </div>
+      <div class="form-group">
+        <label for="veterinarianName" class="col-sm-2 control-label">*兽医师</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="veterinarianName" ng-model="record.veterinarianName" id="veterinarianName" placeholder="兽医师" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.veterinarianName.$invalid">必填</div>
+      </div>
+      <div class="form-group">
+        <label for="docimasterName" class="col-sm-2 control-label">*检验师</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="docimasterName" ng-model="record.docimasterName" id="docimasterName" placeholder="检验师" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.docimasterName.$invalid">必填</div>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th class="col-md-3 text-right">检验项目</th>
+          <th class="col-md-5 text-center">结果</th>
+          <th class="col-md-2 text-center">犬类参考</th>
+          <th class="col-md-2 text-center">猫类参考</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="text-right"><label for="amyl">AMYL (U/L)</label></td>
+          <td><input type="number" class="form-control" id="amyl" name="amyl" ng-model="record.amyl"/></td>
+          <td class="text-center">500.0 - 1500.0</td>
+          <td class="text-center">500.0 - 1500.0</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="tp">TP (g/dl)</label></td>
+          <td><input type="number" class="form-control" id="tp" name="tp" ng-model="record.tp"/></td>
+          <td class="text-center">5.2 - 8.2</td>
+          <td class="text-center">5.7 - 8.9</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="ca">CA (mg/dl)</label></td>
+          <td><input type="number" class="form-control" id="ca" name="ca" ng-model="record.ca"/></td>
+          <td class="text-center">7.9 - 12.0</td>
+          <td class="text-center">7.8 - 11.3</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="phos">PHOS (mg/dl)</label></td>
+          <td><input type="number" class="form-control" id="phos" name="phos" ng-model="record.phos"/></td>
+          <td class="text-center">2.5 - 6.8</td>
+          <td class="text-center">3.1 - 7.5</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="alkp">ALKP (U/L)</label></td>
+          <td><input type="number" class="form-control" id="alkp" name="alkp" ng-model="record.alkp"/></td>
+          <td class="text-center">23.0 - 212.0</td>
+          <td class="text-center">14.0 - 111.0</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="alb">ALB (g/dl)</label></td>
+          <td><input type="number" class="form-control" id="alb" name="alb" ng-model="record.alb"/></td>
+          <td class="text-center">2.3 - 4.0</td>
+          <td class="text-center">2.3 - 3.9</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="alt">ALT (U/L)</label></td>
+          <td><input type="number" class="form-control" id="alt" name="alt" ng-model="record.alt"/></td>
+          <td class="text-center">10.0 - 100.0</td>
+          <td class="text-center">12.0 - 130.0</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="tbil">TBIL (mg/dl)</label></td>
+          <td><input type="number" class="form-control" id="tbil" name="tbil" ng-model="record.tbil"/></td>
+          <td class="text-center">0.0 - 0.9</td>
+          <td class="text-center">0.0 - 0.9</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="chol">CHOL (mg/dl)</label></td>
+          <td><input type="number" class="form-control" id="chol" name="chol" ng-model="record.chol"/></td>
+          <td class="text-center">110.0 - 320.0</td>
+          <td class="text-center">65.0 - 225.0</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="glu">GLU (mg/dl)</label></td>
+          <td><input type="number" class="form-control" id="glu" name="glu" ng-model="record.glu"/></td>
+          <td class="text-center">74.0 - 143.0</td>
+          <td class="text-center">71.0 - 159.0</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="crea">CREA (mg/dl)</label></td>
+          <td><input type="number" class="form-control" id="crea" name="crea" ng-model="record.crea"/></td>
+          <td class="text-center">0.5 - 1.8</td>
+          <td class="text-center">0.8 - 2.4</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="bun">BUN (mg/dl)</label></td>
+          <td><input type="number" class="form-control" id="bun" name="bun" ng-model="record.bun"/></td>
+          <td class="text-center">7.0 - 27.0</td>
+          <td class="text-center">16.0 - 36.0</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="glob">GLOB (g/dl)</label></td>
+          <td><input type="number" class="form-control" id="glob" name="glob" ng-model="record.glob"/></td>
+          <td class="text-center">2.5 - 4.5</td>
+          <td class="text-center">2.8 - 5.1</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="supplementaryInformation">补充信息</label></td>
+          <td colspan="3"><textarea class="form-control" id="supplementaryInformation" name="supplementaryInformation" ng-model="record.supplementaryInformation"></textarea></td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
 </div>

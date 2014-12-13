@@ -13,10 +13,11 @@ app.controller('AntigenAntibodyTestRecordFormController', function($scope, $stat
   }
 
   function fixRecord(record) {
+    record.timestamp = record.timestamp != null ? new Date(record.timestamp) : undefined;
   }
 
-  if($stateParams.did != 'new') {
-    AntigenAntibodyTestRecord.get({id: $stateParams.did}, function(record) {
+  if($stateParams.tid != 'new') {
+    AntigenAntibodyTestRecord.get({id: $stateParams.tid}, function(record) {
       fixRecord(record);
       $scope.record = record;
       detectChanges();
@@ -27,7 +28,7 @@ app.controller('AntigenAntibodyTestRecordFormController', function($scope, $stat
     $scope.record.timestamp = new Date();
     $scope.record.parentForm = $stateParams.id;
     SecurityApi.getLoginInformation().then(function(loginInformation) {
-      $scope.record.veterinarianName = loginInformation.alias;
+      $scope.record.docimasterName = loginInformation.alias;
     });
     $scope.newRecord = true;
     detectChanges();
