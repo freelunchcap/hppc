@@ -20,7 +20,7 @@ app.config(function ($stateProvider) {
         parents: ['medical.record.test-records']
       },
       templateUrl: 'views/modules/Medical/MedicalRecords/TestRecords/AntigenAntibodyTestRecords/AntigenAntibodyTestRecordForm.html',
-      controller: 'AntigenAntibodyTestRecordPageController'
+      controller: 'AntigenAntibodyTestRecordFormController'
     })
     .state('medical.record.biochemistry-test-records', {
       url: '/biochemistry-test-records',
@@ -36,7 +36,7 @@ app.config(function ($stateProvider) {
         parents: ['medical.record.test-records']
       },
       templateUrl: 'views/modules/Medical/MedicalRecords/TestRecords/BiochemistryTestRecords/BiochemistryTestRecordForm.html',
-      controller: 'BiochemistryTestRecordPageController'
+      controller: 'BiochemistryTestRecordFormController'
     })
     .state('medical.record.blood-test-records', {
       url: '/blood-test-records',
@@ -52,7 +52,7 @@ app.config(function ($stateProvider) {
         parents: ['medical.record.test-records']
       },
       templateUrl: 'views/modules/Medical/MedicalRecords/TestRecords/BloodTestRecords/BloodTestRecordForm.html',
-      controller: 'BloodTestRecordPageController'
+      controller: 'BloodTestRecordFormController'
     })
     .state('medical.record.feces-test-records', {
       url: '/feces-test-records',
@@ -68,7 +68,7 @@ app.config(function ($stateProvider) {
         parents: ['medical.record.test-records']
       },
       templateUrl: 'views/modules/Medical/MedicalRecords/TestRecords/FecesTestRecords/FecesTestRecordForm.html',
-      controller: 'FecesTestRecordPageController'
+      controller: 'FecesTestRecordFormController'
     })
     .state('medical.record.skin-test-records', {
       url: '/skin-test-records',
@@ -84,7 +84,7 @@ app.config(function ($stateProvider) {
         parents: ['medical.record.test-records']
       },
       templateUrl: 'views/modules/Medical/MedicalRecords/TestRecords/SkinTestRecords/SkinTestRecordForm.html',
-      controller: 'SkinTestRecordPageController'
+      controller: 'SkinTestRecordFormController'
     })
     .state('medical.record.urine-test-records', {
       url: '/urine-test-records',
@@ -100,7 +100,7 @@ app.config(function ($stateProvider) {
         parents: ['medical.record.test-records']
       },
       templateUrl: 'views/modules/Medical/MedicalRecords/TestRecords/UrineTestRecords/UrineTestRecordForm.html',
-      controller: 'UrineTestRecordPageController'
+      controller: 'UrineTestRecordFormController'
     });
 
 });

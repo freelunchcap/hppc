@@ -11,3 +11,12 @@
 .nav-tabs li.active > a:hover {
   background-color: #eff3f8;
 }
+
+form .table thead tr {
+  background: #307ecc;
+  color: #FFF;
+}
+
+form .table tbody td:first-child {
+  background-color: #eff3f8;
+}

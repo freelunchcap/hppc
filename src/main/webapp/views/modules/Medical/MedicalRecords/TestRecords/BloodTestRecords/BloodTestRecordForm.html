@@ -1,69 +1,94 @@
 <div id="blood-test-record-form">
   <div class="tab-tools">
-    <a class="btn btn-primary btn-sm" ui-sref="medical.records"><i class="fa fa-arrow-left"></i>返回（记录列表）</a>
+    <a class="btn btn-primary btn-sm" ui-sref="medical.record.blood-test-records({id: $stateParams.id})"><i class="fa fa-arrow-left"></i>返回（血常规化验记录列表）</a>
     <div class="pull-right">
       <button class="btn btn-success btn-sm" ng-disabled="!recordChanged || form.$invalid" ng-click="save()"><i class="fa fa-floppy-o"></i>保存</button>
     </div>
   </div>
   <div class="tab-content">
-    <form name="form">
-      <table>
+    <form name="form" class="form-horizontal">
+      <div class="form-group">
+        <label for="timestamp" class="col-sm-2 control-label">*录入时间</label>
+        <div class="col-sm-8">
+          <input hppc-datefield class="form-control" name="timestamp" ng-model="record.timestamp" id="timestamp" placeholder="录入时间" ng-readonly="true" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.timestamp.$invalid">必填</div>
+      </div>
+      <div class="form-group">
+        <label for="veterinarianName" class="col-sm-2 control-label">*兽医师</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="veterinarianName" ng-model="record.veterinarianName" id="veterinarianName" placeholder="兽医师" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.veterinarianName.$invalid">必填</div>
+      </div>
+      <div class="form-group">
+        <label for="docimasterName" class="col-sm-2 control-label">*检验师</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="docimasterName" ng-model="record.docimasterName" id="docimasterName" placeholder="检验师" ng-required="true"/>
+        </div>
+        <div class="col-sm-2 form-alert" ng-show="form.docimasterName.$invalid">必填</div>
+      </div>
+      <table class="table table-bordered">
         <thead>
           <tr>
-            <th>血液项目和单位</th>
-            <th>结果</th>
-            <th>犬类参考</th>
-            <th>猫类参考</th>
+            <th class="col-md-3 text-right">血液项目和单位</th>
+            <th class="col-md-5 text-center">结果</th>
+            <th class="col-md-2 text-center">犬类参考</th>
+            <th class="col-md-2 text-center">猫类参考</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><label for="hct">红细胞压积 (HCT%)</label></td>
-            <td><input input="number" id="hct" name="hct" ng-model="record.hct"/></td>
-            <td>39.0 - 56.0</td>
-            <td>24.0 - 45.0</td>
+            <td class="text-right"><label for="hct">红细胞压积 (HCT%)</label></td>
+            <td><input type="number" class="form-control" id="hct" name="hct" ng-model="record.hct"/></td>
+            <td class="text-center">39.0 - 56.0</td>
+            <td class="text-center">24.0 - 45.0</td>
           </tr>
           <tr>
-            <td><label for="hcb">血红蛋白 (HCB) G/dL</label></td>
-            <td><input input="number" id="hcb" name="hcb" ng-model="record.hcb"/></td>
-            <td>11.0 - 19.0</td>
-            <td>8.0 - 15.0</td>
+            <td class="text-right"><label for="hcb">血红蛋白 (HCB) G/dL</label></td>
+            <td><input type="number" class="form-control" id="hcb" name="hcb" ng-model="record.hcb"/></td>
+            <td class="text-center">11.0 - 19.0</td>
+            <td class="text-center">8.0 - 15.0</td>
           </tr>
           <tr>
-            <td><label for="wbc">红细胞 (WBC)×10<span class="super">9</span>/L</label></td>
-            <td><input input="number" id="wbc" name="wbc" ng-model="record.wbc"/></td>
-            <td>6.0 - 17.0</td>
-            <td>5.5 - 19.5</td>
+            <td class="text-right"><label for="wbc">红细胞 (WBC)×10<span class="super">9</span>/L</label></td>
+            <td><input type="number" class="form-control" id="wbc" name="wbc" ng-model="record.wbc"/></td>
+            <td class="text-center">6.0 - 17.0</td>
+            <td class="text-center">5.5 - 19.5</td>
           </tr>
           <tr>
-            <td><label for="plt">白小板总数 (PLT)×10<span class="super">9</span>/L</label></td>
-            <td><input input="number" id="plt" name="plt" ng-model="record.plt"/></td>
-            <td>117.0 - 460.0</td>
-            <td>100.0 - 500.0</td>
+            <td class="text-right"><label for="plt">白小板总数 (PLT)×10<span class="super">9</span>/L</label></td>
+            <td><input type="number" class="form-control" id="plt" name="plt" ng-model="record.plt"/></td>
+            <td class="text-center">117.0 - 460.0</td>
+            <td class="text-center">100.0 - 500.0</td>
           </tr>
           <tr>
-            <td><label for="granRate">粒细胞比例 (GRAN%)</label></td>
-            <td><input input="number" id="granRate" name="granRate" ng-model="record.granRate"/></td>
-            <td>60.0 - 77.0</td>
-            <td>44.0 - 82.0</td>
+            <td class="text-right"><label for="granRate">粒细胞比例 (GRAN%)</label></td>
+            <td><input type="number" class="form-control" id="granRate" name="granRate" ng-model="record.granRate"/></td>
+            <td class="text-center">60.0 - 77.0</td>
+            <td class="text-center">44.0 - 82.0</td>
           </tr>
           <tr>
-            <td><label for="gran">粒细胞 (GRAN#)×10<span class="super">9</span>/L</label></td>
-            <td><input input="number" id="gran" name="gran" ng-model="record.gran"/></td>
-            <td>4.0 - 10.8</td>
-            <td>5.5 - 16.5</td>
+            <td class="text-right"><label for="gran">粒细胞 (GRAN#)×10<span class="super">9</span>/L</label></td>
+            <td><input type="number" class="form-control" id="gran" name="gran" ng-model="record.gran"/></td>
+            <td class="text-center">4.0 - 10.8</td>
+            <td class="text-center">5.5 - 16.5</td>
           </tr>
           <tr>
-            <td><label for="lymRate">淋巴细胞比例 (LYM%)</label></td>
-            <td><input input="number" id="lymRate" name="lymRate" ng-model="record.lymRate"/></td>
-            <td>12.0 - 30.0</td>
-            <td>15.0 - 44.0</td>
+            <td class="text-right"><label for="lymRate">淋巴细胞比例 (LYM%)</label></td>
+            <td><input type="number" class="form-control" id="lymRate" name="lymRate" ng-model="record.lymRate"/></td>
+            <td class="text-center">12.0 - 30.0</td>
+            <td class="text-center">15.0 - 44.0</td>
           </tr>
           <tr>
-            <td><label for="lym">淋巴细胞 (LYM#)×10<span class="super">9</span>/L</label></td>
-            <td><input input="number" id="lym" name="lym" ng-model="record.lym"/></td>
-            <td>0.8 - 5.1</td>
-            <td>2.0 - 9.0</td>
+            <td class="text-right"><label for="lym">淋巴细胞 (LYM#)×10<span class="super">9</span>/L</label></td>
+            <td><input type="number" class="form-control" id="lym" name="lym" ng-model="record.lym"/></td>
+            <td class="text-center">0.8 - 5.1</td>
+            <td class="text-center">2.0 - 9.0</td>
+          </tr>
+          <tr>
+            <td class="text-right"><label for="supplementaryInformation">补充信息</label></td>
+            <td colspan="3"><textarea class="form-control" id="supplementaryInformation" name="supplementaryInformation" ng-model="record.supplementaryInformation"></textarea></td>
           </tr>
         </tbody>
       </table>

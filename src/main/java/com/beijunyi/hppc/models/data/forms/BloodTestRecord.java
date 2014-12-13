@@ -15,17 +15,17 @@ public class BloodTestRecord {
   @Column(name = "parent_form", nullable = false, updatable = false)
   private Integer parentForm;
 
-  @Column(name = "timestamp")
+  @Column(name = "timestamp", nullable = false)
   private Date timestamp;
 
-  @Column(name = "veterinarian_name")
+  @Column(name = "veterinarian_name", nullable = false)
   private String veterinarianName;
 
-  @Column(name = "docimaster_name")
+  @Column(name = "docimaster_name", nullable = false)
   private String docimasterName;
 
-  @Column(name = "htc")
-  private Double htc;
+  @Column(name = "hct")
+  private Double hct;
 
   @Column(name = "hcb")
   private Double hcb;
@@ -91,12 +91,12 @@ public class BloodTestRecord {
     this.docimasterName = docimasterName;
   }
 
-  public Double getHtc() {
-    return htc;
+  public Double getHct() {
+    return hct;
   }
 
-  public void setHtc(Double htc) {
-    this.htc = htc;
+  public void setHct(Double hct) {
+    this.hct = hct;
   }
 
   public Double getHcb() {
