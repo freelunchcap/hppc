@@ -20,6 +20,8 @@ public class SkinTestRecord {
   @Column(name = "docimaster_name")
   private String docimasterName;
 
+
+
   public Integer getId() {
     return id;
   }

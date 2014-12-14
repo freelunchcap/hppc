@@ -20,6 +20,32 @@ public class FecesTestRecord {
   @Column(name = "docimaster_name")
   private String docimasterName;
 
+  private String samplingMethod;
+
+  private String shape;
+
+  private String color;
+
+  private String odor;
+
+  private String usualMixture;
+
+  private String microscopeMethod;
+
+  private String residual;
+
+  private Boolean ascarid;
+
+  private Boolean nematode;
+
+  private Boolean cestode;
+
+  private Boolean coccidium;
+
+  private Boolean trematode;
+
+
+
   public Integer getId() {
     return id;
   }

@@ -20,6 +20,18 @@ public class AntigenAntibodyTestRecord {
   @Column(name = "docimaster_name")
   private String docimasterName;
 
+  private String dogCdvAntigen;
+
+  private String dogCdvAntibody;
+
+  private String dogCcvAntigen;
+
+  private String dogCcvAntibody;
+
+  private String catFpvAntigen;
+
+  private String catFpvAntibody;
+
   public Integer getId() {
     return id;
   }
