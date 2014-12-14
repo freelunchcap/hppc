@@ -23,9 +23,9 @@ app.controller('SkinTestRecordsPageController', function($scope, $state, $stateP
   };
 
   $scope.edit = function(record) {
-    $state.go('medical.record.diagnosis-record', {
+    $state.go('medical.record.skin-test-record', {
       id: $stateParams.id,
-      did: record.id
+      tid: record.id
     });
   };
 });

@@ -34,8 +34,6 @@ app.controller('BiochemistryTestRecordFormController', function($scope, $statePa
     detectChanges();
   }
 
-  detectChanges();
-
   $scope.pending = false;
 
   $scope.save = function() {

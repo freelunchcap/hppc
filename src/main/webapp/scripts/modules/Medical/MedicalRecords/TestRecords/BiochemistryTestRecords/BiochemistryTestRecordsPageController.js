@@ -23,9 +23,9 @@ app.controller('BiochemistryTestRecordsPageController', function($scope, $state,
   };
 
   $scope.edit = function(record) {
-    $state.go('medical.record.diagnosis-record', {
+    $state.go('medical.record.biochemistry-test-record', {
       id: $stateParams.id,
-      did: record.id
+      tid: record.id
     });
   };
 });

@@ -23,9 +23,9 @@ app.controller('FecesTestRecordsPageController', function($scope, $state, $state
   };
 
   $scope.edit = function(record) {
-    $state.go('medical.record.diagnosis-record', {
+    $state.go('medical.record.feces-test-record', {
       id: $stateParams.id,
-      did: record.id
+      tid: record.id
     });
   };
 });

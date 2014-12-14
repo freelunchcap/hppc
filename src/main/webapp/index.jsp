@@ -4,6 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>和平宠物医院 HePing Pet Clinic</title>
   <link rel="icon" type="image/png" href="favicon.png">
 

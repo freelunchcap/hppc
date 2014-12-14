@@ -34,8 +34,6 @@ app.controller('BloodTestRecordFormController', function($scope, $stateParams, S
     detectChanges();
   }
 
-  detectChanges();
-
   $scope.pending = false;
 
   $scope.save = function() {

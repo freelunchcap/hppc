@@ -34,8 +34,6 @@ app.controller('BasicInformationFormController', function($scope, $stateParams, 
     detectChanges();
   }
 
-  detectChanges();
-
   $scope.pending = false;
 
   $scope.save = function() {

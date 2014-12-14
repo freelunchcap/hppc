@@ -23,9 +23,9 @@ app.controller('AntigenAntibodyTestRecordsPageController', function($scope, $sta
   };
 
   $scope.edit = function(record) {
-    $state.go('medical.record.diagnosis-record', {
+    $state.go('medical.record.antigen-antibody-test-record', {
       id: $stateParams.id,
-      did: record.id
+      tid: record.id
     });
   };
 });

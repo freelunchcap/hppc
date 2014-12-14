@@ -13,6 +13,7 @@ app.controller('SkinTestRecordFormController', function($scope, $stateParams, Se
   }
 
   function fixRecord(record) {
+    record.timestamp = record.timestamp != null ? new Date(record.timestamp) : undefined;
   }
 
   if($stateParams.did != 'new') {
@@ -32,8 +33,6 @@ app.controller('SkinTestRecordFormController', function($scope, $stateParams, Se
     $scope.newRecord = true;
     detectChanges();
   }
-
-  detectChanges();
 
   $scope.pending = false;
 

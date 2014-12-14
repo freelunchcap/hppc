@@ -9,8 +9,10 @@ import javax.ws.rs.core.UriInfo;
 
 import com.beijunyi.hppc.models.internal.QueryResult;
 import com.beijunyi.hppc.services.data.DataService;
+import org.jboss.resteasy.annotations.cache.NoCache;
 import org.springframework.security.access.annotation.Secured;
 
+@NoCache
 public abstract class DataApi<T> {
 
   protected DataService<T> service;

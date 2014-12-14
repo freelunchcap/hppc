@@ -1,5 +1,6 @@
 package com.beijunyi.hppc.models.data.forms;
 
+import java.util.Date;
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +14,9 @@ public class UrineTestRecord {
 
   @Column(name = "parent_form", nullable = false, updatable = false)
   private Integer parentForm;
+
+  @Column(name = "timestamp", nullable = false)
+  private Date timestamp;
 
   @Column(name = "veterinarian_name")
   private String veterinarianName;
@@ -79,6 +83,14 @@ public class UrineTestRecord {
 
   public void setParentForm(Integer parentForm) {
     this.parentForm = parentForm;
+  }
+
+  public Date getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(Date timestamp) {
+    this.timestamp = timestamp;
   }
 
   public String getVeterinarianName() {

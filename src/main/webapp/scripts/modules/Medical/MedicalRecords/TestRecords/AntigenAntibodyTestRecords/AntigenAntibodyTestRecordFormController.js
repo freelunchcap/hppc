@@ -34,8 +34,6 @@ app.controller('AntigenAntibodyTestRecordFormController', function($scope, $stat
     detectChanges();
   }
 
-  detectChanges();
-
   $scope.pending = false;
 
   $scope.save = function() {

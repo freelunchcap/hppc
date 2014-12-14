@@ -12,8 +12,8 @@
       <tr ng-repeat="record in $data" ng-click="select(record)" ng-dblclick="edit(record)" ng-class="{active: record == tableParams.$selection}">
         <td class="col-md-2" data-title="'记录编号'" filter="{'id': 'text'}" sortable="'id'">{{record.id}}</td>
         <td class="col-md-2" data-title="'录入时间'" filter="{'timestamp': 'text'}" sortable="'timestamp'">{{record.timestamp | date: 'yyyy年M月d日'}}</td>
-        <td class="col-md-4" data-title="'兽医师'" filter="{'keywords': 'text'}" sortable="'veterinarianName'">{{record.veterinarianName}}</td>
-        <td class="col-md-4" data-title="'检验师'" filter="{'doctorName': 'text'}" sortable="'docimasterName'">{{record.docimasterName}}</td>
+        <td class="col-md-4" data-title="'兽医师'" filter="{'veterinarianName': 'text'}" sortable="'veterinarianName'">{{record.veterinarianName}}</td>
+        <td class="col-md-4" data-title="'检验师'" filter="{'docimasterName': 'text'}" sortable="'docimasterName'">{{record.docimasterName}}</td>
       </tr>
       </tbody>
     </table>
